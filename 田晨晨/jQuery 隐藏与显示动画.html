@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		div{
+			width: 40px;
+			height: 40px;
+			background-color: aquamarine;
+			margin-left: 10px;
+			float: left;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+	$(function(){
+		// 隐藏与显示
+		for(var i=0;i<5;i++){
+			$("<div>").appendTo(document.body);
+		}
+		$("div").click(function(){
+			$(this).hide(1000,function(){
+				$(this).remove();
+			})
+		});
+	})
+</script>
+</body>
+</html>

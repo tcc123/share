@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		div{
+			width: 40px;
+			height: 40px;
+			margin-left: 10px;
+			float: left;
+			border: 1px solid blue;
+		}
+		button{
+			margin-left: 10px;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div id="start"></div>
+	<div></div>
+	<button>go to prev</button>
+<script type="text/javascript">
+	$(function(){
+		var start=$("#start");
+		start.css("background","#f99");
+		$("button").click(function(){
+			start=start.prev();
+			//背景颜色初始化
+			$("div").css("background","");
+			start.css("background","#f99");
+		})
+		
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#ifr1{
+			position: absolute;
+			right: -80px;
+			top: 50px;
+			z-index: 999999;
+		}
+		#btn{
+			position: absolute;
+			right: 50px;
+			top: 30px;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var cxt=document.getElementById("canvas").getContext("2d");
+			function line(){
+				for(var i=0;i<8;i++){
+					cxt.beginPath();
+					cxt.strokeStyle="#fff";
+					cxt.lineWidth=1;
+					cxt.arc(500,500,(i+1)*55,0,360,false);
+					cxt.stroke();
+					cxt.closePath();
+				}
+			}
+			// 参数：
+			/*  x: 圆心x轴坐标  y: 圆心y轴坐标  r: 半径
+			*	cycle： 公转周期
+			*	sc:  渐变开始的颜色
+			*	ec:  渐变结束的颜色
+			*/
+			function Stars(x,y,r,cycle,sc,ec){
+				this.x=x;
+				this.y=y;
+				this.r=r;
+				this.cycle=cycle;
+				this.sc=sc;
+				this.ec=ec;
+				this.color=null;
+				this.time=0;
+				this.draw=function(){
+					cxt.save();
+					cxt.translate(500,500);
+					cxt.rotate(this.time*(360/cycle)*Math.PI/180);
+					cxt.beginPath();
+					cxt.arc(this.x,this.y,this.r,0,360,false);
+					this.color=cxt.createRadialGradient(this.x,this.y,0,this.x,this.y,this.r);
+					//设置渐变开始的颜色
+					this.color.addColorStop(0,this.sc);
+					//设置渐变停止的颜色
+					this.color.addColorStop(1,this.ec);
+					cxt.fillStyle=this.color;
+					cxt.fill();
+					cxt.closePath();
+					cxt.restore();
+					this.time+=1;
+				}
+			}
+			
+			function Sun(){
+				Stars.call(this,0,0,15,0,"#ffff00","#ff9900");
+			}
+			function Mercury(){ 
+				Stars.call(this,0,-55,12,87.70,"#a69697","#5c3e40");
+			}
+			function Venus(){ 
+				Stars.call(this,0,-110,12,224.701,"#c4bbac","#1f1315");
+			}
+			function Earth(){ 
+				Stars.call(this,0,-165,12,365.224,"#78b1e8","#050c12");
+			}
+			function Mars(){ 
+				Stars.call(this,0,-220,12,686.98,"#cec9b6","#76422d");
+			}
+			function Jupiter(){ 
+				Stars.call(this,0,-275,12,4332.589,"#c0a48e","#322222");
+			}
+			function Saturn(){ 
+				Stars.call(this,0,-330,12,10759.5,"#f7f9e3","#5c4533");
+			}
+			function Uranus(){
+				Stars.call(this,0,-385,12,30799.095,"#a7e1e5","#19243a");
+			}
+			function Neptune(){ 
+				Stars.call(this,0,-440,12,60152,"#0661b2","#1e3b73");
+			}
+			var sun=new Sun();
+			var mercury=new Mercury();
+			var venus=new Venus();
+			var earth=new Earth();
+			var mars=new Mars();
+			var jupiter=new Jupiter();
+			var saturn=new Saturn();
+			var uranus=new Uranus();
+			var neptune=new Neptune();
+			function move(){
+				cxt.clearRect(0,0,1000,1000);
+				line();
+				sun.draw();
+				mercury.draw();
+				venus.draw();
+				earth.draw();
+				mars.draw();
+				jupiter.draw();
+				saturn.draw();
+				uranus.draw();
+				neptune.draw();
+			}
+			
+			setInterval(move,10);
+			var btn=document.getElementById("btn");
+			// var iframe = window.frames['ifr1'];
+			// iframe.document.all.onclick();
+			var iframe=document.getElementById("ifr1");
+			var onshow=false;
+			btn.onclick=function(){
+				if(!onshow){
+					iframe.style.display="none";
+				}else{
+					iframe.style.display="block";
+				}
+				onshow=!onshow;
+			}
+			
+		};
+	</script>
+</head>
+<body>
+	<canvas id="canvas" width="1000" height="1000" style="background: black">
+		
+	</canvas>
+	<button id="btn">打开/关闭时钟</button>
+	<iframe src="canvas时钟.html" id="ifr1" name="ifr1" frameborder="0" width="500px" height="500px" scrolling="no"></iframe>
+</body>
+</html>

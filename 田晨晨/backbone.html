@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="search_container"></div>
+    <script type="text/template" id="search_template">
+        <div id=box style="width:300px;height:200px;border:1px solid red;"></div>
+        <ul>
+            <% _.each(labels, function(element) { %>
+               
+                <li><%= element %></li>
+                
+            <% }); %>
+        </ul>
+    </script>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/underscore.min.js"></script>
+    <script src="js/backbone.min.js"></script>
+    <!-- <script src="js/111.js"></script> -->
+    <script>
+        (function ($) {
+            var SearchView = Backbone.View.extend({
+                el: "#search_container",
+
+                initialize: function(){
+                    var label = ['label1', 'label2', 'label3'];
+                    this.render({labels: label});
+                },
+
+                render: function(context) {
+                    //使用underscore这个库，来编译模板
+                    var template = _.template($("#search_template").html());
+                    //加载模板到对应的el属性中
+                    $(this.el).html(template(context));
+                },
+
+            });
+
+            var searchView = new SearchView();
+        })(jQuery);
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+// 第一题 编写函数repeat(char,n)实现重复char字符串n次，比如repeat("☆"，6)返回"☆☆☆☆☆☆"
+		// repeat();
+		// function repeat(char,n) {
+		// 	char=prompt("请输入要重复的字符串");
+		// 	n=prompt("请输入要重复的次数")
+		// 	var x=char;
+		// 	for(var i=2;i<=n;i++){
+		// 		x=x.concat(char);
+		//  	}
+		//   	console.log(x);
+		// }
+// 第二题 在控制台输出图形 *
+// 					    ***
+// 					   *****
+		// repeat();
+		// function repeat(char) {
+		// 	char="*";
+		// 	var x=char;
+		// 	for(var i=1;i<=9;i++){
+		// 		if(i==1){
+		// 			console.log(char);
+		// 		}else if(i%2==0){
+		// 			x=x.concat(char);
+		// 		}else{
+		// 			x=x.concat(char);
+		// 			console.log(x);
+		// 		}
+		//  	}
+	 // 	}
+// 第三题 编写函数rev(char) 实现将字符串char倒置  比如 rev("spring")返回"gnirps"
+		// console.log(rev());
+		// function rev(char){
+		// 	char=prompt("请输入字符串");
+		// 	return var char1=char.split("").reverse().join("");
+		// }
+// 第四题 将字符串"i come from beijing"倒置，即控制台输出" beijng from come i" 语句直接写在程序中，不需要用户输入
+		// var str="i come from beijing";
+		// var str2=str.split(" ").reverse().join(" ");
+		// console.log(str2);
+// 第五题 【经典右移题型】  编写函数rightchange(char,n) 实现字符串char循环右移n位。 比如rightchange("abcdefg",2)返回"fgabcde"  
+		// rightchange();
+		// function rightchange(char,n){
+		// 	char=prompt("请输入字符串");
+		// 	n=parseInt(prompt("请输入要右移的位数"));
+		// 	char=char.split("");
+		// 	for(var i=1;i<=n;i++){
+		// 		char.unshift(char.pop());
+		// 	}
+		// 	char=char.join("");
+		// 	console.log(char);
+		// }
+// 第六题 编写函数 maxr(char)返回字符串中最长的连续重复字母 比如maxr("mmmiijjjkkkkkssptr") 返回"kkkkk"
+    // 这道题不会做
+		/*function maxr(char){
+			char=prompt("请输入字符串");
+			var arr=char.split("");
+			arr.sort();
+			arr1=arr.join("");
+			var sum=1;
+			for(var i=1;i<=arr1.length-1;i++){
+				if(arr1.charAt(0)==arr1.charAt(i)){
+					sum++;
+				}
+			}
+			arr2=arr1.slice(0,sum);
+			console.log(arr2);
+		}
+		maxr();*/
+// 第七题 有10个学生的成绩存在数组中，请统计大于等于平均成绩的人数。成绩直接以数组形式写在程序中，不需要输入
+		// var arr=[65,78,82,64,91,92,86,63,79,95];
+		// var sum=0;
+		// function ar(j) {
+		// 	arr2=arr.slice(j,j+1);
+		// 	return arr2[0];
+		// }
+		// for(var i=0;i<=9;i++){
+		// 	sum+=ar(i);
+		// }
+		// sum=sum/10;
+		// for(var k=0;k<=9;k++){
+		// 	if (ar(k)>sum){
+		// 		console.log(ar(k));
+		// 	}
+		// }
+// 第八题 有10个学生的成绩存在数组中，请统计最高分，最低分，并将最高分和最低分学生的下标输出控制台。
+		// var arr=[65,78,82,64,91,92,86,63,79,95];
+		// function fn(a,b){
+		// 	return b-a;
+		// }
+		// var arr1=arr.sort(fn);
+		//  function ar(j) {
+		// 	return arr.slice(j,j+1);
+		// }
+		// var arr2=[65,78,82,64,91,92,86,63,79,95];
+		// for(var k=0;k<=9;k++){
+		// 	if(arr1[0]==arr2[k]){
+		// 		console.log(k);
+		// 	}else if(arr1[9]==arr2[k]){
+		// 		console.log(k);
+		// 	}
+		// }
+//??? 第九题 勾股定理。寻找三边长度都不大于并且三边边长都是整数的可能，在控制台输出
+//??? 第十题 编写函数maxsame(char1,char2)返回字符串char1和char2的最大相同子串   比如maxsame("abcdefghijklmn","mndefghlm")返回"defgh"
+    	// function maxsame(a,b){
+    	// 	a=prompt("请输入字符串1");
+    	// 	b=prompt("请输入字符串2");
+    	// 	cx:for(var i=0;i<=a.length-1;i++){
+    	// 		for(var j=0;j<=b.length-1;){
+    	// 			if(a[i]==b[j]){
+    	// 				console.log(a.slice(i,i+1)+b.slice(j,j+1));
+    	// 				j++;
+    	// 			}
+    	// 		}
+    	// 	}
+    	// }
+    	// maxsame();
+// 第十一题  数组去重问题
+		var arr=[1,2,3,1,1,4,5,9,2,3,7,5,8,4,6,7];
+		for(var i=0;i<arr.length;i++){
+			for(var j=i+1;j<arr.length;j++){
+				if(arr[i]==arr[j]){
+					arr.splice(j,1);
+					j--;
+				}
+			}
+		}
+		console.log(arr);
+	</script>
+</body>
+</html>

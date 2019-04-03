@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+// 判断一个数是否是质数
+		var a=parseInt(prompt("请输入一个正整数"));
+		var sum=0;
+		for(var i=2;i<=Math.sqrt(a);i++){
+			if(a%i==0){
+				sum++;
+				break;
+			}
+		}
+		if(sum==0){
+			alert('这个数是质数');
+		}else{
+			alert('这个数不是质数');
+		}
+// 输出2~1000之间的质数
+		waiceng:for(var i=2;i<=1000;i++){
+			for(j=2;j<=Math.sqrt(i);j++){
+				if(i%j==0){
+					continue waiceng;
+				}
+			}
+			console.log(i);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		#zb{
+			width: 300px;
+			height: 100px;
+			border: 1px solid black;
+			margin-bottom: 10px;
+		}
+		#xs{
+			width: 200px;
+			height: 30px;
+			border: 1px solid black;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var zb=document.getElementById("zb");
+			var xs=document.getElementById("xs");
+			/*
+			*事件对象：
+			*	当事件的响应函数被触发时，浏览器每次都会将一个事件对象作为实参传递进响应函数，在事件对象中封装了当前事件相关的一切信息，比如:鼠标的坐标、鼠标滚轮的滚动方向
+			*/
+			zb.onmousemove=function(event){
+				/*
+				*在IE8及以下的浏览器中，响应函数被触发时，浏览器不会传递事件对象，而是将事件对象作为window对象的属性保存的
+				*/
+				// clientX可以获取鼠标指针的水平坐标
+				// clientY可以获取鼠标指针的垂直坐标
+
+			// 解决兼容性问题
+			// 方法一
+				// if(!event){
+				// 	event=window.event;
+				// }
+			// 方法二
+				event=event||window.event;
+
+				var x=window.event.clientX;
+				var y=window.event.clientY;
+				xs.innerHTML="X="+x+",Y="+y;
+			};
+		};
+	</script>
+</head>
+<body>
+	<div id="zb"></div>
+	<div id="xs"></div>
+</body>
+</html>

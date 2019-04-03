@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var month=parseFloat(prompt("请输入月份，判断本月总共几天"));
+		switch(month){
+			case 1:
+			case 3:
+			case 5:
+			case 7:
+			case 8:
+			case 10:
+			case 12:
+				alert("本月总共31天");
+				break;
+			case 2:
+				alert('本月可能是29天，也可能是28天');
+				break;
+			default:
+				alert('本月总共30天');
+				break;
+		}
+
+		var a=parseInt(prompt("请输入年份，以判断是闰年还是平年"));
+		if (a%4==0 && (a%100!=0 || a%400==0)) {
+			alert('闰年');
+		} else {
+			alert('平年');
+		}
+	</script>
+</body>
+</html>

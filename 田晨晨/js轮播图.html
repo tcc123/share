@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#box{
+			width: 880px;
+			height: 550px;
+			border: 10px solid yellowgreen;
+			border-radius: 5px;
+			background-color: yellowgreen;
+			margin: 20px auto;
+			overflow: hidden;
+			position: relative;
+		}
+		ul{
+			list-style: none;
+			position: absolute;
+			left: 0;
+		}
+		#imgs li{
+			float: left;
+			width: 880px;
+			height: 550px;
+			padding-right: 10px;
+		}
+		#nav{
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			height: 10px;
+		}
+		a{
+			margin-right: 5px;
+			float: left;
+			width: 10px;
+			height: 10px;
+			background-color: red;
+			opacity: 0.5;
+		}
+		a:hover{
+			background-color: black;
+		}
+	</style>
+	<script type="text/javascript" src="js/move tools.js"></script>
+	<script type="text/javascript">
+		window.onload=function() {
+			var img=document.getElementsByTagName("img");
+			var ul=document.getElementById("imgs");
+			var a=document.getElementsByTagName("a");
+			// 修改ul长度，使其根据img图片的个数自动改变
+			ul.style.width=img.length*(880+10)+"px";
+			// 修改导航按钮的长度，使其根据按钮的个数自动改变
+			nav.style.width=img.length*(10+5)+"px";
+			// 改变导航按钮的位置
+			nav.style.marginLeft= -(img.length*15-5)/2+"PX";
+			// 定义索引
+			var index=0;
+			// 使第一个按钮颜色默认为黑色
+			a[index].style.backgroundColor="black";
+			// 遍历导航按钮
+			for(var i=0;i<a.length;i++){
+				// 为每一个超链接添加一个num属性，用来确定哪个按钮被选中,得到序号
+				a[i].num=i;
+				// 为超链接绑定单击响应函数
+				a[i].onclick=function(){
+					// 单击切换图片时先关闭自动切换的定时器
+					clearInterval(timer);
+					// 将被点击按钮的序号赋值给index
+					index=this.num;
+					// 调用切换按钮函数
+					setA();
+					// 调用move函数
+					move(ul,"left",-890*index,30,function(){
+						// 当单击切换图片完成后继续开启自动切换定时器
+						autoChange();
+					});
+				};
+			}
+			// 调用开启自动切换定时器
+			autoChange();
+
+			var timer;
+			// 创建一个函数来设置自动切换图片
+			function autoChange(){
+				
+				// 开启一个定时器，用来定时去切换图片
+				timer=setInterval(function(){
+					// 使索引自增
+					index++
+					index=index%img.length;
+					// 执行动画，切换图片
+					move(ul,"left",-890*index,30,function(){
+						// 修改导航按钮
+						setA()
+					});
+				}, 3000);
+			}
+			// 创建一个函数用来设置选中的a
+			function setA(){
+				// 判断当前索引是否是最后一张图片
+				if(index>=img.length-1){
+					// 将index设置为0
+					index=0;
+					// 此时显示的是最后一张图片，而最后一张图片和第一张图片是同一个
+					// 此时通过css将最后一张迅速切换成第一张
+					ul.style.left=0;
+				}
+				// 遍历所有的a,并将它们的背景颜色设置为红色
+				for(var i=0;i<a.length;i++){
+					//此时这里不写颜色，使之显示样式表里面的样式,如果写的话a:hover颜色会消失
+					a[i].style.backgroundColor="";
+				}
+				// 将选中的a设置为黑色
+				a[index].style.backgroundColor="black";
+			}
+			
+		};
+	</script>
+</head>
+<body>
+	<div id="box">
+		<ul id="imgs">
+			<li><img src="images/c1.jpg" ></li>
+			<li><img src="images/c2.jpg" ></li>
+			<li><img src="images/c3.jpg" ></li>
+			<li><img src="images/c4.jpg" ></li>
+			<li><img src="images/c5.jpg" ></li>
+			<li><img src="images/c6.jpg" ></li>
+			<li><img src="images/c1.jpg" ></li>
+		</ul>
+		<div id="nav">
+			<a href="javascript:;" ></a>
+			<a href="javascript:;" ></a>
+			<a href="javascript:;" ></a>
+			<a href="javascript:;" ></a>
+			<a href="javascript:;" ></a>
+			<a href="javascript:;" ></a>
+		</div>
+	</div>
+</body>
+</html>

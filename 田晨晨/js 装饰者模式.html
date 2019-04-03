@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/CommonUtil.js"></script>
+	<script type="text/javascript">
+		//装饰者模式(decorator)是一种为对象添加新特性的技术，装饰者模式可以用来透明的把原始对象包装在具有同样接口的另一个对象之中。这样我们就可以为对象添加一个方法或者一些行为，然后将方法调用传递给原始对象。 
+		//装饰者模式：就是在保证不改变原有对象的基础上，去扩展想要的方法或者需求
+		//			1.实现同样的接口
+		//			2.需要有子类
+
+		var CarInterface=new TCC.Interface("CarInterface",["getPrice","assemble"]);
+		var Car=function(car){
+			//就是为了让子类继承(让子类多一个父类的引用)
+			this.a=car;
+			//检查接口
+			TCC.Interface.ensureImplements(this ,CarInterface);
+		};
+		Car.prototype={
+			constructor:Car,
+			getPrice:function(){
+				return 200000;
+			},
+			assemble:function(){
+				document.write("组装汽车...");
+			},
+		};
+		//新的需求：车灯(light) 车载空调(icebox).....
+		var LightDecorator=function(car){  //把原始对象包装进新的对象内  传递的参数是原始对象
+			LightDecorator.superClass.constructor.call(this,car);//借用构造函数只继承模板
+		}
+		TCC.extend(LightDecorator,Car);  //只继承原型继承
+		LightDecorator.prototype={
+			constructor:LightDecorator,
+			getPrice:function(){
+				alert( this.a instanceof Car);
+				return this.a.getPrice()+10000;
+			},
+			assemble:function(){
+				document.write("组装汽车...");
+			},
+		};
+		var IceBoxDecorator=function(car){  //把car->原始对象 包装进新的对象内  传递的参数是原始对象
+			IceBoxDecorator.superClass.constructor.call(this,car);//借用构造函数只继承模板
+		}
+		TCC.extend(IceBoxDecorator,Car);  //只继承原型继承
+		IceBoxDecorator.prototype={
+			constructor:IceBoxDecorator,
+			getPrice:function(){
+				alert( this.a instanceof LightDecorator);
+				return this.a.getPrice()+20000;
+			},
+			assemble:function(){
+				document.write("组装车载冰箱...");
+			},
+		};
+
+
+		var b=new Car();
+		alert(b.getPrice());
+		b.assemble();
+
+		b=new LightDecorator(b);
+		alert(b.getPrice());
+		b.assemble();
+
+		b=new IceBoxDecorator(b);
+		alert(b.getPrice());
+		b.assemble();
+
+		//装饰者模式不仅可以用在类上，还可以用在函数上
+		//返回一个当前时间的字符集表示形式
+		function getDate(){
+			return (new Date()).toString();
+		};
+		//包装函数(装饰者函数)
+		function upperCaseDecorator(yshs){  //ysha->原始函数
+			return function(){
+				return yshs.apply(this,arguments).toUpperCase();
+			}
+		};
+		alert(getDate());
+		var getDecoratorDate=upperCaseDecorator(getDate);
+		alert(getDecoratorDate());
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

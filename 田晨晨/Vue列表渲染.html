@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/Vue-2.5.17.js"></script>
+	<script type="text/javascript">
+		//我们用 v-for 指令根据一组数组的选项列表进行渲染。v-for 指令需要使用 item in items 形式的特殊语法，items 是源数据数组并且 item 是数组元素迭代的别名。
+		/*1> v-for="(item,index) in 数组名称"
+			item是数组中的每一项值
+			index是索引值
+		*/
+		/*2> v-for="(item,index) in 对象名称"
+			item是对象的val
+			index是对象的key
+		*/
+		/*也可以用 of 替代 in 作为分隔符，因为它是最接近 JavaScript 迭代器的语法：
+		    <div v-for="item of items"></div>
+	    */
+
+
+		window.onload=function(){
+			new Vue({
+				el:".box",
+				data:{
+					json:{
+						name:"张三",
+						age:18,
+						arr:[1,2,3]
+					}
+				}
+			})
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li v-for="(item,index) of json">
+				{{item}}
+				<p>{{typeof item}}</p>
+			</li>
+			<li v-for="(item,index) in json">
+				{{item}}==>{{index}}
+			</li>
+			<li v-for="(item,index) in json.arr">
+				{{item}}==>{{index}}
+			</li>
+			<li v-for="(item,index) in json">
+				{{json.arr}}
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

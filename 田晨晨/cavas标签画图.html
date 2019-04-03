@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload=function() {
+			//获取画布
+			var canvas=document.getElementById("canvas");
+			//设置绘图环境
+			var cxt=canvas.getContext("2d");
+			// 凡是路径图形必须先开启路径，画完图之后必须结束路径
+			//画一条线段
+				//开启新路径
+				cxt.beginPath();
+				//设定画笔的宽度
+				cxt.lineWidth=8;
+				// 设置画笔的颜色
+				cxt.strokeStyle="lightblue";
+				//设置笔触的位置
+				cxt.moveTo(20,20);
+				//设置结束点的位置
+				cxt.lineTo(200,20);
+				//画线
+				cxt.stroke();
+				//封闭路径
+				cxt.closePath();
+			//画一个空心圆形 
+				cxt.beginPath();
+				//重新设置画笔
+				cxt.lineWidth=2;
+				cxt.strokeStyle="black";
+				cxt.arc(200,200,50,0,360,false);
+				cxt.stroke();
+				cxt.closePath();
+			//画一个实心圆形 
+				cxt.beginPath();
+				//设置填充的颜色
+				cxt.lineWidth=2;
+				cxt.fillStyle="white";
+				cxt.arc(200,100,50,0,360,false);
+				cxt.fill();
+				cxt.stroke();
+				cxt.closePath();
+			// 画一个矩形  可以不开启和封闭路径
+				//空心矩形
+				cxt.beginPath();
+				cxt.rect(300,20,100,100);
+				cxt.stroke();
+				cxt.closePath();
+				//其他方法  建议使用此方法
+				cxt.strokeRect(300,150,100,100);
+				//实心矩形
+				cxt.beginPath();
+				cxt.rect(300,270,100,100);
+				cxt.fill();
+				cxt.closePath();
+				//其他方法  建议使用此方法
+				cxt.fillRect(300,390,100,100);
+			//设置文字
+				cxt.font="20px 黑体";
+				//将笔触设置为1像素
+				cxt.lineWidth=1;
+				//设置实心字
+				cxt.fillText("你是头居",20,300);
+				//设置镂空字
+				cxt.strokeText("天天就是天天",20,350);
+			//画图 把一幅图片画到画布中(chrome浏览器不支持)
+				var img=new Image();
+				img.src="images/img2.jpg";  
+				cxt.drawImage(img,20,370,247,240);  //(chrome浏览器不支持)
+			// 画一个三角
+				//空心三角
+				cxt.beginPath();
+				//移动至开始点
+				cxt.moveTo(300,500);
+				cxt.lineTo(300,600);
+				cxt.lineTo(400,550);
+				cxt.closePath(); // 需要先闭合路径再画线
+				cxt.stroke();
+				//实心三角
+				cxt.beginPath();
+				//移动至开始点
+				cxt.moveTo(300,600);
+				cxt.lineTo(300,700);
+				cxt.lineTo(400,650);
+				cxt.closePath(); // 需要先闭合路径再画线
+				cxt.fill();
+			//旋转图片  过程不可颠倒 先设置00点再设置旋转角度，然后画图
+				// 设置旋转环境
+				cxt.save();
+					//在异次元空间重置0,0点的位置 意思就是将(20,20)设为(0,0)点
+					cxt.translate(20,20); 
+				// 图片或图形旋转
+					// 设置旋转角度 参数是弧度 弧度=角度*Math.PI/180
+					cxt.rotate(90*Math.PI/180);
+					//旋转一个阶段
+					cxt.lineWidth=10;
+					cxt.beginPath();
+					cxt.moveTo(0,0);  //这里写的(0,0)点是重置之后的点
+					cxt.lineTo(180,0);
+					cxt.stroke();
+					cxt.closePath();
+				//将旋转之后的元素放回原来的画布
+				cxt.restore();
+			//旋转图片
+				cxt.save();
+				cxt.translate(20,450);
+				cxt.rotate(10*Math.PI/180);
+				var img=new Image();
+				img.src="images/img2.jpg";
+				cxt.drawImage(img,0,0,247,240);  //(chrome浏览器不支持)
+				cxt.restore();
+		};
+	</script>
+</head>
+<body>
+	<canvas id="canvas" width="500" height="700" style="background: pink">
+		您的浏览器当前版本不支持canvas标签
+	</canvas>
+</body>
+</html>

@@ -1,0 +1,134 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<table width="700" align="center">
+		<tr>
+			<td>
+				<form action="ok.html" method="post">
+					<fieldset><!-- 如果想让外边框变小，只需在表单外面加一个一行一列的表格并且调整宽度和对齐方式-->
+						<legend>会员注册</legend>
+					<table border="1" cellpadding="10" width="600" align="center">
+						<tr>
+							<td>用户名：</td>
+							<td><input type="text" name="username" value="小田田" size="5" disabled="disabled"/></td>
+						</tr>
+						<tr>
+							<td>密码：</td>
+							<td><input type="password" name="1232255" maxlength="10"/></td>
+						</tr>
+						<tr>
+							<td>确认密码：</td>
+							<td><input type="password" name="4563344"/></td>
+						</tr>
+						<tr>
+							<td>年龄：</td>
+							<td><input type="text" name="age" value="18" readonly="readonly" /></td>
+						</tr>
+						<tr>
+							<td>性别：</td><!-- 这个必须点圈圈 -->
+							<td>
+								<input type="radio" name="sex" value="男"  />男  <!-- name必须一样 -->
+								&nbsp;
+								<input type="radio" name="sex" value="女" checked="checked"/>女
+							</td>
+						</tr>
+						<tr>
+							<td>性别：</td><!-- 这个点文字就可以选择 -->
+							<td>
+								<input type="radio" name="sex" value="男" id="man" /><label for="man">男</label>  
+								&nbsp;
+								<input type="radio" name="sex" value="女" id="women" checked="checked" /><label for="women">女</label>
+							</td>
+						</tr>
+						<tr>
+							<td>邮箱：</td>
+							<td><input type="text" name="box" /></td>
+						</tr>
+						<tr><!-- 下拉列表 -->
+							<td>城市：</td>
+							<td>
+								<select name="citys">
+									<option value="北京">北京</option>
+									<option value="上海">上海</option>
+									<option selected="selected" value="陕西">陕西</option>
+									<option value="广东">广东</option>
+								</select>
+							</td>
+						</tr>
+						<tr><!-- 下拉列表 -->
+							<td>城市中的地区：</td>
+							<td>
+								<select name="citys">
+									<optgroup label="北京">
+										<option value="朝阳区">朝阳区</option>
+										<option value="海淀区">海淀区</option>
+									</optgroup>
+									<optgroup label="上海">
+										<option value="浦东">浦东</option>
+										<option value="闸北">闸北</option>
+									</optgroup>
+									<optgroup label="陕西">
+										<option value="西安">西安</option>
+										<option value="咸阳" selected="selected">咸阳</option>
+									</optgroup>
+									<optgroup label="广东">
+										<option value="广州">广州</option>
+										<option value="深证">深证</option>
+									</optgroup>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>爱好：</td>
+							<td>
+								<input type="checkbox" name="hobby" value="钱" checked="checked"/>钱
+								<input type="checkbox" name="hobby" value="音乐"/>音乐
+								<input type="checkbox" name="hobby" value="舞蹈"/>舞蹈
+								<input type="checkbox" name="hobby" value="王者荣耀"/>王者荣耀
+							</td>
+						</tr>
+						<tr>
+							<td>交友目标：</td>
+							<td>
+								<select name="target" size="3" multiple="multiple">
+									<option type="爱玩游戏">爱玩游戏</option>
+									<option type="同行">同行</option>
+									<option type="有趣的人" selected="selected">有趣的人</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>照片上传：</td>
+							<td><input name="mypic" type="file" ></td>
+						</tr>
+						<tr>
+							<td>自我介绍：</td>
+							<td>
+								<textarea name="introduce" cols="50" rows="5"> 
+									默认文本
+								</textarea>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center">
+								<input name="123" type="submit" value="注册"/>
+								&nbsp;
+								<input name="123" type="reset" value="取消"/>
+								&nbsp;
+								<input name="123" type="button" value="嘿嘿嘿" onclick="alert('说，你是不是油头怪');"/>
+								&nbsp;
+								<input name="123" type="image" src="img1.jpg"/>
+							</td>
+						</tr>
+					</table>
+				</fieldset>
+				</form>
+		 	</td>
+		</tr>
+	</table>
+</body>
+</html>

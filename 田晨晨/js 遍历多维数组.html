@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// ECMA5 forEach()方法循环遍历数组的每一项(只适合一维数组)
+		// 参数：value:正在遍历的元素
+		// 		index：元素的索引
+		// 		obj：当前数组
+		// var arr=[1,2,3,4,5]; 
+		// arr.forEach(function(value,index,obj){
+		// 	console.log(value);
+		// });
+		// 设计一个Array each方法  遍历多维数组
+		var arr=[1,2,3,[4,[5,[6]]]];
+		Array.prototype.each=function(fn){
+			try{
+				this.i||(this.i=0);// 计数器
+				// 当数组长度大于零&&传递的参数必须是函数
+				if(this.length>0&&fn.constructor==Function){
+					while(this.i<this.length){
+						var e=this[this.i];
+						// 如果当前元素获取到了 并且当前元素是一个数组
+						if(e&&e.constructor==Array){
+							e.each(fn);// 直接做递归操作
+						}else{
+							// 这里的目的就是为了把数组的当前元素传递给fn函数 并让函数执行
+							fn.call(e,e);
+						}
+						this.i++;
+					}
+					this.i=null;//垃圾回收释放内存
+				}
+			}catch(ex){
+				// do something
+			}
+			return this;
+		}
+		arr.each(function(item){
+			alert(item);
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

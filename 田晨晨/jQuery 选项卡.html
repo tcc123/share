@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			font-size: 12px;
+			padding: 100px;
+		}
+		ul{
+			list-style-type: none;
+			height: 30px;
+			line-height: 30px;
+		}
+		.box ul li{
+			float: left;
+			padding: 0 10px;
+			cursor: pointer;
+			border: 1px solid #000;
+			border-radius:5px 5px 0 0;
+			margin-right: 5px;
+			border-bottom: none;
+		}
+		.box ul li.two{
+			background: #eee;
+		}
+		.content{
+			width: 325px;
+			height: 150px;
+			border: 1px solid #000;
+			padding: 10px;
+		}
+		.box ul li.one{
+			background: #fff;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".ct:gt(0)").hide();
+			$("li").click(function(){
+				$(this).addClass('one').siblings().removeClass('one');
+				var index=$("li").index(this);
+				$(".ct").eq(index).show().siblings().hide();
+			})
+			$("li").hover(function(){
+				$(this).addClass('two').siblings().removeClass('two one');
+			})
+			
+		})
+	</script>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li class="one">课程介绍</li>
+			<li>报名流程</li>
+			<li>常见问题</li>
+		</ul>
+		<div class="content">
+		 	<div class="ct">随着移动互联网的兴起，互联网行业正向更加智能化的Web3.0时代迈进，中国互联网行业进入高速发展的势态，PHP语言已经成为大部分企业广泛应用和重视（如：新浪、百度、腾讯、TOM、淘宝、搜狐、网易等）PHP语言是各大IT公司首选的互联网编程语言。PHP开发优势明显，未来发展空间巨大，IT行业急需PHP开发人才。随着移动互联网的兴起，互联网行业正向更加智能化的Web3.0时代迈进，中国互联网行业进入高速发展的势态，PHP语言已经成为大部分企业广泛应用和重视</div>
+			<div class="ct">随着移动互联网的兴起，互联网行业正向更加智能化的Web3.0时代迈进，中国互联网行业进入高速发展的势态，随着移动互联网的兴起，互联网行业正向更加智能化的Web3.0时代迈进，中国互联网行业进入高速发展的势态</div>
+			<div class="ct">PHP语言已经成为大部分企业广泛应用和重视（如：新浪、百度、腾讯、TOM、淘宝、搜狐、网易等）PHP语言是各大IT公司首选的互联网编程语言。PHP开发优势明显，未来发展空间巨大随着移动互联网的兴起，互联网行业正向更加智能化的Web3.0时代迈进，中国互联网行业进入高速发展的势态</div>
+		</div>
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		body{
+			font-size: 12px;
+		}
+		.one{
+			width: 350px;
+			height: 200px;
+			border: 5px solid #ccc;
+			display: none;
+			position: absolute;
+			background: #eee;
+		}
+		.two{
+			border: 8px solid #ccc;
+			display: none;
+			position: absolute;
+			background: #ccc;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var x=10;
+			var y=20;
+			$("a").mouseover(function(){
+				var myTitle=this.title;
+				this.title="";
+				var box="<div class='one'>"+myTitle+"</div>";
+				$("body").append(box);
+			}).mousemove(function(e){
+				$(".one").css({
+					"left":(e.pageX+x)+"px",
+					"top":(e.pageY+y)+"px"
+				}).show("slow");
+			}).mouseout(function(){
+				this.title="随着移动互联网的兴起，互联网行业正向更加智能化的Web3.0时代迈进，中国互联网行业进入高速发展的势态，PHP语言已经成为大部分企业广泛应用和重视（如：新浪、百度、腾讯、TOM、淘宝、搜狐、网易等）PHP语言是各大IT公司首选的互联网编程语言。PHP开发优势明显，未来发展空间巨大，IT行业急需PHP开发人才。随着移动互联网的兴起，互联网行业正向更加智能化的Web3.0时代迈进，中国互联网行业进入高速发展的势态，PHP语言已经成为大部分企业广泛应用和重视";
+				$(".one").remove();
+			});
+
+			$("img").mouseover(function(){
+				var myAlt=this.alt;
+				this.alt="";
+				var myTitle="<br>"+this.title;
+				this.title="";
+				var box="<div class='two'><img src='"+myAlt+"'>"+myTitle+"</div>";
+				$("body").append(box);
+			}).mousemove(function(e){
+				$(".two").css({
+					"left":(e.pageX+x)+"px",
+					"top":(e.pageY+y)+"px"
+				}).show("fast");
+			}).mouseout(function(){
+				this.alt="images/dt.jpg";
+				this.title="图片提示效果";
+				$(".two").remove();
+			});
+		})
+	</script>
+</head>
+<body>
+	<a href="#" class="box" title="随着移动互联网的兴起，互联网行业正向更加智能化的Web3.0时代迈进，中国互联网行业进入高速发展的势态，PHP语言已经成为大部分企业广泛应用和重视（如：新浪、百度、腾讯、TOM、淘宝、搜狐、网易等）PHP语言是各大IT公司首选的互联网编程语言。PHP开发优势明显，未来发展空间巨大，IT行业急需PHP开发人才。随着移动互联网的兴起，互联网行业正向更加智能化的Web3.0时代迈进，中国互联网行业进入高速发展的势态，PHP语言已经成为大部分企业广泛应用和重视">文字提示效果</a>
+	<br>
+	<img src="images/xt.jpg" alt="images/dt.jpg"/ title="图片提示效果">
+</body>
+</html>

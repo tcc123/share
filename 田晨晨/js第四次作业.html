@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" defer="defer" async="asyny">
+// 第一题  用函数方法判断一个数是不是完美数
+		function sum(a) {
+			var sum=0;
+			for(var i=1;i<a;i++){
+				if(a%i==0){
+					sum+=i;
+				}
+			}
+			return sum;
+		}
+		function pd(a){
+			if(a==sum(a)){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		var n=parseInt(prompt("请输入一个数字，判断是否为完美数"));
+		if(pd(n)){
+			alert(n+"是完美数");
+		}else{
+			alert(n+"不是完美数");
+		}
+// 第二题 输出1~100 之间的盈数 
+		 function yspd(a){
+			if(a<sum(a)){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		for(i=1;i<=100;i++){
+			if(yspd(i)){
+				console.log(i);
+			}
+		}
+// 第三题 用户输入一个整数n ，求1！+2！+3！+······+n! 的和
+		function sum1(a) {
+			var sum=1;
+			for(var i=1;i<=a;i++){
+				sum*=i;
+			}
+			return sum;
+		}
+		function sum2(b){
+			var sum=0;
+			for(var i=1;i<=b;i++){
+				sum+=sum1(i);
+			}
+			return sum;
+		}
+		var c=parseInt(prompt("请输入一个整数"));
+		alert(sum2(c));
+// 第四题 用户输入一个任意位数的整数，输出这个整数的倒序 如输入123，输出321
+	// 方法一
+		// 判断是几位数
+		function weishu(a){
+			for(var i=1;true;i++){
+				if(parseInt(a/Math.pow(10,i))<1){
+					return i;
+				}
+			}
+		}
+		// 位数倒置
+		function rev(n){
+			var sum=0;
+			for(var i=1;i<=weishu(n);i++){
+				sum += parseInt(n/Math.pow(10,i-1))%10*(Math.pow(10,weishu(n)-i));
+			}
+			return alert(sum);
+		}
+		var c=parseInt(prompt("请输入一个正整数"));
+		rev(c);
+	// 方法二
+		var a=parseInt(prompt("请输入一个整数"));
+		alert(rev(a));
+		function rev(a){
+			var b=0;
+			while(a){
+				b=b*10+a%10;
+				a=parseInt(a/10);
+			}
+			return b;
+		}
+// 第五题 求亲密数对
+	// 方法一
+		function sum1(a){
+			var sum=0;
+			for(var i=1;i<a;i++){
+				if(a%i==0){
+					sum+=i;
+				}
+			}
+			return sum;
+		}
+		for(var a=1;a<=2000;a++){
+			var b=sum1(a);
+			if(a==sum1(b)){
+				console.log(a,b);
+			}
+		}
+	// 方法二
+		for(var a=1;a<=2000;a++){
+			var b=sum(a);
+			if(a==sum(b) && a!=b){
+				console.log(a,b);
+			}
+		}
+		function sum(a){
+			var sum=0;
+			for(var i=1;i<a;i++){
+				if(a%i==0){
+					sum+=i;
+				}
+			}
+			return sum;
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

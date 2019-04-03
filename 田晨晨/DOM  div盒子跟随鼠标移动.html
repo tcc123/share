@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		body{
+			height: 1300px;
+			width: 1300px;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			box-shadow: 5px 5px 15px #000;
+			background: -webkit-radial-gradient(60px 60px,circle, #fff , red);
+			position: absolute;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var box=document.getElementById("box");
+			// 把响应函数绑定给整个页面
+			document.onmousemove=function(event){
+				// 解决兼容性问题
+				event=event||window.event;
+				// 获取滚动条滚动的距离 处理兼容性问题
+				/*
+				*chrome认为浏览器的滚动条是body的，可以通过body.scrollTop来获取
+				*火狐 IE等浏览器认为滚动条是HTML的
+				*/
+				var gdjlY=document.body.scrollTop||document.documentElement.scrollTop;
+				var gdjlX=document.body.scrollLeft||document.documentElement.scrollLeft;
+
+				var X=event.clientX;
+				var Y=event.clientY;
+				box.style.left=X+gdjlX+"px";
+				box.style.top=Y+gdjlY+"px";
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

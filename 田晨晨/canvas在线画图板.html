@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/onlinepaint.css">
+</head>
+<body style="background:#A8CBEF">
+	<div id="box">
+		<header id="header">
+		html5在线画板
+		</header>
+		<section>
+			<div id="tool">
+				<ul>
+					<li>
+						<h4>图像</h4>
+						<hr>
+						<ul id="buttons">
+							<li><button onclick="saveimg()">保存图片</button></li>
+							<li><button onclick="clearimg()">清除画布</button></li>
+						</ul>
+					</li>
+					<li>
+						<h4>工具</h4>
+						<hr>
+						<ul id="tls">
+							<li id="tls_pen" onclick="drawPen(0)"><img src="images/pen.png"></li>
+							<li id="tls_eraser" onclick="drawEraser(1)"><img src="images/eraser.png"></li>
+							<li id="tls_paint" onclick="drawPaint(2)"><img src="images/paint.png"></li>
+							<li id="tls_atraw" onclick="drawAtraw(3)"><img src="images/atraw.png"></li>
+							<li id="tls_text" onclick="drawText(4)"><img src="images/text.png"></li>
+							<li id="tls_magnifier" onclick="drawMagnifier(5)"><img src="images/magnifier.png"></li>
+						</ul>
+					</li>
+					<li>
+						<h4>形状</h4>
+						<hr>
+						<ul id="shape">
+							<li id="shape_line" onclick="drawLine(6)"><img src="images/line.png"></li>
+							<li id="shape_circle1" onclick="drawCircle1(7)"><img src="images/circle1.png"></li>
+							<li id="shape_square1" onclick="drawSquare1(8)"><img src="images/square1.png"></li>
+							<li id="shape_triangle" onclick="drawTriangle(9)"><img src="images/triangle.png"></li>
+							<li id="shape_circle2" onclick="drawCircle2(10)"><img src="images/circle2.png"></li>
+							<li id="shape_square2" onclick="drawSquare2(11)"><img src="images/square2.png"></li>
+						</ul>
+					</li>
+					<li>
+						<h4>粗细</h4>
+						<hr>
+						<ul id="cx">
+							<li id="cx_1px" onclick="setWidth(0)"><img src="images/1px.png"></li>
+							<li id="cx_3px" onclick="setWidth(1)"><img src="images/3px.png"></li>
+							<li id="cx_5px" onclick="setWidth(2)"><img src="images/5px.png"></li>
+							<li id="cx_8px" onclick="setWidth(3)"><img src="images/8px.png"></li>
+						</ul>
+					</li>
+					<li class="last">
+						<h4>颜色</h4>
+						<hr>
+						<ul id="color">
+							<li id="red" onclick="setColor(this,0)"></li>
+							<li id="green" onclick="setColor(this,1)"></li>
+							<li id="blue" onclick="setColor(this,2)"></li>
+							<li id="yellow" onclick="setColor(this,3)"></li>
+							<li id="white" onclick="setColor(this,4)"></li>
+							<li id="black" onclick="setColor(this,5)"></li>
+							<li id="pink" onclick="setColor(this,6)"></li>
+							<li id="purple" onclick="setColor(this,7)"></li>
+							<li id="cyan" onclick="setColor(this,8)"></li>
+							<li id="orange" onclick="setColor(this,9)"></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<canvas id="canvas">
+			
+			</canvas>
+		</section>
+		<footer>
+			<small>制作人&copy TCC</small>
+		</footer>
+	</div>
+	<script type="text/javascript" src="js/onlinepaint.js"></script>
+</body>
+</html>

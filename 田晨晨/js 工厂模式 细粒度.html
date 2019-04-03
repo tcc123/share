@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/CommonUtil.js"></script>
+	<script type="text/javascript">
+
+		//细粒度和粗粒度
+		//万事万物都是Object  卖车的商店(买车) ->生产车工厂Factory(生产车)
+		//搭建一个工厂的环境
+		//卖车的商店
+		function CarShop(){}
+		CarShop.prototype={
+			constructor:CarShop,
+			sellCar:function(type){
+				var car=CarFactory.creatCar(type);
+				return car;
+			}
+		};
+
+		//生产车的工厂  
+		//单体模式
+		var CarFactory={
+			creatCar:function(type){
+				//声明一个变量
+				var car;
+				switch(type){
+					case 'Benz': car=new Benz();
+					break;
+					case 'Bmw': car=new Bmw();
+					break;
+					case 'Audi': car=new Audi();
+					break;
+					default:"not buy it";
+				};
+
+				//通过调用TCC.Interface.ensureImplements()方法,检查接口实现
+				TCC.Interface.ensureImplements(car,CarInterface);
+				return car;
+			},
+		}
+
+		//接口对象的实例
+		var CarInterface=new TCC.Interface("CarInterface",["start","run"]);
+
+		//父类
+		function BaseCar(){};
+		BaseCar.prototype={
+			constructor:BaseCar,
+			start:function(){
+				alert(this.constructor.name+"..strt");
+			},
+			run:function(){
+				alert(this.constructor.name+"..run");
+			}
+		};
+
+		//子类
+		//注意关机键安问题：子类先继承父类  然后再扩展子类自己特有的方法
+		function Benz(){};
+		//通过调用TCC.extend(sub,sup)对象方法,继承父类原型里面的方法
+		TCC.extend(Benz,BaseCar);
+		Benz.prototype.driveBenz=function(){
+			alert("Benz..drive");
+		};
+		function Bmw(){};
+		TCC.extend(Bmw,BaseCar);
+		Bmw.prototype.driveBmw=function(){
+			alert("Bmw..drive");
+		};
+		function Audi(){};
+		TCC.extend(Audi,BaseCar);
+		Audi.prototype.driveAudi=function(){
+			alert("Audi..drive");
+		};
+
+		var shop=new CarShop();
+		var car1=shop.sellCar("Benz");
+		car1.start();
+		car1.run();
+		car1.driveBenz();
+
+		var car2=shop.sellCar("Bmw");
+		car2.start();
+		car2.run();
+		car2.driveBmw();
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

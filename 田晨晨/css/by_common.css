@@ -1,0 +1,156 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+a{
+	text-decoration: none;
+}
+ul{
+	list-style: none;
+}
+/*公共类*/
+.inner{
+	width: 1000px;
+	margin: 0 auto;
+}
+body{
+	font-size: 14px;
+}
+.header{
+	/*标准流中的块级元素不写宽度自动撑满，所以不写宽度*/
+	height: 58px;
+	background-color: #191D3A;
+}
+
+.logo{
+	float: left;
+	padding: 10px 0 0 20px; 
+}
+.logo h2{
+	width: 157px;
+	text-indent: -999px;
+	background: url(../images/logo2.png) no-repeat;
+	overflow: hidden;
+}
+.logo h2 a{
+	display: block;
+	height: 35px;
+}
+.nav{
+	width: 517px;
+	float: left;
+	margin-left: 48px;
+}
+.nav ul li{
+	float: left;
+	width: 85px;
+	border-right: 1px solid #252947;
+	
+}
+.nav ul li a{
+	display: block;
+	text-align: center;
+	height: 58px;
+	color: #818496;
+	line-height: 58px;
+}
+.nav ul li a:hover{
+	color:#E2E4ED ;
+}
+.nav ul li.first{
+	border-left: 1px solid #252947;
+
+}
+.nav ul li.cur a{
+	color: #E2E4ED;
+	background-color: #252947;
+}
+.joinus{
+	float: left;
+	margin-left: 9px;
+	background-color: #38B774;
+	border: 1px solid #3ACA7A;
+	border-radius: 4px;
+	margin-top: 12px;
+}
+.joinus a{
+	display: block;
+	width: 98px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	color: #fff;
+}
+.lanage{
+	float: right;
+	height: 58px;
+}
+.lanage span{
+	display: block;
+	margin-top: 23px;
+	float: right;
+}
+.lanage span a{
+	display: block;
+	float: left;
+	color: #3A4866;
+	height:12px;
+	text-align:center;
+	line-height: 12px;		
+}
+.lanage span a.l1{
+	width: 28px; 
+}
+.lanage span a.l2{
+	width: 17px;
+	padding-right:  2px;
+	padding-left:  14px;
+}
+.lanage span a:hover.l2{
+	color: #38B774;
+}
+.lanage span a.cur2{
+	color: #38B774;
+}
+.cl{
+	clear: both;
+}
+.footer{
+	height: 193px;
+	width: 100%;
+	background-color: #191D3A;
+}
+.footer p{
+	height: 50px;
+	line-height: 50px;
+	color: #6C6E7E;
+	font-size: 12px;
+	position: relative;
+}
+.footer p.first{
+	padding-top: 28px;
+}
+.footer p a{
+	color: #6C6E7E;
+}
+.footer p a .gov{
+	width:36px; 
+	position: absolute;
+	top: 50%;
+	left: 751px;
+	margin-top: -22px;
+}
+.btn a{
+	display: block;
+	width: 68px;
+	height: 29px;
+	background:url(../images/btn.png) no-repeat 0 -40px;
+	position: fixed;
+	right: 15px;
+	bottom:75px;
+	overflow: hidden;
+	text-indent: -999em;
+}
+.btn a:hover{
+	background-position:  0 0;
+}

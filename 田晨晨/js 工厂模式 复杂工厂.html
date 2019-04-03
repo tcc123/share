@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+		<script type="text/javascript" src="js/CommonUtil.js"></script>
+	<script type="text/javascript">
+
+		//细粒度和粗粒度
+		//万事万物都是Object 
+		//买什么车 -> 去什么店买 -> 卖车的商店(买车) ->生产车工厂Factory(生产车)
+		//搭建一个工厂的环境
+		//卖车的商店有可能是  奔驰4s店 宝马4s店 奥迪4s店
+
+		//卖车的商店
+		//absteact Class == java 的抽象类
+		//this CarShop is a abstract
+		function CarShop(){}
+		CarShop.prototype={
+			constructor:CarShop,
+			sellCar:function(type){
+				this.abstractSellCar(type);
+			},
+			abstractSellCar:function(){
+				throw new Error ("this method is abstract...");
+			},
+		};
+
+		//Benz 4s店
+		function BenzCarShop(){};
+		TCC.extend(BenzCarShop,CarShop);
+		BenzCarShop.prototype={
+			constructor:BenzCarShop,
+			sellCar:function(type){
+				var car;  //声明一个变量
+				var types=["Benz"];   //各种benz型号汽车
+				for(index in types){
+					alert(index)
+					//如果商店里面有你想要的汽车型号
+					if(types[index]===type){
+						car=CarFactory.creatCar(type);
+					}else{
+						alert("没有你想要的汽车型号")
+					}
+				}
+				return car;
+			}
+		};
+		//Bmw 4s店
+		function BmwCarShop(){};
+		TCC.extend(BmwCarShop,CarShop);
+		BmwCarShop.prototype={
+			constructor:BmwCarShop,
+			sellCar:function(type){
+				var car;  //声明一个变量
+				var types=["Bmw"];   //各种bmw型号汽车
+				for(t in types){
+					//如果商店里面有你想要的汽车型号
+					if(types[t]===type){
+						car=CarFactory.creatCar(type);
+					}else{
+						alert("没有你想要的汽车型号")
+					}
+				}
+				return car;
+			}
+		};
+		//生产车的工厂  
+		//单体模式 动态工厂模式
+		var CarFactory={
+			creatCar:function(type){
+				//利用eval 动态创建关于传入类型的实例对象
+				var car=eval("new "+type+"()");
+				//通过调用TCC.Interface.ensureImplements()方法,检查接口实现
+				TCC.Interface.ensureImplements(car,CarInterface);
+				return car;
+			},
+		}
+
+		//接口对象的实例
+		var CarInterface=new TCC.Interface("CarInterface",["start","run"]);
+
+		//父类
+		function BaseCar(){};
+		BaseCar.prototype={
+			constructor:BaseCar,
+			start:function(){
+				alert(this.constructor.name+"..strt");
+			},
+			run:function(){
+				alert(this.constructor.name+"..run");
+			}
+		};
+		
+		//子类
+		//注意关键问题 ：子类先继承父类  然后再扩展子类自己特有的方法
+		function Benz(){};
+		//通过调用TCC.extend(sub,sup)对象方法,继承父类原型里面的方法
+		TCC.extend(Benz,BaseCar);
+		Benz.prototype.driveBenz=function(){
+			alert("Benz..drive");
+		};
+		function Bmw(){};
+		TCC.extend(Bmw,BaseCar);
+		Bmw.prototype.driveBmw=function(){
+			alert("Bmw..drive");
+		};
+		function Audi(){};
+		TCC.extend(Audi,BaseCar);
+		Audi.prototype.driveAudi=function(){
+			alert("Audi..drive");
+		};
+
+		var shop1=new BenzCarShop();
+		var car1=shop1.sellCar("Benz");
+		car1.start();
+		car1.run();
+		car1.driveBenz();
+
+		var shop2=new BmwCarShop();
+		var car2=shop2.sellCar("Bmw");
+		car2.start();
+		car2.run();
+		car2.driveBmw();
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

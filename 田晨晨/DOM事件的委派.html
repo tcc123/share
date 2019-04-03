@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+
+		li{
+			background-color: lightgreen;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function() {
+			var btn=document.getElementById("btn");
+			btn.onclick=function(){
+				var li=document.createElement("li");
+				li.innerHTML="<a href='javascript:;' class='link'>我新添加的超链接</a>";
+				ul.appendChild(li);
+			}
+			var ul=document.getElementById("ul");
+			ul.onclick=function(event){
+				event=event||window.event;
+				// 判断触发对象是不是我们期望的元素
+				/*
+				*target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。
+				*	语法：event.target
+				*/
+				if(event.target.className=="link"){
+					alert('我是ul里面的文字');
+				}
+			};
+		};
+	</script>
+</head>
+<body>
+	<button id="btn">添加一个超链接</button>
+	<ul id="ul">
+		<li><a href="javascript:;" class="link">我是一个超链接</a></li>
+		<li><a href="javascript:;" class="link">我是一个超链接</a></li>
+		<li><a href="javascript:;" class="link">我是一个超链接</a></li>
+	</ul>
+</body>
+</html>

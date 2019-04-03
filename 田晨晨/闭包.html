@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function outer() {
+			var a=333;
+			function inner(){
+				console.log("哈哈");
+				console.log(a);
+			}
+			return inner;
+		}
+		var inn=outer();
+		inn();
+	</script>
+</body>
+</html>

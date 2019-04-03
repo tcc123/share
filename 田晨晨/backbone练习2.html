@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/underscore.min.js"></script>
+    <script type="text/javascript" src="js/backbone.min.js"></script>
+    <script type="text/javascript">
+        
+        // var Book = Backbone.Model.extend({
+        //     validate: function(attr) {
+        //         if(attr.price < 1) {
+        //             return '书籍价格不应低于1元.';
+        //         }
+        //     }
+        // });
+        // var book = new Book();
+        // book.on('error', function(model, error) {
+        //     alert(error);
+        // });
+        
+        // book.set('price', 0);
+
+        // 定义模型类
+        var Book = Backbone.Model.extend({
+            defaults: {
+                name: '',
+                price: 0
+            }
+        });
+        
+        // 创建集合对象
+        var books = new Backbone.Collection(null, {
+            model: Book
+        });
+        
+        books.add({
+            name: '构建高性能Web站点',
+            price: 56.30
+        });
+        
+        books.push({
+            name: '深入分析Java Web技术内幕',
+            price: 51.80
+        });
+        
+        books.unshift({
+            name: '编写高质量代码:Web前端开发修炼之道',
+            price: 36.80
+        });
+        
+        books.push({
+            name: '基于MVC的JavaScript Web富应用开发',
+            price: 42.50
+        }, {
+            at: 1
+        });
+        
+        books.unshift({
+            name: 'RESTful Web Services Cookbook中文版',
+            price: 44.30
+        
+        }, {
+            at: 2
+        });
+        
+        
+    </script>
+</body>
+</html>

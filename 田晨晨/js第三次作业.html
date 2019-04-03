@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+// 第一题 在控制台中输出1~1000之中，所有能被5 或者6整除的数。
+		for (var i = 1; i <=1000; i++) {
+			if (i%5==0 || i%6==0) {
+				console.log(i);
+			}
+		}
+// 第二题 用户输入一个数字n,计算1~n的和。
+		var a=parseInt(prompt("请输入一个数字"));
+		var sum=0;
+		for (var i=1; i<=a ; i++) {
+			sum += i;
+		}
+		console.log(sum);
+// 第三题 计算1~10之间各个数的乘积。
+		var sum=1;
+		for(var i=1; i<=10; i++){
+			sum*=i
+		}
+		console.log(sum);
+// 第四题 计算3/2+4/3+5/4+...(n+1)/n
+		var a=parseInt(prompt("请输入一个数字"));
+		var sum=0;
+		for(var i=a; i>=2;i--){
+			sum+=((i+1)/i);
+		}
+		console.log(sum);
+// 第五题  用户输入一个数字，在控制台其列出所有约数。
+		var a=parseInt(prompt("请输入一个数字"));
+		for (var i=1 ; i<=a ; i++){
+				if (a%i==0) {
+					console.log(i);
+				} 
+		}
+// 第六题 列出位数不为7的数和不能被7整除的数。
+		for(var i=1; i<=60; i++){
+			if(i%10!=7 && i%7!=0){
+				console.log(i);
+			}
+		}
+// 第七题 水仙花数
+	// 方法一
+		for(var i=100; i<=999; i++){
+			var gw=i%10;
+			var sw=parseInt(i/10)%10;
+			var bw=parseInt(i/100);
+			if(Math.pow(gw,3)+Math.pow(sw,3)+Math.pow(bw,3)==i){
+				console.log(i);
+			}
+		}
+	//方法二 函数求水仙花数
+		pd();
+		function pd(i){
+			for(i=100;i<=999;i++){
+				if(i==fun(i)){
+						console.log(i);
+					}
+				}
+			}
+		function fun(i){
+			var sum=0;
+			var gw=i%10;
+			var sw=parseInt(i/10)%10;
+			var bw=parseInt(i/100);
+			return sum=(Math.pow(gw,3)+Math.pow(sw,3)+Math.pow(bw,3));
+		}	
+// 第八题 完美数
+		for(var i=1; i<=1000; i++){
+			var sum=0;    // 注意此行的位置
+			for(var j=1; j<i;j++){
+				if(i%j==0){
+					sum+=j;
+				}
+			}
+			if(sum==i){
+				console.log(i);
+			}
+		}
+// 第九题 输入一个数字判断这个数是否为质数
+	// 方法一
+		var a=parseInt(prompt("请输入一个数字"));
+		var count=0;
+		for (var i=1; i<=a;i++){
+			if(a%i==0){
+				count++;
+			}
+		}	
+		if(count==2){
+			console.log("这个数是质数");
+		}else{
+			console.log("这个数不是质数");
+		}
+	// 方法二 优化代码
+		// 判断质数，看约数是否只有1和它本身
+		// 在1和它本身范围外有其他约数，就不是质数
+		// 一个数的约数在它的平方根左右是对应的
+		var a=parseInt(prompt("请输入一个正整数"));
+		var sum=0;
+		for(var i=2;i<=Math.sqrt(a);i++){
+			if(a%i==0){
+				// 说明i是a的一个约数，n肯定不是质数
+				sum++;
+				break;
+			}
+		}
+		if(sum==0){
+			alert(a+"是质数");
+		}else{
+			alert(a+"不是质数");
+		}
+	// 方法三
+		var num=parseInt(prompt("请输入一个正整数"));
+		if(num<1){
+			alert('该数值不合法');
+		}else{
+			var flag=true;
+			for(var i=2;i<num;i++){
+				if(num%i==0){
+					flag=false;
+				}
+			}
+		}
+		if(flag){
+			alert(num+"是质数");
+		}
+// 第十题 求1~10000的所有质数
+	// 方法一
+		for(var i=1;i<=10000;i++){
+			var count=0;
+			for(var j=1;j<=i;j++){
+				if(i%j==0){
+					count++;
+				}
+			}
+			if(count==2){
+					console.log(i);
+				}
+		}
+	// 方法二 优化代码
+		waiceng:for(var i=2;i<=10000;i++){
+			for(var j=2;j<=Math.sqrt(i);j++){
+				if(i%j==0){
+					continue waiceng;
+				}
+			}
+			// 能够进行到这一步，说明前面continue没发生作用，j一直都不是i的约数，所以确定i是质数
+			console.log(i);
+		}
+// 第十一题 苹果3元/个 梨2元/个 桃子1元/个 ，想用200元买100个水果，请列出所有可能性。
+	// 方法一			
+		for(var i=0;i<=100;i++){
+			for(var j=0;j<=100;j++){
+				for(var k=0;k<=100;k++){
+					if(3*i+2*j+k==200 && i+j+k==100){
+						console.log(i,j,k);
+					}
+				}
+			}
+		}
+	// 方法二	(有的程序某个变量有极限解，可以缩小定义范围，可以减少计算机的工作量。优化程序)
+		for(var i=0;i<=50;i++){
+			for(var j=0;j<=100-i;j++){
+				var k=100-i-j;
+				if(3*i+2*j+k==200){
+					console.log(i,j,k);
+				}
+			}
+		}
+// 第十二题 请用户输入一个数字n，计算n的阶乘
+		var a=parseInt(prompt("请输入一个正整数"));
+		var sum=1;
+		for(var i=1;i<=a;i++){
+			sum*=i;
+		}
+		console.log(sum);
+	</script>
+</body>
+</html>

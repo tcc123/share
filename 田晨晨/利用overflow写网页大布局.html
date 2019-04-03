@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+	/*清除默认样式*/
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		/*公共类,版心*/
+		.inner{
+			width: 970px;
+			margin: 0 auto;
+		}
+		.mgb10{
+			margin-bottom: 10px;
+		}
+		/*header开始*/
+		.header{
+			overflow: hidden;
+		}
+		.header .logo{
+			float: left;
+			width: 277px;
+			height: 103px;
+			background-color: red;
+		}
+		.header .lang{
+			float: right;
+			width: 137px;
+			height: 49px;
+			background-color: lightgreen;
+			margin-bottom: 8px;
+		}
+		.header .nav{
+			float: right;
+			width: 679px;
+			height: 46px;
+			background-color: lightgreen;
+		}
+		/*content开始*/
+		.content{
+			overflow: hidden;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		.content .slide{
+			float: left;
+			width: 310px;
+			height: 435px;
+			background-color: yellow;
+		}
+		.content .main{
+			float: right;
+			width: 650px;
+			/*子盒子都是标准流，可以撑开父亲*/
+		}
+		.content .main .top{
+			overflow: hidden;
+		}
+		.content .main .bottom{
+			height: 25px;
+			background-color: green;
+		}
+		.content .main .top .left{
+			float: left;
+			width: 450px;
+		}
+		.content .main .top .right{
+			float: right;
+			width: 190px;
+			height: 401px;
+			background-color: purple;
+		}
+		.content .main .top .left div{
+			height: 240px;
+			background-color: lightblue;
+		}
+		.content .main .top .left div.son2{
+			height: 110px;
+		}
+		.content .main .top .left div.son3{
+			height: 30px;
+		}
+		.footer{
+			height: 35px;
+			background-color: blue;
+		}
+	</style> ..
+</head>
+<body>
+	<div class="header inner">
+		<div class="logo"></div>
+		<div class="lang"></div>
+		<div class="nav"></div>
+	</div>
+	<div class="content inner">
+		<div class="slide"></div>
+		<div class="main">
+			<div class="top mgb10">
+				<div class="left">
+					<div class="son1 mgb10"></div>
+					<div class="son2 mgb10"></div>
+					<div class="son3"></div>
+				</div>
+				<div class="right"></div>
+			</div>
+			<div class="bottom"></div>
+		</div>
+	</div>
+	<div class="footer inner"></div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		p{
+			width: 100px;
+			height: 50px;
+			background: #abcdef;
+			border-radius: 5px;
+			text-align: center;
+			line-height: 50px;
+			margin: 0 auto;
+			color: #fff;
+			font-size: 20px;
+		}
+		.pbtn{
+			background: green;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+</head>
+<body>
+	<button id="btn">按钮</button>
+	<p>按钮</p>
+	<ul>
+		<li>li 1</li>
+		<li>li 2</li>
+		<li>li 3</li>
+		<li>li 4</li>
+	</ul>
+<script type="text/javascript">
+	$(function(){
+	//bind()事件绑定函数
+		// $("#btn").bind("click mouseover",function(){
+		// 	alert('haha');
+		// });
+		//绑定两个不同的事件
+		$("#btn").bind({
+			click:function(){
+				alert('click');
+			},
+			mouseover:function(){
+				alert('mouseover');
+			}
+		})
+
+		$("p").bind("mouseover mouseout",function(){
+			$(this).toggleClass("pbtn");
+		})
+	//delegate()事件绑定函数
+		$("ul").delegate("li","click",function(){
+			alert($(this).html());
+		})
+	//on()事件绑定函数
+		$("ul").on("click","li",function(){
+			alert($(this).html());
+		})
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		@font-face {
+			font-family: 'tcc';
+			src:  url('fonts/fonts/icomoon.eot?vav1cl');
+			src:  url('fonts/fonts/icomoon.eot?vav1cl#iefix') format('embedded-opentype'),
+			  url('fonts/fonts/icomoon.ttf?vav1cl') format('truetype'),
+			  url('fonts/fonts/icomoon.woff?vav1cl') format('woff'),
+			  url('fonts/fonts/icomoon.svg?vav1cl#icomoon') format('svg');
+			font-weight: normal;
+			font-style: normal;
+		}
+
+
+
+		a{
+			text-decoration: none;}
+		body{
+			background-color: #0D0105;
+		}
+		.header{
+			width: 100%;
+			height: 122px;
+			background: url(../images/tpsd1.png) no-repeat center top ;
+			position: relative;
+			z-index: 100;
+		}
+		h1{
+			width: 228px;
+			height: 280px;
+			text-indent: -999em;
+			background: url(../images/tpsd2.png) no-repeat center top;
+			position: absolute;
+			left: 50%;
+			top: 0;
+			margin-left: -140px;
+		}
+		.logo a{
+			display: block;
+			width: 228px;
+			height: 280px;
+		}
+		.header ul{
+			list-style: none;
+			width: 960px;
+			height: 50px;
+			position: absolute;
+			left: 50%;
+			top: 15px;
+			margin-left: -480px;
+			z-index: 5;
+		}
+		.header ul li{
+			float: left;
+			width: 113px;
+			height: 50px;
+		}
+		.header li.third{
+			padding-right:228px;
+		}
+		.header li a{
+			display: block;
+			text-align: center;
+			height: 50px;
+			line-height: 40px;
+			font-size: 14px;
+			color: #fff;
+		}
+		.header li a.fir{
+			background:url(../images/tpsd3.png) no-repeat 0 0;
+		}
+		.header li a:hover{
+			background: url(../images/tpsd3.png) 0 0;
+		}
+		.banner{
+			width: 100%;
+			height: 566px;
+			margin-top: -51px;
+			position: relative;
+			overflow: hidden;
+		}
+		img{
+			position: absolute;
+			left: 50%;
+			top: 0;
+			margin-left: -960px;
+		}
+		span.l{
+			display: block;
+			width: 55px;
+			height: 90px;
+			background: url(../images/tpsd3.png) no-repeat -369px 0 ;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -45px;
+		}
+		span.r{
+			display: block;
+			width: 55px;
+			height: 90px;
+			background: url(../images/tpsd3.png) no-repeat -451px 0 ;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			margin-top: -45px;
+		}
+		span a {
+			display: block;
+			height: 90px;
+		}
+		span.l a:hover{
+			background: url(../images/tpsd3.png) no-repeat -370px -104px;
+		}
+		span.r a:hover{
+			background: url(../images/tpsd3.png) no-repeat -451px -104px;
+		}
+		.box{
+			width: 100%;
+			height: 132px;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			background: url(../images/tpsd10.png) no-repeat center bottom;
+		}
+		.box ul{
+			list-style: none;
+			width: 540px;
+			height: 132px;
+			margin: 0 auto;
+		}
+		.box ul li{
+			float: left;
+		}
+		.box ul a{
+			display: block;
+			width: 180px;
+			height: 132px;
+		}
+		.box ul a:hover{
+			background: url(../images/tpsd3.png) -120px -99px;
+		}	
+		.box ul a h3{
+			font-size: 12px;
+			color: #fff;
+			height: 32px;
+			line-height: 32px;
+			text-align: center;
+			font-weight: normal;
+			visibility: hidden;
+		}
+		.box ul a:hover h3{
+			visibility: visible;
+		}
+		.box ul a span{
+			display: block;
+			width: 160px;
+			height: 90px;
+			margin-left: 9px;
+			margin-top: 2px;
+			background-image: url(../images/tpsd6.jpg);
+			opacity: 0.5;
+		}
+		.box ul a span.s{
+			background-image: url(../images/tpsd7.jpg);
+		}
+		.box ul a span.t{
+			background-image: url(../images/tpsd8.jpg);
+		}
+		.box ul a span:hover{
+			opacity: 1;
+		}
+		.footer{
+			width: 100%;
+			height: 140px;
+			background: url(../images/tpsd9.jpg) no-repeat center top;
+		}
+		.footer .first{
+			width: 450px;
+			height: 30px;
+			margin: 0 auto;
+		}
+		.footer .first{
+			padding-top: 30px;
+		}
+		.footer .first ul{
+			height: 30px;
+			list-style: none;
+		}
+		.footer .first li{
+			float: left;
+			height: 21px;
+			line-height: 30px;
+			padding-top: 9px;
+		}
+		.first li a{
+
+			display: block;
+			width: 50px;
+			color: #766970;
+			font-size: 12px;
+			line-height: 12px;
+			border-right: 1px solid #766970;
+			padding: 0 12px;
+		}
+		.first li a:hover{
+			color: #fff;
+		}
+		.first li a.last{
+			border-right: 0;
+		}
+		.footer p{
+			width: 450px;
+			height: 20px;
+			margin: 0 auto;
+			font-size: 12px;
+			text-align: center;
+			line-height: 20px;	
+			color: #766970;
+		}
+		.footer p a{
+			font-family: "tcc";
+			color: #766970;
+		}

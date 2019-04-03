@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>盒子</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.header{
+			width: 1000px;
+			height: 80px;
+			margin: 10px auto;
+			background-color:#ffffff;
+		}
+		.header .logo{
+			float: left;
+			width: 100px;
+			height:80px;
+			background-color: lightpink;
+		}
+		.header .nav{
+			float: right;
+			width:800px;
+			height: 80px;
+			background-color: lightgreen;
+		}
+		.main{
+			width: 1000px;
+			height:600px;
+			margin:20px auto;
+			background-color: #eee;
+		}
+		.main .left{
+			width:440px;
+			height: 400px;
+			background-color: lightyellow;
+			float: left;
+		}
+		.main .right{
+			float: right;
+			width: 540px;
+			height: 600px;
+			background-color: lightblue;
+		}
+		.footer{
+			margin: 10px auto;
+			width:1000px;
+			height:100px;
+			background-color: lightgrey;
+		}
+		span{
+			background-color: lightgreen;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="logo">logo</div>
+		<div class="nav">nav</div> 
+	</div>
+	<div class="main">
+		<div class="left">我爱是啥是啥</div>
+		<div class="right">
+			<p>我是主内容<span >我是里面的小文字</span></p>
+		</div>
+	</div>
+	<div class="footer">footer</div>
+</body>
+</html>

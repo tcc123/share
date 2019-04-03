@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/Vue-2.5.17.js"></script>
+	<script type="text/javascript">
+		/*计算属性 computed
+			基本写法：(默认是get)
+				computed:{
+					b:function(){}
+				}
+			完整写法：
+				computed:{
+					属性名称：{
+						get:function(){},
+						set:function(){}
+					}
+				}
+		*/
+		window.onload=function(){
+			var vm=new Vue({
+				el:".box",
+				data:{
+					msg:2
+				},
+				computed:{
+					b:{  //要把b看做一个属性
+						get:function(){     //获取b的值
+							return this.msg+10;
+						},
+						set:function(val){  //设置b的值
+							return this.msg=val;
+						}
+					}
+				}
+			})
+			window.onclick=function(){
+				vm.b=200;
+			}
+		};
+	</script>
+</head>
+<body>
+	<div class="box">
+		<p>{{msg}}</p>
+		<!-- 要把b看做一个属性 不能加括号调用 -->
+		<!-- <p>{{b()}}</p> -->
+		<p>{{b}}</p>
+	</div>
+</body>
+</html>

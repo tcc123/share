@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#main{
+			position: relative;
+		}
+		#main .pic{
+			width: 190px;
+			box-shadow: 0 0 6px #ccc;
+			float: left;
+			margin: 5px;
+		}
+		#main .pic img{
+			width: 180px;
+			border: 5px solid #fff;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+</head>
+<body>
+	<div id="main">
+		<div class="pic">
+			<img src="images/waterfall/01.jpg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/02.jpg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/03.jpeg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/04.jpg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/05.jpeg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/06.gif">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/07.jpg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/08.jpeg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/09.jpg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/10.jpg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/11.jpeg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/12.png">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/13.jpg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/14.jpg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/15.jpg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/16.jpg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/17.jpg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/18.jpeg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/19.jpg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/20.jpeg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/21.jpeg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/22.jpg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/23.jpg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/24.jpg">
+		</div>
+		<div class="pic">
+			<img src="images/waterfall/25.jpg">
+		</div>
+	</div>
+<script type="text/javascript">
+	//瀑布流
+	// 宽相等，高度不等 或者高度相等，宽不等
+	// 计算出当前排高度最小的那一个，下面继续放置图片
+	// 当当前页面图片内容不够显示的时候，要继续加载新的图片
+	function waterFall(){
+		var divWidth=$("#main .pic").eq(0).width()+10;   //获取页面中包裹图片的div宽度，这里+10是因为在css中设置的margin是5px，左右加起来就是10(相当于这个div的实际宽度比预设多10px)
+		var num=Math.floor($(window).width()/divWidth);  //Math.floor 是向下取整，获取整个浏览器的宽度除以“图片的占有宽”可以获得图片可以排放多少列
+		$("#main").css({
+			width:divWidth*num,
+			margin:"0 auto"
+		});
+		var picArr=[]; //定义一个数组
+		$("#main .pic").each(function(index){  //遍历所有的div
+			var picHeight=$("#main .pic").eq(index).height();  //获取每个div的高度
+			if(index<num){  //如果是第一行
+				picArr[index]=picHeight;  //把高度储存进数组
+			}else{   //如果不是第一行的数据
+				var minH=Math.min.apply(null,picArr);  //获取数组中高度最小的高度  必须借助apply()传入数组
+				var minIndex=$.inArray(minH,picArr);  //获取picArr数组中最小高度minH的index位置  
+				$(this).css({  //设置这个div的位置
+					position:"absolute",
+					top:minH+10,  //设置它距离上方的距离，这里+10是因为在css中设置的margin是5px，上下加起来是10px
+					left:$("#main .pic").eq(minIndex).position().left  //获取最小高度距离左边的距离
+				});
+				picArr[minIndex]+=$("#main .pic").eq(index).height()+10;  //把新的高度存入数组中
+			}
+		});
+	}
+
+	$(function(){
+		$(window).on("load",function(){
+			waterFall();
+			var pics=["images/waterfall/26.jpg","images/waterfall/27.jpg","images/waterfall/28.jpeg","images/waterfall/29.jpg","images/waterfall/30.png","images/waterfall/31.jpg","images/waterfall/32.jpeg","images/waterfall/33.jpg","images/waterfall/34.jpeg","images/waterfall/35.jpeg","images/waterfall/36.jpeg","images/waterfall/37.jpg","images/waterfall/38.jpg","images/waterfall/39.jpg","images/waterfall/40.jpg","images/waterfall/41.jpg","images/waterfall/42.jpg","images/waterfall/43.jpg","images/waterfall/44.gif","images/waterfall/45.jpeg"];
+			window.onscroll=function(){
+				if($(document).scrollTop()>=$(document).height()-$(window).height()){
+					$.each(pics,function(index,value){
+						$("#main .pic").eq(0).clone().appendTo("#main").find("img").attr("src",value);
+					});
+					waterFall();
+				}
+			}
+		})
+	})
+</script>
+</body>
+</html>

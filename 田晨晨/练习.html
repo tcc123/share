@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		ul{
+			list-style-type: none;
+		}
+		a{
+			text-decoration: none;
+			color: #252525;
+		}
+		body{
+			height: 8000px;
+			background-image: url(img4.jpg);
+			/*background-repeat: repeat-x;*/
+		}
+		.box{
+			width: 300px;
+			height: 500px;
+			margin: 50px auto;
+		}
+		.box .hd{
+			overflow: hidden;
+			border-top: 2px solid #eee;
+			border-right: 1px solid #eee;
+		}
+		.box .hd span{
+			width: 99px;
+			height: 35px;
+			float: left;
+			border-left: 1px solid #eee;
+			border-bottom: 1px solid #eee;
+			text-align: center;
+			line-height: 35px;
+			font-size: 14px;
+		}
+		.box .hd span a{
+			display: block;
+			background-color: lightblue;
+		}
+		.box .hd span a:hover{
+			/*background-color: skyblue;*/
+			background-image: url(img5.png);
+			background-repeat: repeat-x;
+		}
+		.box .hd span.first{
+			height: 36px;
+			border-left: 0;
+			font-weight: bold;
+		}
+		.box .hd span.cur{
+			border-bottom: 0;
+		}
+		.box .bd{
+			overflow: hidden;
+			border: 1px solid #eee;
+			border-top: 0;
+			height: 165px;
+		}
+		.box .bd div{
+			float: left;
+			width: 300px;
+			height: 165px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="hd">
+			<span class="first cur"><a href="">新闻</a></span>
+			<span class=""><a href="">体育</a></span>
+			<span class=""><a href="">时尚</a></span>
+		</div>
+		<div class="bd">
+			<div>新闻</div>
+			<div>体育</div>
+			<div>时尚</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript"src="js/jquery-3.3.1.js"></script>
+</head>
+<body>
+	<div>
+		<p>click me</p>
+	</div>
+<script type="text/javascript">
+	$(function(){
+		$("div").on("click",function(event){
+			// event.currentTarget 返回其监听器触发事件的节点，即当前处理该事件的元素、文档或窗口
+			console.log($(event.currentTarget));  //div 事件的监听者
+			console.log($(event.target));  //p 事件的目标
+			console.log($(this));
+		})
+		
+		$("div").on("click","p",function(event){
+			console.log($(this).html());
+			console.log($(event.delegateTarget)); //指向当前事件的委托者 div
+		})
+	})
+</script>
+</body>
+</html>

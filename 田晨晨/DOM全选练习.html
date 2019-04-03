@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload=function() {
+			var yd=document.getElementsByName("items");
+			// 全选
+			var qx=document.getElementById("checkdAllBtn");
+			qx.onclick=function(){
+				for (var i = 0; i < yd.length; i++) {
+					yd[i].checked=true;
+				}
+				checkdAllBox.checked=true;
+			};
+			// 全不选
+			var qbx=document.getElementById("checkdNoBtn");
+			qbx.onclick=function(){
+				for (var i = 0; i < yd.length; i++) {
+					yd[i].checked=false;
+				}
+				checkdAllBox.checked=false;
+			};
+			// 反选
+			var fx=document.getElementById("checkdRevBtn");
+			fx.onclick=function(){
+				// 先设置一个默认值
+				checkdAllBox.checked=true;
+				for (var i = 0; i < yd.length; i++) {
+					// 方法一
+					// var a=(yd[i].checked)?yd[i].checked=false:yd[i].checked=true;
+					// 方法二
+					yd[i].checked = !yd[i].checked;
+					// 对满足条件的默认值进行修改
+					if(!yd[i].checked){
+						checkdAllBox.checked=false;
+					}
+				}
+			};
+			// 提交
+			var tj=document.getElementById("sendBtn");
+			tj.onclick=function(){
+				for (var i = 0; i < yd.length; i++) {
+					if(yd[i].checked){
+						// 弹出的是value属性值
+						alert(yd[i].value);
+					}
+				}
+			}
+			// 全选\全不选
+			var checkdAllBox=document.getElementById("checkdAllBox");
+			checkdAllBox.onclick=function(){
+				for (var i = 0; i < yd.length; i++) {
+					// 在事件的响应函数中，响应函数是给谁绑定的，this就是谁
+					yd[i].checked=this.checked;
+					
+				}
+			};
+			for (var i = 0; i < yd.length; i++) {
+				yd[i].onclick=function(){
+					// 先设置一个默认值
+					checkdAllBox.checked=true;
+					// 对满足条件的默认值进行修改
+					for(var j=0;j < yd.length; j++){
+						// 能进入if语句，就证明四个选项的状态肯定不全相同
+						if(!yd[j].checked){
+							checkdAllBox.checked=false;
+							break;
+						}
+					}
+				};
+			}
+		};
+	</script>
+</head>
+<body>
+	<form method="pose" >
+		你爱好的运动是？
+		<input type="checkbox" id="checkdAllBox">全选/全不选	<br>
+		<input type="checkbox" name="items" value="足球">足球
+		<input type="checkbox" name="items" value="篮球">篮球
+		<input type="checkbox" name="items" value="羽毛球">羽毛球
+		<input type="checkbox" name="items" value="乒乓球">乒乓球
+		<br>
+		<input type="button" id="checkdAllBtn" value="全选">
+		<input type="button" id="checkdNoBtn" value="全不选">
+		<input type="button" id="checkdRevBtn" value="反选">
+		<input type="button" id="sendBtn" value="提交">
+	</form>
+	</script>
+</body>
+</html>

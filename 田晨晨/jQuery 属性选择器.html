@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src=js/jquery-3.3.1.js></script>
+	<script type="text/javascript">
+		$(function(){
+			$("[name|='man1']").val("hello world");
+			$("[name*='ter']").val("hello tomorrow 哈哈哈");
+			$("[name~='man']").val("hello");
+			$("[id][name$=man]").val("just this one");
+		})
+	</script>
+</head>
+<body>
+	<input name="man1-new"/>
+	<input id="man" name="man1-news"/>
+	<input name="milk man"/>
+	<input id="milk" name="milkman"/>
+	<input name="letterman2"/>
+</body>
+</html>

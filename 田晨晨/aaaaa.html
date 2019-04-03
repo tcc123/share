@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+	<script type="text/javascript" src="js/Vue-2.5.17.js"></script>
+	<script type="text/javascript">
+		window.onload=function() {
+			new Vue({
+				el:".box",
+				methods:{
+					run:function(){
+						this.$http.jsonp("https://sp1.baidu.com/5b11fzupBgM18t7jm9iCKT-xh_/sensearch",{
+							params:{
+								wd:"a",
+							},
+							jsonp:"cb"
+						}).then(function(res){
+							console.log(res.data);
+						})
+					}
+				}
+			})
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<input type="text" @keyup="run">
+	</div>
+	
+</body>
+</html>

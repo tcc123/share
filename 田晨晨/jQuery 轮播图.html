@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			font-size: 14px;
+		}
+		.box{
+			margin: 100px 0 0 100px;
+			border: 1px solid #666;
+			height: 185px;
+			width: 592px;
+			position: relative;
+			overflow: hidden;
+		}
+		.top{
+			height: 25px;
+			line-height: 25px;
+			background: #EDEDEC;
+			padding: 0 10px;
+		}
+		h1{
+			font-size: 14px;
+			float: left;
+			padding-right: 11px;
+		}
+		.circle span{
+			float: left;
+			width: 7px;
+			height: 7px;
+			margin: 9px 2px;
+			border-radius: 50%;
+			background-color: #fff;
+			cursor: pointer;
+		}
+		.circle span.on{
+			background-color: red;
+		}
+		.prev,.next{
+			cursor: pointer;
+			float: left;
+			width: 31px;
+			height: 22px;
+			margin-top: 2px;
+			background: url("images/btn1.png") no-repeat;
+		}
+		.prev{
+			margin-left: 10px;
+			background-position:0 0;
+		}
+		.next{
+			background-position:-31px 0;
+		}
+		.more{
+			float: right;
+		}
+		.content ul{
+			position: absolute;
+			list-style: none;
+			top:25px;
+			left: 0;
+		}
+		ul li{
+			float: left;
+			width: 128px;
+			height: 96px;
+			padding: 22px 10px;
+		}
+		.content ul li div a{
+			display: block;
+			color: #9C9C9B;
+			text-decoration: none;
+		}
+		.content ul li div a:hover{
+			text-decoration: underline;
+		}
+		a.time{
+			font-size: 12px;
+			font-style: italic;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var divWidth=$(".box").width();
+			var ulWidth=$(".content ul").width();
+			var page=4;
+			var index=1;
+			$(".prev").click(function(){
+				if(index==1){
+					$(".content ul").animate({
+						"left":"-="+divWidth*(page-1)
+					},"fast");
+					index=4;
+				}else{
+					$(".content ul").animate({
+						"left":"+="+divWidth
+					},"slow");
+					index--;
+				}
+				$(".circle span").eq(index-1).addClass('on').siblings().removeClass('on');
+			});
+
+			$(".next").click(function(){
+				if(index!=page){
+					$(".content ul").animate({
+						"left":"-="+divWidth
+					},"slow");
+					index++;
+				}else{
+					$(".content ul").animate({
+						"left":0
+					},"fast");
+					index=1;
+				}
+				$(".circle span").eq(index-1).addClass('on').siblings().removeClass('on');
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="box">
+		<div class="top">
+			<h1>图片展示</h1>
+			<div class="circle">
+				<span class="on"></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<span class="prev"></span>
+			<span class="next"></span>
+			<span class="more">更多&gt;&gt;</span>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<div class="a1">
+						<a href="#"><img src="images/01.jpg"></a>
+						<a href="#"><span>标题1</span></a>
+						<a href="#" class="time"><span>时间：2018-9-21</span></a>
+					</div>
+				</li>
+				<li>
+					<div class="a1">
+						<a href="#"><img src="images/01.jpg"></a>
+						<a href="#"><span>标题2</span></a>
+						<a href="#" class="time"><span>时间：2018-9-21</span></a>
+					</div>
+				</li>
+				<li>
+					<div class="a1">
+						<a href="#"><img src="images/01.jpg"></a>
+						<a href="#"><span>标题3</span></a>
+						<a href="#" class="time"><span>时间：2018-9-21</span></a>
+					</div>
+				</li>
+				<li>
+					<div class="a1">
+						<a href="#"><img src="images/01.jpg"></a>
+						<a href="#"><span>标题4</span></a>
+						<a href="#" class="time"><span>时间：2018-9-21</span></a>
+					</div>
+				</li>
+				<li>
+					<div class="a1">
+						<a href="#"><img src="images/01.jpg"></a>
+						<a href="#"><span>标题5</span></a>
+						<a href="#" class="time"><span>时间：2018-9-21</span></a>
+					</div>
+				</li>
+				<li>
+					<div class="a1">
+						<a href="#"><img src="images/01.jpg"></a>
+						<a href="#"><span>标题6</span></a>
+						<a href="#" class="time"><span>时间：2018-9-21</span></a>
+					</div>
+				</li>
+				<li>
+					<div class="a1">
+						<a href="#"><img src="images/01.jpg"></a>
+						<a href="#"><span>标题7</span></a>
+						<a href="#" class="time"><span>时间：2018-9-21</span></a>
+					</div>
+				</li>
+				<li>
+					<div class="a1">
+						<a href="#"><img src="images/01.jpg"></a>
+						<a href="#"><span>标题8</span></a>
+						<a href="#" class="time"><span>时间：2018-9-21</span></a>
+					</div>
+				</li>
+				<li>
+					<div class="a1">
+						<a href="#"><img src="images/01.jpg"></a>
+						<a href="#"><span>标题9</span></a>
+						<a href="#" class="time"><span>时间：2018-9-21</span></a>
+					</div>
+				</li>
+				<li>
+					<div class="a1">
+						<a href="#"><img src="images/01.jpg"></a>
+						<a href="#"><span>标题10</span></a>
+						<a href="#" class="time"><span>时间：2018-9-21</span></a>
+					</div>
+				</li>
+				<li>
+					<div class="a1">
+						<a href="#"><img src="images/01.jpg"></a>
+						<a href="#"><span>标题11</span></a>
+						<a href="#" class="time"><span>时间：2018-9-21</span></a>
+					</div>
+				</li>
+				<li>
+					<div class="a1">
+						<a href="#"><img src="images/01.jpg"></a>
+						<a href="#"><span>标题12</span></a>
+						<a href="#" class="time"><span>时间：2018-9-21</span></a>
+					</div>
+				</li>
+				<li>
+					<div class="a1">
+						<a href="#"><img src="images/01.jpg"></a>
+						<a href="#"><span>标题13</span></a>
+						<a href="#" class="time"><span>时间：2018-9-21</span></a>
+					</div>
+				</li>
+				<li>
+					<div class="a1">
+						<a href="#"><img src="images/01.jpg"></a>
+						<a href="#"><span>标题14</span></a>
+						<a href="#" class="time"><span>时间：2018-9-21</span></a>
+					</div>
+				</li>
+				<li>
+					<div class="a1">
+						<a href="#"><img src="images/01.jpg"></a>
+						<a href="#"><span>标题15</span></a>
+						<a href="#" class="time"><span>时间：2018-9-21</span></a>
+					</div>
+				</li>
+				<li>
+					<div class="a1">
+						<a href="#"><img src="images/01.jpg"></a>
+						<a href="#"><span>标题16</span></a>
+						<a href="#" class="time"><span>时间：2018-9-21</span></a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

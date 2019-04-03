@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/CommonUtil.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			//桥接模式： 主要作用域就是把抽象和限时分离开来，使他们可以完全独立变化
+			//应用场景一：事件监听回调机制(用户点击一个按钮，向服务器发送信息)
+			//jquery中 $ 相当于 window.onload
+			//利用桥模式  分开两个业务逻辑单元
+			// (function(){
+			// 	// 1.前台业务逻辑
+			// 	var inp=document.getElementById("inp");
+			// 	TCC.EventUtil.eventStr(inp,"click",bridgeHdler);
+			// 	//利用桥模式分开
+			// 	function bridgeHdler(){
+			// 		var msg=this.value;
+			// 		sendReq(msg);
+			// 	}
+			// 	//2.后台业务逻辑
+			// 	function sendReq(msg){
+			// 		alert("发送了指定的数据到后台："+msg);
+			// 	}
+			// })();
+
+
+			// 应用场景二： 特权函数
+			var PublicClass=function(){
+				//私有化的变量
+				var privateMethod=function(){
+					alert("执行了一段很复杂的代码...");
+				};
+				//通过特权函数去访问这个私有化的独立单元
+				this.bridgeMethod=function(){  
+					return privateMethod();
+				};
+			};
+			var p1=new PublicClass();
+			p1.bridgeMethod();
+
+
+			//应用场景三：用桥把多个单体组织在一起
+			//使每个单元都能独立化，可以实现自己的变化
+			var Class1=function(a,b,c){
+				this.a=a;
+				this.b=b;
+				this.c=c;
+			};
+			var Class2=function(d,e){
+				this.d=d;
+				this.e=e;
+			};
+			var BridgeClass=function(a,b,c,d,e){
+				this.class1=new Class1(a,b,c);
+				this.class2=new Class2(d,e);
+			}
+		};
+	</script>
+</head>
+<body>
+	<input id="inp" type="button" value="我是数据" >
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		.nav{
+			width: 708px;
+			margin:30px auto;
+		}
+		ul{
+			height: 35px;
+		}
+		li{
+			float: left;
+			border-right: 1px solid #eee;
+			/*父亲必须写宽高*/
+			width: 100px;
+			height: 35px;
+			position: relative;
+		}
+		.nav li a{
+			display: block;
+			width: 100px;
+			height: 35px;
+			background-color: pink;
+			line-height: 35px;
+			text-align: center;
+			color:white;
+			background-color: pink;
+		}
+		li.last{
+			border-right: 0;
+		}
+		.nav a:hover{
+			border-top: 3px solid orange;
+			position: absolute;
+			top: -3px;
+			left: 0px;
+		}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<ul>
+			<li><a href="" title="" >我爱学习</a></li>
+			<li><a href="" title="">我爱学习</a></li>
+			<li><a href="" title="">我爱学习</a></li>
+			<li><a href="" title="">我爱学习</a></li>
+			<li><a href="" title="">我爱学习</a></li>
+			<li><a href="" title="">我爱学习</a></li>
+			<li class="last"><a href="" title="" >我爱学习</a></li>
+		</ul>
+	</div>
+</body>
+</html>

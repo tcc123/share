@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		a{
+			text-decoration: none;
+		}
+		table,th,tr,td{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		table{
+			height: 130px;
+			margin: 20px auto;
+		}
+		div{
+			border: 1px solid black;
+			width: 274px;
+			height: 180px;
+			margin: 0 auto;
+		}
+		div table,div tr,div td{
+			border: 0;
+		}
+		input,button{
+			box-shadow: 1px 1px #eee;
+			border-radius: 2px;
+		}
+	</style>
+	<script type="text/javascript">
+		var delA=function(){
+					// 点击的哪个超链接this就是哪个
+					// 获取当前tr
+					var tr=this.parentNode.parentNode;
+					// 获取要删除员工的名字
+					var td=tr.children[0].innerHTML;
+					// 删除tr
+					// confirm()用于弹出一个带有确认和取消按钮的提示框，用户点击确认confirm()则返回true，点击取消则返回false
+					var flag=confirm("确认删除"+td+"吗？");
+					if(flag){
+						tr.parentNode.removeChild(tr);
+					}
+				/*	点击超链接以后，超链接会默认自动跳转页面，
+					但是我们此时不需要跳转，可以通过最后的return false来取消a超链接的自动跳转行为
+				*/
+					return false;
+				}
+		window.onload=function() {
+			
+		// 删除记录
+			// 获取所有超链接
+			var a=document.getElementsByTagName("a");
+			// 遍历，为每个超链接绑定单击响应函数
+			for(var i=0;i<a.length;i++){
+				a[i].onclick=delA;
+			}
+
+		// 添加记录
+			// 为提交按钮绑定一个单击响应函数
+			var submit=document.getElementById("addEmpButton");
+			submit.onclick=function(){
+				// 获取添加的员工信息文本框的内容   name email  salary
+				var empName=document.getElementById("empName").value;
+				var email=document.getElementById("email").value;
+				var salary=document.getElementById("salary").value;
+
+			// 方法一
+				var tr=document.createElement("tr");
+				tr.innerHTML="<td>"+empName+"</td>"+
+								"<td>"+email+"</td>"+
+								"<td>"+salary+"</td>"+
+								"<td><a href='javascript'>Delete</a></td>";
+				var tbody=document.getElementsByTagName("tbody")[0];
+				tbody.appendChild(tr);
+				// 删除添加进去的某一条记录 为每个超链接绑定单击响应函数
+				var a=tr.getElementsByTagName("a")[0];
+				a.onclick=delA;
+
+			// 方法二
+				// 创建tr节点对象
+				// var tr=document.createElement("tr");
+				// // 创建td节点对象
+				// var empNameTd=document.createElement("td");
+				// // 向td内添加员工信息文本
+				// empNameTd.innerHTML=empName;
+				// // 将td节点添加到tr节点内
+				// tr.appendChild(empNameTd);
+				
+				// var emailTd=document.createElement("td");
+				// emailTd.innerHTML=email;
+				// tr.appendChild(emailTd);
+
+				// var salaryTd=document.createElement("td");
+				// salaryTd.innerHTML=salary;
+				// tr.appendChild(salaryTd);
+
+				// var a=document.createElement("a");
+				// a.innerHTML="Delete";
+				// a.href="javascript";
+
+				// var delTd=document.createElement("td");
+				// delTd.appendChild(a);
+				// tr.appendChild(delTd);
+				// // 获取tbody节点，将tr节点添加到tbody节点内
+				// var tbody=document.getElementsByTagName("tbody")[0];
+				// tbody.appendChild(tr);
+				// // 删除添加进去的某一条记录 为每个超链接绑定单击响应函数
+				// var a=document.getElementsByTagName("a")[0];
+				// a.onclick=delA;
+			};
+		};
+	</script>
+</head>
+<body>
+	<table id="employeeTable">
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Salary</th>
+			<th>&nbsp;</th>
+		</tr>
+		<tr>
+			<td>Tom</td>
+			<td>tom@tom.com</td>
+			<td>5000</td>
+			<td><a href="deleteEmp?id=001">Delete</a></td>
+		</tr>
+		<tr>
+			<td>Jerry</td>
+			<td>jerry@jerry.com</td>
+			<td>8000</td>
+			<td><a href="deleteEmp?id=002">Delete</a></td>
+		</tr>
+		<tr>
+			<td>Bob</td>
+			<td>bob@bob.com</td>
+			<td>10000</td>
+			<td><a href="deleteEmp?id=003">Delete</a></td>
+		</tr>
+	</table>
+	<div id="formDiv">
+		<h4>添加新员工</h4>
+		<table>
+			<tr>
+				<td class="word">name: </td>
+				<td class="inp">
+					<input type="text" name="empName" id="empName">
+				</td>
+			</tr>
+			<tr>
+				<td class="word">email: </td>
+				<td class="inp">
+					<input type="text" name="email" id="email">
+				</td>
+			</tr>
+			<tr>
+				<td class="word">salary: </td>
+				<td class="inp">
+					<input type="text" name="salary" id="salary">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<button id="addEmpButton" value="abc">
+						Submit
+					</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

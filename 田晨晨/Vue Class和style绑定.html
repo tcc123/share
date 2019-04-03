@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		.bg{
+			background: pink;
+		}
+		.fz{
+			font-size: 16px;
+		}
+	</style>
+	<script type="text/javascript" src="js/Vue-2.5.17.js"></script>
+	<script type="text/javascript">
+		window.onload=function() {
+			new Vue({
+				el:".box",
+				data:{
+					aaa:"bg",
+					bool:true,
+					beel:false,
+					bbb:"fz",
+					ccc:"red",
+					ddd:14,
+					classObject:{
+						bg:true,
+						fz:false
+					},
+					styleObject:{
+						fontWeight:"normal",
+						border:"1px solid red"
+					},
+					fff:{
+						color:"green"
+					},
+					eee:{
+						border:"1px solid pink"
+					}
+				},
+				methods:{
+					show:function(){
+						if(this.bool){
+							this.bool=false;
+						}else{
+							this.bool=true;
+						}
+					}
+				}
+			})
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<!-- v:bind:class -->
+		<h1 :class="aaa">每天多爱邓伦一点</h1>
+		<!-- 数组语法 -->
+		<h1 :class="[aaa,bbb]">每天多爱邓伦两点</h1>  <!--数组里面放的是Vue data的值-->
+		<!-- 对象语法 -->
+		<h1 :class="{bg:true}">每天多爱邓伦三点</h1>  <!--这里的bg指的是 .bg -->
+		<h1 :class="{bg:bool}">每天多爱邓伦四点</h1>
+		<h1 :class="{bg:true,fz:true}">每天多爱邓伦五点</h1>
+		<h1 :class="{bg:bool,fz:beel}">每天多爱邓伦六点</h1>
+		<h1 :class="classObject">每天多爱邓伦七点</h1>
+		<button @click="show">切换class</button>
+
+		<!-- v:bind:style -->
+		<!-- 对象语法 -->
+		<h1 :style="{color:ccc,fontSize:ddd+'px',styleObject}">每天多爱邓伦八点</h1>
+		<h1 :style="styleObject">每天多爱邓伦九点</h1>
+		<!-- 数组语法 -->
+		<h1 :style="[fff,eee]">每天多爱邓伦十点</h1>
+	</div>
+</body>
+</html>

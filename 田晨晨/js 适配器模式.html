@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		//适配器模式
+		/*适配器模式可用来在现有的接口和不兼容的类之间进行适配.使用这种模式的对象又叫做包装器(wrapper)
+		*，因为他们是在一个新的接口包装另一个对象。借助适配器可以处理一下类与API不匹配、不能一同使用的情况
+		*注意适配器和门面模式虽然比较类似，但是门面模式只是为了简化一个接口，他并不是提供额外的选择，适
+		*配器则要把一个接口转换为另一个接口，它并不会滤除某些能力，也不会简化接口。
+		*/
+		//企业开发中：JavaScript库(extjs,jquery,yui,prototype...)
+
+		//例子 模拟：根据id获得指定的dom元素
+		//要求：YAHOO(我们用雅虎的框架，但是Prototype程序员该怎么写代码还怎么写)
+
+		//Prototype $ function (不需要传递任何的形参：一个id 写一个参数 多个id 写多个参数)
+		function $(){
+			var elements=[];
+			for(var i=0;i<arguments.length;i++){
+				var element=arguments[i];
+				if(typeof element=="string"){
+					element=document.getElementById(element);
+				}
+				if(arguments.length==1){
+					return element;
+				}
+				elements.push(element);
+			}
+			return elements;
+		}
+
+		//YUI get function(传递了一个参数：类型不是字符串就是数组)
+		var YAHOO={};
+		YAHOO.get=function(el){
+			if(typeof el=="string"){
+				return document.getElementById(el);
+			}
+			if(el instanceof Array){
+				var elements=[];
+				for(var i=0;i<el.length;i++){
+					elements[elements.length]=YAHOO.get(el[i]);
+				}
+				return elements;
+			}
+			if(el){
+				return el;
+			}
+			return null;
+		};
+
+		YAHOO.get=function YUIToPrototypeAdapter(){
+			//对于YUI开发人员来说，永远传递一个参数YUIToPrototypeAdapter;
+			if(arguments.length==1){
+				var e=arguments[0];
+				return $.apply(window,e instanceof Array? e:[e]);
+			}else{
+				return $.apply(window,arguments);
+			}
+		};
+		
+		window.onload=function(){
+			/*
+			//prototype开发人员习惯的写法
+			var domarr=$('inp1','inp2');
+			alert(domarr);
+			*/
+			/*
+			//YUI开发人员习惯的写法
+			var domarr=YAHOO.get(['inp1','inp2']);
+			alert(domarr);
+			*/
+
+			//YUI  根据要求适配Prototype框架
+			var domarr1=YAHOO.get('inp1','inp2'); 
+			alert(domarr1);
+			var domarr2=YAHOO.get(['inp1','inp2']); 
+			alert(domarr2);
+			var domarr3=YAHOO.get('inp1'); 
+			alert(domarr3);
+			var domarr4=YAHOO.get(['inp1']); 
+			alert(domarr4);
+		};
+	</script>
+</head>
+<body>
+	<input id="inp1">
+	<input id="inp2">
+</body>
+</html>

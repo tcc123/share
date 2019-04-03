@@ -1,0 +1,363 @@
+
+#top{
+	height: 665px;
+	position: relative;
+	overflow: hidden;
+}
+.inner{
+	width: 1000px;
+	margin: 0 auto;
+}
+.header{
+	width: 629px;
+	position: absolute;
+	left:50%;
+	margin-left: -314.5px;
+	top: 19px;
+	z-index: 2;
+}
+.header h2{
+	float: left;
+	text-indent: -999em;
+	background:url(../images/lxcm/logo.png) no-repeat;
+}
+.header h2 a{
+	display: block;
+	width: 151px;
+	height: 102px;
+}
+.header ul{
+	float: left;
+}
+.header ul li{
+	float: left;
+	background: #fff;
+	width: 120px;
+	height: 91px;
+	border-right: 1px solid #EAEAEA;
+}
+.header ul li a{
+	text-align: center;
+	padding-top: 28px;
+	display: block;
+	height: 63px;
+	text-decoration: none;
+}
+.header ul li a:hover{
+	background-color: #F9F9F9;
+	border-top: 4px solid #F28D00;
+	position: relative;
+	top: -4px;
+}
+.header ul li.short{
+	width: 114px;
+}
+.header ul li a p{
+	height: 27px;
+	color: #636363;
+	font: 16px/27px "微软雅黑",Arial;
+}
+.header ul li a span{
+	display: block;
+	line-height: 21px;
+	font: 12px/21px "微软雅黑",Arial;
+	color: #C7C7C7;
+}
+.banner{
+	position: relative;
+}
+.banner .carousel ul li{
+	position:absolute;
+	left: 50%;
+	top: 0;
+	margin-left: -960px;
+	height: 665px;
+	display: none;
+}
+.banner .carousel ul li.current{
+	display: block;
+}
+.banner .sideBox ul{
+	position:absolute;
+	top: 218px;
+	left: 50%;
+	margin-left: -500px;
+	background: url(../images/lxcm/line.png) no-repeat 6px 15px;
+}
+.banner .sideBox ul li{
+	width: 15px;
+	height: 15px;
+	background: url(../images/lxcm/point.png);
+	margin-bottom: 70px;
+	position: relative;
+}
+.banner .sideBox ul li a{
+	/* display: block; */
+	width: 104px;
+	height: 43px;
+	position: absolute;
+	top: 0;
+	right: -13px;
+	display: none;
+}
+.banner .sideBox ul li a.hover1{
+	background: url(../images/lxcm/hover1.png) no-repeat;
+}
+.banner .sideBox ul li a.hover2{
+	background: url(../images/lxcm/hover2.png) no-repeat;
+}
+.banner .sideBox ul li a.hover3{
+	background: url(../images/lxcm/hover3.png) no-repeat;
+}
+.banner .sideBox ul li a.hover4{
+	background: url(../images/lxcm/hover4.png) no-repeat;
+}
+.banner .sideBox ul li.on a{
+	display: block;
+}
+.banner .video{
+	position: absolute;
+	left: 50%;
+    margin-left: 320px;
+    top: 500px;
+	background: url(../images/lxcm/video.png);
+}
+.banner .video a{
+	display: block;
+	width: 151px;
+	height: 89px;
+}
+#content{
+	height: 653px;
+	background:url(../images/lxcm/content_bg.png) no-repeat center top #ECECEC;;
+	position: relative;
+}
+#content .txtMarquee-top{
+	width: 1000px;
+	height: 54px;
+	border-bottom: 1px solid #E0E0E0;
+	position: absolute;
+	top:-54px ;
+	background: #fff;
+}
+#content .txtMarquee-top h2{
+	float: left;
+	width: 65px;
+	height: 49px;
+	line-height: 49px;
+	padding:5px 19px 0px;
+	font-size: 16px;
+	color: #3E3E3E;
+}
+#content .txtMarquee-top .new{
+	float: left;
+	display: inline-block;
+	height: 34px;
+	padding-top: 20px;
+	font: 12px "微软雅黑",Arial;
+	color: #757575;
+	padding-left: 11px;
+}
+#content .txtMarquee-top .new .time{
+	display: inline-block;
+	padding-left: 10px;
+}
+#content .txtMarquee-top .hd{
+	float: left;
+	margin-left: 34px;
+	margin-top: 18px;
+}
+#content .txtMarquee-top .hd .prev{
+	display: inline-block;
+	float: left;
+	width: 24px;
+	height: 17px;
+	background: url(../images/lxcm/btn_bg.png) no-repeat -1px 0;
+}
+#content .txtMarquee-top .hd .prev:hover{
+	background: url(../images/lxcm/btn_bg.png) no-repeat -1px -17px;
+}
+#content .txtMarquee-top .hd .next{
+	display: inline-block;
+	float: left;
+	width: 24px;
+	height: 17px;
+	background: url(../images/lxcm/btn_bg.png) no-repeat -22px 0;
+}
+#content .txtMarquee-top .hd .next:hover{
+	background: url(../images/lxcm/btn_bg.png) no-repeat -22px -17px;
+}
+#content .txtMarquee-top .all{
+	display: inline-block;
+	float: right;
+	width: 67px;
+	height: 27px;
+	margin-top: 18px;
+	text-decoration: none;
+	margin-right: 20px;
+	color: #fff;
+	font: 12px/27px "微软雅黑",Arial;
+	text-align: center;
+	background: #DCDCDC;
+}
+#content .txtMarquee-top .all:hover{
+	color: #3E3E3E;
+	background: #E7E7E7;
+}
+#content .item{
+	height: 367px;
+	background-color: #F3F3F3;
+	border-bottom: 1px solid #E0E0E0;
+}
+#content .item ul{
+	padding:0 20px;
+	overflow: hidden;
+}
+#content .item li{
+	float: left;
+	width: 304px;
+}
+#content .item li.second{
+	margin: 0 24px;
+}
+#content .item li .title{
+	padding-top: 22px;
+	height: 32px;
+}
+#content .item li .title p{
+	display: inline-block;
+	padding-right: 211px;
+}
+#content .item li .title a{
+	display: inline-block;
+	width: 24px;
+	height: 16px;
+	margin-top: 3px;
+	color: #A9A9A9;
+	font-size: 12px;
+}
+#content .item li .title a:hover{
+	color: #3E3E3E;
+	text-decoration:underline; 
+}
+#content .item li .title p a{
+	width: 64px;
+	height: 21px;
+	font-size: 16px;
+	margin-top: 0;
+	color: #3E3E3E;	
+	text-decoration: none;
+}
+#content .item li .item_c{
+	width: 291px;
+	height: 192px;
+	padding: 4px;
+	background: url(../images/lxcm/item_bg.png) no-repeat;
+}
+#content .item li .item_c a{
+	display: block;
+	width: 280px;
+    margin:auto auto;
+}
+#content .item li .item_c a img{
+	margin-top: 10px;
+    width: 100%;
+    height: 160px;
+    text-align: center;
+}
+#content .item li span{
+	display: block;
+	height: 46px;
+	line-height: 46px;
+	color: #A9A9A9;
+	font-size: 12px;
+}
+#content h3{
+	height: 16px;
+	line-height: 16px;
+	font-size: 16px;
+    color: #666;
+	padding-top: 19px;
+	font-weight: bold;
+}
+#content .linkbo1{
+	height: 35px;
+	line-height: 35px;
+	font-size: 12px;
+	padding-left: 7px;
+}
+#content .linkbo1 a{
+	color:#666;
+	text-decoration: none;
+}
+#content .linkbo1 a:hover{
+	text-decoration: underline;
+	color: #F28C00;
+}
+#content .linkbox2{
+	height: 215px;
+	padding-top: 22px;
+}
+#content .linkbox2 li{
+	float: left;
+	width: 56px;
+	padding: 0 30px;
+}
+#content .linkbox2 li span{
+	display: block;
+	height: 26px;
+	line-height: 26px;
+	font-size: 14px;
+    color: #646464;
+    font-weight: normal;
+    margin-bottom: 6px;
+}
+#content .linkbox2 li ul li{
+	line-height: 23px;
+	padding: 0 0;
+}
+#content .linkbox2 li ul li a{
+	display: block;
+	height: 23px;
+	color: #a0a0a0;
+	font-size: 12px;
+	text-decoration: none;
+}
+#content .linkbox2 li.last{
+	width: 102px;
+}
+#content .linkbox2 li p{
+	width: 84px;
+	height: 25px;
+	line-height:22px;
+	color: #a0a0a0;
+	font-size: 12px;
+	margin: auto auto;
+}
+#content .linkbox2 li .weibo{
+	display: block;
+	width: 61px;
+	height: 22px;
+	padding-top: 1px;
+	margin: 0 auto;
+}
+#footer{
+	height:55px;
+	background: #2B2B2B;
+	color:#B7B7B7;
+	font: 12px 微软雅黑, Arial;
+}
+#footer .fl{
+	float: left;
+	line-height: 55px;
+}
+#footer .fr{
+	float: right;
+	line-height: 55px;
+}
+#footer .fr a{
+	display: inline-block;
+	padding-left: 7px;
+	text-decoration: none;
+	color: #888888;
+}

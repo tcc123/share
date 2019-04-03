@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script  type="text/javascript" src="js/Vue-2.5.17.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			new Vue({
+				el:".box",    //el===>vue的作用范围
+				data:{		  //data===>数据
+					msg:"wowowow",
+					imgs:"images/waterfall/41.jpg",
+					width:"200px",
+					height:"250px",
+					html:"<button>我是按钮</button>",
+					text:"哈哈哈哈哈",
+					art:[1,2],
+					h:"1.html",
+				},
+				methods:{     //methods===>方法
+					show:function(){
+						this.msg="456";
+					},
+					a:function(){
+						alert(1);
+					},
+					b:function(){
+						console.log(111);
+					}
+				}
+			})
+		}
+		
+	</script>
+</head>
+<body>
+	<div class="box">
+		<div v-once>{{msg}}</div>   <!--这个数据是一次性的-->
+		{{msg}}
+		<!--完整写法 v-on:事件名称.参数=方法 
+		       缩写    @事件名称=方法 -->
+		<button @click="show">按钮</button>
+		<!--完整写法 v-bind:属性名=data数据中的值 
+		     缩写         ：属性名=data数据中的值 -->
+		<img v-bind:src="imgs" :width="width" :height="height">
+		<!-- v-html指令 -->
+		<p v-html="html"></p>
+
+		<p v-text="text"></p>
+		
+		<!-- 条件渲染 -->
+		<p v-if="art.length==0">暂无数据...</p>
+		<p v-else>{{art}}</p>
+
+		<!-- .prevent 取消默认行为-->
+		<a @click.prevent="a" :href="h" >11111</a>
+		<input type="text" @keydown.37="b">
+	</div>
+</body>
+</html>

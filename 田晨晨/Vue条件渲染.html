@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/Vue-2.5.17.js"></script>
+	<script type="text/javascript">
+		//条件渲染
+		/*v-if
+		 *v-else-if
+		 *v-else
+		 *v-show
+		*/
+		//v-if和v-show的区别
+		//           1.v-show没有v-else
+		//           2.v-show不支持template
+		//           3.v-show 只是简单地切换元素的 CSS 属性 display
+		window.onload=function() {
+			new Vue({
+				el:".box",
+				data:{
+					bool:true,
+					gold:"gold"
+				},   
+				methods:{
+					show:function(){
+						if(this.bool){
+							this.bool=false;
+						}else{
+							this.bool=true;
+						}
+					}
+				}
+			})
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<p v-show="bool" :style={color:gold}>凤凰我是你的葡萄呀</p>
+		<button @click="show">显示/隐藏</button>
+	</div>
+</body>
+</html>

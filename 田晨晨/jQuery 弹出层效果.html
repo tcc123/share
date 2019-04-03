@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.one{
+			width: 500px;
+			margin: 50px auto;
+		}
+		.box{
+			width: 500px;
+			height: 400px;
+			border: 1px solid #eee;
+			display: none;
+			position: absolute;
+			top: 20%;
+			left: 30%;
+			background: #e2e2e2;
+		}
+		.box p{
+			height: 25px;
+			background:#87AFE0;
+			padding: 0 10px;
+		}
+		.box p span{
+			text-indent: -9999em;
+			float: right;
+			background: url(images/close.jpg) no-repeat center center;
+			cursor: pointer;
+		}
+		.box p span:hover{
+			background: url(images/close_hover.jpg) no-repeat center center;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+	<script type="text/javascript" src="js/jquery.easydrag.handler.beta2.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("a").click(function(){
+				$(".box").show();
+			})
+			$("button").click(function(){
+				$(".box").toggle();
+			})
+			$("span").click(function(){
+				$(".box").hide();
+			})
+			$(".box").easydrag();
+		})
+	</script>
+</head>
+<body>
+	<div class="one">
+		<a href="#">点击弹出窗口</a>
+		<br>
+		<button>打开/关闭</button>
+		<div class="box">
+			<p>我是标题<span>关闭</span></p>
+			我是内容
+		</div>
+	</div>
+</body>
+</html>

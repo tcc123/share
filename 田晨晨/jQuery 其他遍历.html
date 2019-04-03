@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+</head>
+<body>
+	<p>hello<a href="#">John</a>,how are you doing?</p>
+
+	<ul>
+		<li class="foo">li 1</li>
+		<li>li 2</li>
+		<li class="bar">li 3</li>
+	</ul>
+<script type="text/javascript">
+	$(function() {
+		//contents()方法
+		$("p").contents().filter(function(){
+			return this.nodeType!=1;
+		}).wrap("<b/>");
+
+		//end()方法  
+		//利用end() 返回ul继续向下寻找.bar
+		$("ul").find(".foo").css("background","yellow").end().find(".bar").css("background","red")
+	})
+</script>
+</body>
+</html>

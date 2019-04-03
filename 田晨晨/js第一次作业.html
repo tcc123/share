@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<script type="text/javascript">
+// 第一题
+		var a=((123+45*78)/(34+543)-9*(324-34));
+		alert(a);
+// 第二题
+		var a=prompt("请输入摄氏度");
+		var b=9/5*parseInt(a)+32;
+		alert(b);
+// 第三题
+		var a=(Math.pow((23+Math.pow(5, 2))/45,2));
+		alert(a);
+// 第四题
+		var a=prompt("请输入六边形的边长"),b=3*Math.sqrt(3)/2*Math.pow(parseInt(a),2);
+		alert(b);
+// 第五题
+	// 方法一
+		var a=prompt("今天是星期二，请输入天数");
+		var b=parseInt((2+a%7)%7);
+		alert(a+"天后是星期"+b);
+	// 方法二
+		var arr=["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+		var a=prompt("今天是星期二，请输入天数");
+		var xingQi=(a%7+2)%7;
+		alert(arr[xingQi]);
+// 第六题
+		var a=prompt("请输入一个三位数,来计算位数相加的和"),
+			b=a%10,
+			c=parseInt(a%100/10),
+			// c=paresInt(a/10%10),
+			d=parseInt(a/100),
+			e=b+c+d;
+	    alert(e);
+ 	</script>
+</body>
+</html>

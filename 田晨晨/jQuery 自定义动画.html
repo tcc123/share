@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		div{
+			width: 200px;
+			height: 200px;
+			background: aquamarine;
+			position: absolute;
+		}
+		button{
+			position: absolute;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+</head>
+<body>
+	<div></div>
+	<button>停止动画</button>
+<script type="text/javascript">
+	var div=$("div");
+	div.click(function(){
+		$(this).animate({
+			opacity:0.2,
+			width:[400,"swing"],
+			left:100
+		},2000,"swing").delay(2000);
+
+		$(this).animate({
+			opacity:1,
+			width:"200px",
+			left:8
+		},2000,"linear",function(){
+			alert('冲鸭！镇魂女孩走花路！');
+		});
+	})
+	
+	$("button").click(function(){
+		//clearQueue() 只会停止还未执行的动画 不影响正在执行的动画  可以接收动画名称作为参数
+		div.clearQueue(); 
+		//div.finish() 立即完成所有动画
+		div.finish();
+		//div.stop() 停止当前正在进行的动画  不影响后面的动画
+		div.stop();
+	})
+</script>		
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+// 第一题
+		var a=parseInt(prompt("请输入一个数字"));
+		if(a%5==0 && a%6==0) {
+			alert("这个数字同时能被5和6整除");
+		} else if(a%5==0){
+			alert("这个数字只能被5整除,不能被6整除");
+		} else if(a%6==0){
+			alert("这个数字只能被6整除,不能被5整除");
+		} 
+		else {
+			alert("这个数字不能被5整除，也不能被6整除");
+		}
+// 第二题
+		var a=parseInt(prompt("请输入第一个数字"));
+		var b=parseInt(prompt("请输入第二个数字"));
+		if(a%2==0 && b%2==0 || a%2!=0 && b%2!=0){
+			alert("这两个数字的奇偶性相同");
+		}else{
+			alert("这两个数奇偶性不同");
+		}
+// 第三题
+		var a=prompt("请输入年份");
+		if (a%4==0 && (a%100!=0 || a%400==0)) {
+				alert("闰年");
+		} else {
+				alert("平年");
+		}
+// 第四题
+		// 方法一
+		var a=parseInt(prompt("请输入工龄"));
+		var b=parseFloat(prompt("请输入月薪"));
+		if (a>=2) {
+			if (b>12000) {
+				alert(b*3.2+"元年终奖");
+			} else {
+				alert(b*3+"元年终奖");
+			}
+		} else if(a==1){
+			if (b>10000) {
+				alert(b*1.7+"元年终奖");
+			} else {
+				alert(b*1.5+"元年终奖");
+			}
+		}else if(a==0){
+			if (b>8000) {
+				alert(b*1.2+"元年终奖");
+			} else {
+				alert(b*1+"元年终奖");
+			}
+		}
+
+		// 方法二
+		var year=parseInt(prompt("请输入工龄"));
+		var a=parseFloat(prompt("请输入月薪"));
+		var xishu;
+		if (year>=2) {
+			xishu=a>12000 ? 3.2 : 3;
+		} else if(year==1){
+			xishu=a>10000 ? 1.7 : 1.5;
+		}else{
+			xishu=a>8000 ? 1.2 : 1;
+		}
+		alert(xishu*a+"元年终奖");
+// 第五题（注意跳楼现象！！！）
+		var h=parseFloat(prompt("请输入您的身高(m)")),w=parseFloat(prompt("请输入您的体重(kg)")) ,BMI=w/Math.pow(h,2);
+		if (BMI<18.5){
+			alert("您的体重过轻");
+		}else if(BMI<25){
+			alert("您的体重正常");
+		}else if(BMI<28){
+			alert("您的体重过重");
+		}else if(BMI<32){
+			alert("您的体重肥胖");
+		}else{
+			alert("扎心了！老铁，您非常胖，胖的不要不要的");
+		}
+ 	</script>
+</body>
+</html>

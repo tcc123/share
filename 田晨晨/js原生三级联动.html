@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        省份：
+        <select id="province" name="">
+
+        </select>
+        城市：
+        <select id="city" name="">
+
+        </select>
+        区县：
+        <select id="town" name="">
+
+        </select>
+    </div>
+    <script>
+        var whatsProvince = ['湖北', '广东', '河南'];
+        var whatsCity = [['武汉', '孝感', '鹤壁', '宜昌'], ['广州', '深圳', '佛山', '东莞'], ['郑州', '开封', '洛阳', '许昌']];
+        var whatsTown = [[['1', '2', '3'], ['4', '5', '6'], ['7', '8', '9'], ['10', '11', '12']],
+        [['13', '14', '15'], ['16', '17', '18'], ['19', '20', '21'], ['22', '23', '24']],
+        [['25', '26', '27'], ['28', '29', '30'], ['31', '32', '33'], ['34', '35', '36']]];
+        selects();
+
+        function selects(){
+            var province=document.getElementById("province");
+            var city=document.getElementById("city");
+            var town=document.getElementById("town");
+
+            init();
+            function init(){
+                var province_index = 0;
+                var city_index = 0;
+                // 省份
+                var province_str=" ";
+                for(var i =0 ;i<whatsProvince.length; i++){
+                    province_str+= '<option>'+whatsProvince[i]+'</option>';
+                }
+                province.innerHTML=province_str;
+                // 城市
+                var city_str=" ";
+                for(var i =0 ;i<=whatsCity.length; i++){
+                    city_str+= '<option>'+whatsCity[province_index][i]+'</option>';
+                }
+                city.innerHTML=city_str;
+                // 县
+                var town_str=" ";
+                for(var i =0 ;i<whatsTown.length; i++){
+                    town_str+= '<option>'+whatsTown[province_index][city_index][i]+'</option>';
+                }
+                town.innerHTML=town_str;
+            }
+            function city_change(){
+                province_index=province.selectedIndex;
+                var city_str=" ";
+                for(var i =0 ;i<=whatsCity.length; i++){
+                    city_str+= '<option>'+whatsCity[province_index][i]+'</option>';
+                }
+                city.innerHTML=city_str;
+            }
+            function town_change(){
+                province_index=province.selectedIndex;
+                city_index=city.selectedIndex;
+                var town_str=" ";
+                for(var i =0 ;i<whatsTown.length; i++){
+                    town_str+= '<option>'+whatsTown[province_index][city_index][i]+'</option>';
+                }
+                town.innerHTML=town_str;
+            }
+            // 改变省时触发
+            province.onchange=function(){
+                city_change();
+                town_change();
+            };
+            // 改变市时触发
+            city.onchange=function(){
+                town_change();
+            };
+        }
+    </script>
+</body>
+</html>

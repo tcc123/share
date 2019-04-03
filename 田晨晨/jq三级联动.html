@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        省份：
+        <select id="province" name="">
+
+        </select>
+        城市：
+        <select id="city" name="">
+
+        </select>
+        区县：
+        <select id="town" name="">
+
+        </select>
+    </div>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        var whatsProvince = ['湖北', '广东', '河南'];
+        var whatsCity = [['武汉', '孝感', '鹤壁', '宜昌'], ['广州', '深圳', '佛山', '东莞'], ['郑州', '开封', '洛阳', '许昌']];
+        var whatsTown = [[['1', '2', '3'], ['4', '5', '6'], ['7', '8', '9'], ['10', '11', '12']],
+        [['13', '14', '15'], ['16', '17', '18'], ['19', '20', '21'], ['22', '23', '24']],
+        [['25', '26', '27'], ['28', '29', '30'], ['31', '32', '33'], ['34', '35', '36']]];
+
+        var num = 0;
+        var num1 = 0;
+        for(var i=0;i<whatsProvince.length;i++){
+            $("#province").append('<option>'+whatsProvince[i]+'</option>');
+            $("#town").append('<option>'+whatsTown[0][0][i]+'</option>');
+        }
+        for(var i=0;i<=whatsCity.length;i++){
+            $("#city").append('<option>'+whatsCity[0][i]+'</option>');
+        }
+        $('#province').change(function () {     
+
+            // 移除城市下的子节点
+            $('#city').children().remove(); 
+            
+            // 移除村镇下的子节点（
+            $('#town').children().remove();   
+
+            //获取被选节点的子节点的索引
+            num = $(this).children(':selected').index();      
+
+            for (var j = 0; j <= whatsCity.length; j++) {
+                //num为了匹配数组的索引
+                $('#city').append('<option>' + whatsCity[num][j] + '</option>');  
+            }
+            for(var i=0;i<whatsTown.length;i++){
+                $("#town").append('<option>'+whatsTown[num][0][i]+'</option>');
+            }
+        });
+
+        $('#city').change(function () {     
+
+            // 移除村镇下的子节点（
+            $('#town').children().remove();   
+            num1 = $(this).children(':selected').index();      
+            for(var i=0;i<whatsTown.length;i++){
+                $("#town").append('<option>'+whatsTown[num][num1][i]+'</option>');
+            }
+        });
+    </script>
+</body>
+</html>

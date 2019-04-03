@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+</head>
+<body>
+	<span>我是span</span>
+	<p>hahaha</p>
+	<p>hahaha</p>
+	<ul>
+		<li>li 1</li>
+		<li class="middle">li 2</li>
+		<li class="middle">li 3</li>
+		<li>li 4</li>
+	</ul>
+	<ul>
+		<li>
+			<strong>s1</strong>
+		</li>
+		<li>
+			<strong>s1</strong>
+			<strong>s1</strong>
+		</li>
+	</ul>
+<script type="text/javascript">
+	$(document).ready(function(){
+	//append()和 appendTo()书写方式不一样,写法颠倒
+	//prepend()和 prependTo()书写方式不一样,写法颠倒
+		// $("p").append("<p>hello world</p>");
+		// $("p").append($("span"));
+		// $("<p>hihihi</p>").appendTo($("p"));
+		// console.log($("span").html());
+		// $("span").html("嗨！");
+		// $("p").prepend("<div>233333</div>");
+		// $("<div>666</div>").prependTo($("p"));
+
+	//before()和insertBefore()书写方式不一样，写法颠倒
+	//after()和insertAfter()书写方式不一样，写法颠倒
+		// $("<span>111111</span>").insertBefore($("p"));?
+		$("li:even").css("background-color","red");
+	//filter()内参数可以是选择器、函数、类名
+		$("li").filter(":odd").css("background","blue")
+		$("li").filter(".middle").css("background","pink")
+		$("li").filter(function(){
+			return $("strong",this).length==1;
+		}).css("background","yellow")
+	})
+</script>
+</body>
+</html>

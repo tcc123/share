@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		a{
+			text-decoration: none;
+			color: #000;
+		}
+		#box{
+			width: 500px;
+			margin: 0 auto;
+		}
+		.one{
+			height: 200px;
+		}
+		.two{
+			border-top: 5px solid #AAAEB4;
+			text-align: center;
+			padding-left: 175px;
+		}
+		a{
+			display: block;
+			position: relative;
+			width: 150px;
+			height: 40px;
+			font:bold 14px/40px "宋体";
+			background-color: #eee;
+			background:url("images/1.gif");
+		}
+		span{
+			position: absolute;
+			right: 30px;
+			top: 50%;
+			margin-top: -6px;
+			width: 10px;
+			height: 12px;
+			background:url("images/2.gif") no-repeat 0 0;
+		}
+		.active{
+			background-position: 0 -58px;
+		}
+		.hover{
+			background:url("images/3.gif");
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// var i=0;
+			var i=false;
+			$(".two a").click(function(){
+				// $(".one").slideToggle();
+				// $("span").toggleClass("active");
+				// var b=document.getElementById("box");
+				// var i=0;
+				// console.log(i);
+				// if(getComputedStyle(b,null).width=="500px"){
+				// 	b.style.width="600px";
+				// }else{
+				// 	b.style.width="500px";
+				// }
+				// $("#box").width()
+				var b=$("#box");
+				console.log(b.css("width"));
+				i ?  b.width("500px") : b.width("600px") ;
+				i=!i;
+			});
+			// $(".two a").hover(function(){
+			// 	$(this).addClass("hover");
+			// },function(){
+			// 	$(this).removeClass("hover");
+			})
+		})
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div class="one">
+			<img src="images/3.jpg">
+		</div>
+		<div class="two">
+			<a href="#">菜单<span></span></a>
+		</div>
+	</div>	
+</body>
+</html>

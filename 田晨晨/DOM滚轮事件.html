@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		body{
+			height: 1000px;
+		}
+		#box{
+			width: 50px;
+			height: 50px;
+			background-color: lightblue;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var box=document.getElementById("box");
+			// onmousewheel鼠标滚轮滚动事件(火狐不支持)
+			box.onmousewheel=function(event){
+				event=event||window.event;
+				// 鼠标滚动的方向
+				/*
+				*(IE chrome) event.wheelDelta 可以获取滚动的方向 >0 向上滚  <0 向下滚
+				*(火狐) event.detail 可以获取滚动的方向 <0 向上滚	>0向下滚
+				*
+				*/
+				if(event.wheelDelta>0||event.detail<0){
+					box.style.height=box.clientHeight-10+"px";
+				}else{
+					box.style.height=box.clientHeight+10+"px";
+				}
+				/*
+				*当滚轮滚动的时候，如果浏览器有滚动条，滚动条也会默认随之滚动
+				*取消方法： return false   (IE chrome)
+				*/
+				/*
+				*因为在火狐中是使用addEventListener()方法绑定响应函数，不能使用return false取消默认行为，需要使用event.preventDafault()
+				*但是IE8 不支持，会直接报错，所以需要先判断
+				*/
+				event.preventDefault&&event.preventDefault();
+				return false;
+			};
+			// 火狐中需要使用DOMMouseScroll来绑定滚动事件
+			// 		-该事件需要使用addEventListener()函数来绑定
+			bind(box,"DOMMouseScroll",box.onmousewheel); 
+			function bind(obj,eventStr,callback){
+				if(obj.addEventListener){
+					obj.addEventListener(eventStr,callback,false);
+				}else{
+					obj.attachEvent("on"+eventStr,function(){
+						callback.call(obj);
+					});
+				}
+			}
+		};
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

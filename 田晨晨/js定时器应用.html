@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box1,#box2{
+			width: 50px;
+			height: 50px;
+			margin-top: 10px;
+			background-color: red;
+			position: absolute;
+			left: 0;
+		}
+		#box2{
+			background-color: blue;
+			top: 100px;
+		}
+		p{
+			border-left:1px solid black;
+			height: 800px;
+			margin-left: 799px;
+		}
+	</style>
+	<script type="text/javascript" src="js/move tools.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var btn01=document.getElementById("btn01");
+			var btn02=document.getElementById("btn02");
+			var btn03=document.getElementById("btn03");
+			var box1=document.getElementById("box1");
+			var box2=document.getElementById("box2");
+			btn01.onclick=function(){
+				move(box1,"left",800,10);
+			};
+			btn02.onclick=function(){
+				move(box1,"left",0,10);
+			};
+			btn03.onclick=function(){
+				move(box2,"width",300,15,function(){
+					move(box2,"height",300,15,function(){
+						move(box2,"left",300,10,function(){
+							move(box2,"width",100,15,function(){
+								move(box2,"height",100,15);
+							});
+						});
+					});
+				});
+			}
+			
+		};
+	</script>
+</head>
+<body>
+	<button id="btn01">点击此按钮红色盒子向右移</button>
+	<button id="btn02">点击此按钮红色盒子向左移</button>
+	<button id="btn03">点击此按钮蓝色盒子向右移</button>
+	<div id="box1"></div>
+	<div id="box2"></div>
+	<p></p>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			font-size: 12px;
+			font-family:"SimSun";
+		}
+		nav ul{
+			list-style: none;
+		}
+		a{
+			display: block;
+			width: 70px;
+			text-decoration: none;
+			color: #fff;
+			text-align: center;
+		}
+		.box{
+			width: 1024px;
+			height: 768px;
+			margin: 50px auto;
+			background: url("images/menu/1.jpg") no-repeat center center;
+		}
+		.arrow{
+			display:block;
+			position: absolute;
+			right: 8px;
+			top: 50%;
+			margin-top: -5px;
+			width: 10px;
+			height: 10px;
+			background: url("images/menu/there.png");
+		}
+		nav{
+			height: 30px;
+			line-height: 30px;
+			background: url('images/menu/bg1.png') repeat-x ;
+		}
+		nav ul li{
+			float: left;
+			position: relative;
+		}
+		nav ul li a:hover{
+			color: #000;
+		}
+		nav ul li ul{
+			display: none;
+			position: absolute;
+			top: 30px;
+			left: 0;
+		}
+		nav ul li ul li{
+			width: 100px;
+			background:url("images/menu/bg.png") repeat-x;
+		}
+		nav ul li ul li ul{
+			position: absolute;
+			left: 100px;
+			top: 0;
+		}
+		.focusa{
+			background:url("images/menu/bg2.png") repeat-x;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+
+			$("li").hover(function(){
+				$(this).children("ul").show();
+				$(this).focus().addClass('focusa');
+			},function(){
+				$(this).children('ul').hide();
+				$(this).focus().removeClass('focusa');
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="box">
+		<nav>
+			<ul>
+				<li>
+					<a href="#">菜单一</a>
+					<ul>
+						<li><a href="#">菜单一</a></li>
+						<li><a href="#">菜单二</a></li>
+						<li><a href="#">菜单三</a></li>
+						<li>
+							<a href="#">菜单四</a>
+							<span class="arrow"></span>
+							<ul>
+								<li><a href="#">菜单一</a></li>
+								<li><a href="#">菜单二</a></li>
+								<li>
+									<a href="#">菜单三</a>
+									<span class="arrow"></span>
+									<ul>
+										<li><a href="#">菜单一</a></li>
+										<li><a href="#">菜单二</a></li>
+										<li><a href="#">菜单三</a></li>
+										<li><a href="#">菜单四</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a href="#">菜单二</a></li>
+				<li><a href="#">菜单三</a></li>
+				<li><a href="#">菜单四</a></li>
+				<li><a href="#">菜单五</a></li>
+			</ul>
+		</nav>
+	</div>
+</body>
+</html>

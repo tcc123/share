@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		.b1{
+			width: 50px;
+			height: 50px;
+			background-color: red;
+		}
+		.b2{
+			height: 100px;
+			background-color: blue;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function() {
+			var btn=document.getElementById("btn");
+			var box=document.getElementById("box");
+			btn.onclick=function(){
+				// addClass(box,"b2");
+				// removeClass(box,"b2");
+				toggleClass(box,"b2");
+			}
+			/* 定义一个函数，用来判断一个元素中是否含有指定的class属性值
+			*参数： obj  要检查class属性的元素
+			*		cn   要检查的class值
+			*/
+			function haveClass(obj,cn){
+				var reg=new RegExp("\\b"+cn+"\\b");
+				// return alert(reg);
+				return reg.test(obj.className)
+			}
+			/* 定义一个函数，用来向一个元素中添加指定的class属性值
+			*参数： obj  要添加class属性的元素
+			*		cn   要添加的class值
+			*/
+			function addClass(obj,cn){
+				if(!haveClass(obj,cn)){
+					obj.className+=(" "+cn);
+				}
+			}
+			/* 定义一个函数，用来删除一个元素中指定的class属性值
+			*参数： obj  要删除class属性的元素
+			*		cn   要删除的class值
+			*/
+			function removeClass(obj,cn){
+				var reg=new RegExp("\\b"+cn+"\\b");
+				obj.className=obj.className.replace(reg,"");
+			}
+			/* 定义一个toggleClass函数，可以用来切换一个类（如果有这个类则删除，没有则添加）
+			*参数： obj  要切换class属性的元素
+			*		cn   要切换的class值
+			*/
+			function toggleClass(obj,cn){
+				if(haveClass(obj,cn)){
+					// 有，则删除
+					removeClass(obj,cn);
+				}else{
+					// 没有，则添加
+					addClass(obj,cn);
+				}
+			}
+		};
+	</script>
+</head>
+<body>
+	<button id="btn">点击按钮改变盒子样式</button>	
+	<br/><br/>
+	<div id="box" class="b1"></div>
+</body>
+</html>

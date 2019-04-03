@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		#box1{
+			width: 200px;
+			height:250px;
+			background-color: lightpink;
+			overflow: auto;
+			/* margin: 10px; */
+			/* padding: 10px; */
+			border: 1px solid #eee;
+		}
+		#box2{
+			width: 150px;
+			height: 650px;
+			background-color: lightgreen;
+		}
+		#info{
+			width: 200px;
+			height: 300px;
+			overflow: auto;
+			border: 1px solid #333;
+			background-color:lightblue;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var btn=document.getElementById("btn");
+			btn.onclick=function(){
+				// 可以不获取box1和box2
+				// var box1=document.getElementById("box1");
+				// var box2=document.getElementById("box2");
+				// 获取盒子内容高+padding=270px
+				alert(box1.clientHeight);
+				// 获取盒子内容高+padding+border=272px
+				alert(box1.offsetHeight);
+				// 获取整体高  650px
+				alert(box2.scrollHeight);
+				alert(box1.scrollHeight);
+				alert(box1.scrollTop);
+				// 当满足box1.scrollHeight-box1.scrollTop=box1.clientHeight时说明滚动条已经到达底部
+				alert(box1.scrollHeight-box1.scrollTop);
+			};
+			
+
+		// 小练习
+			/*
+			*当垂直滚动条滚动到底时使用表单项可用
+			*onscroll
+			*-该事件会在元素的滚动条滚动时触发
+			*/
+			// 获取id为info的p元素
+			var p=document.getElementById("info");
+			var ipt=document.getElementsByTagName("input");
+			// 为p绑定一个滚动条滚动事件的响应函数
+			p.onscroll=function(){
+				// 检查垂直滚动条是否滚动到底部
+				if(p.scrollHeight-p.scrollTop==p.clientHeight){
+					// 滚动到底部，是表单项可用
+					/*
+					*disabled属性可以设置一个元素是否禁用
+					*如果设置为true，则元素禁用
+					*如果设置为false，则元素可用
+					*/
+					ipt[0].disabled=false;
+					ipt[1].disabled=false;
+				}
+			}
+			
+			
+		};
+		
+	</script>
+</head>
+<body>
+	<div id="box1">
+		<div id="box2"></div>
+	</div>
+	<button id="btn">我是一个按钮</button>
+
+	<h3>欢迎注册</h3>
+	<p id=info>欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册欢迎用户注册</p>
+	<!-- 如果为表单项添加disabled="true"，则表单项将变成不可用状态 -->
+	<input type="checkbox" disabled="true">我已阅读完条款
+	<input type="submit"value="注册" disabled="true">
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .active{
+            background: red;
+        }
+        table,tr,td,th{
+            border:1px solid #eee;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <a :href="href">点我</a>
+        <div v-bind:class={active:isActive}>
+            <input type="text" v-model.lazy="name">
+            <span v-if="name">你的名字是：{{name}}</span>
+        </div>
+        <div>
+            <!-- v-model.number 转换数字类型 -->
+            <input type="text" v-model.number="age">
+            <span v-show="age">你的年龄是：{{age}}</span>
+        </div>
+        <div>
+            <!-- v-model.trim 去掉用户输入的首尾的空格 -->
+            <input type="text" v-model.trim="sex">
+            <span v-show="sex">你的性别是：{{sex}}</span>
+        </div>
+        <ul>
+            <li v-for="item in foodList">{{item.name}}:{{item.discount ? item.price*item.discount : item.price}}</li>
+        </ul>
+        <button v-on="{mouseenter:enter,mouseleave:leave}" v-on:click="onClick">我是一个按钮</button>
+        <form @keyup.enter="onKeyup" @submit.prevent="onSubmit" @submit.stop="onSubmit">
+            <input type="text">
+            <button type="submit">提交</button>
+        </form>
+        <label>
+            男
+            <input v-model="sex" value="male" type="radio" >
+        </label>
+        <label>
+            女
+            <input v-model="sex" value="female" type="radio">
+        </label>
+        <br>
+        {{sex}}
+        <div>你来自哪里？</div>
+        <select v-model="from">
+            <option value="1">北京</option>
+            <option value="2">上海</option>
+        </select>
+        {{from}}
+        <div>你要去哪里？</div>
+        <select v-model="dest" multiple>
+            <option value="1">广州</option>
+            <option value="2">深圳</option>
+            <option value="3">西安</option>
+        </select>
+        {{dest}}
+
+        <div v-if="role=='admin'">
+            管理员你好
+        </div>
+        <div v-else-if="role=='hr'">
+            代查看简历列表：
+            ...
+        </div>
+        <div v-else>
+            您没有权限访问此页面
+        </div>
+        <table>
+            <thead>
+                <th>学科</th>
+                <th>分数</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>数学</td>
+                    <td><input type="text" v-model.number="math"></td>
+                </tr>
+                <tr>
+                    <td>语文</td>
+                    <td><input type="text" v-model.number="lanauage"></td>
+                </tr>
+                <tr>
+                    <td>英语</td>
+                    <td><input type="text" v-model.number="english"></td>
+                </tr>
+                <tr>
+                    <td>总分</td>
+                    <td><input type="text" v-model="sum"></td>
+                </tr>
+                <tr>
+                    <td>平均分</td>
+                    <td><input type="text" v-model="average"></td>
+                </tr>
+            </tbody>
+        </table>
+        <alert></alert>
+    </div>
+    <script src="js/Vue-2.6.10.js"></script>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                from:"2",
+                dest:[],
+                name:null,
+                age:null,
+                sex:"female",
+                isActive:true,
+                href:"http://www.baidu.com",
+                foodList:[
+                    {
+                        name:"葱",
+                        price:10,
+                        discount:.3,
+                    },
+                    {
+                        name:"姜",
+                        price:20,
+                        discount:.5,
+                    },
+                    {
+                        name:"蒜",
+                        price:15,
+                    }
+                ],
+                role:"admin",
+                math:80,
+                lanauage:90,
+                english:50,
+            },
+            methods:{
+                onClick:function(){
+                    console.log("hhhh")
+                },
+                enter:function(){
+                    console.log("mouseenter")
+                },
+                leave:function(){
+                    console.log("mouseleave")
+                },
+                onSubmit:function(){
+                    console.log("submit")
+                },
+                onKeyup:function(){
+                    console.log("onkeyup")
+                }
+            },
+            computed:{
+                sum:function(){
+                    return this.math+this.lanauage+this.english;
+                },
+                average:function(){
+                    return Math.round(this.sum/3);
+                },
+            }
+            
+        })
+        Vue.component('alert',{
+            template:'<button @click="onClick">弹弹弹</button>',
+            methods:{
+                onClick:function(){
+                    alert("hahaha");
+                }
+            }
+        });
+        new Vue({
+            el:"#app"
+        })
+    </script>
+</body>
+</html>

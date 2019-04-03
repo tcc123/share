@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+			padding-left: 20px;
+			overflow: hidden;
+		}
+		a{
+			display: inline-block;
+			color: #5F5F5F;
+			text-decoration: none;
+			font-size: 14px;
+			font-family: '宋体';
+		}
+		ul li a:hover{
+			color: red;
+			text-decoration: underline;
+		}
+		ul li{
+			float: left;
+			width: 220px;
+			text-align: center;
+			padding-top: 10px;
+		}
+		.content{
+			width: 695px;
+			margin: 50px auto;
+			border: 1px solid #DADAD9;
+		}
+		.container{
+			border: 4px solid #EDEDEC;
+		}
+		.boxmore{
+			text-align: center;
+			padding: 15px;
+		}
+		.boxmore a{
+			width: 86px;
+			padding: 5px 30px 5px 20px;
+			border: 2px solid #DADAD9;
+			background: url("images/down.gif") no-repeat 118px;
+		}
+		span{
+			color: #5F5F5F;
+			font-size: 14px;
+		}
+		.onebox{
+			text-decoration: underline;
+			color: red;
+			font-weight: bold;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var a=$("li:gt(5):not(:last)");
+			a.hide();
+			$(".boxmore a").click(function(){
+				if(a.is(':visible')){
+					a.hide();
+					$(".boxmore a").css('backgroundImage','url(images/down.gif)').text("显示全部资源");
+					$("ul li a").removeClass('onebox');
+				}else{
+					a.show();
+					$(".boxmore a").css('backgroundImage','url(images/up.gif)').text("精简资源");
+					$("ul li a").filter(":contains('网页布局'),:contains('PHP视频教程'),:contains('建站知识'),:contains('高清图片下载')").addClass("onebox");
+				};
+				return false;
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="content">
+		<div class="container">
+			<ul>
+				<li><a href="#">XHTML网页基础教程</a><span>(30440)</span></li>
+				<li><a href="#">DEDE织梦CMS教程</a><span>(27220)</span></li>
+				<li><a href="#">网页布局</a><span>(20808)</span></li>
+				<li><a href="#">Mysql数据库视频教程</a><span>(12289)</span></li>
+				<li><a href="#">DreamWeaverCS5</a><span>(12289)</span></li>
+				<li><a href="#">PhotoShop视频教程</a><span>(8242)</span></li>
+				<li><a href="#">PHP视频教程</a><span>(14894)</span></li>
+				<li><a href="#">After Effects视频教程</a><span>(9520)</span></li>
+				<li><a href="#">建站知识</a><span>(2195)</span></li>
+				<li><a href="#">DIV+CSS</a><span>(4114)</span></li>
+				<li><a href="#">高清图片下载</a><span>(12206)</span></li>
+				<li><a href="#">网页模板下载</a><span>(1466)</span></li>
+				<li><a href="#">图标资源下载</a><span>(3091)</span></li>
+				<li><a href="#">其他资源</a><span>(7275)</span></li>
+			</ul>
+			<div class="boxmore"><a href="#">显示全部资源</a></div>
+		</div>
+	</div>
+</body>
+</html>

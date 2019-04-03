@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Fun(name,age,sex) {
+			this.name=name;
+			this.age=age;
+			this.sex=sex;
+			// this.sayName=sun;
+		}
+		function sun(){
+			alert('hellow大家好，我是：'+this.name);
+		}
+		var per=new Fun("小明",15,"男");
+		Fun.prototype.toString=function(){
+			return per["name="+this.name,"age="+this.age,"sex="+this.sex];
+		};
+		// per.sayName();
+		console.log(per);
+
+		// function MyClass(){
+
+		// }
+		// MyClass.prototype.a=123;
+		// MyClass.prototype.sayHello=function(b){
+		// 	alert(b);
+		// };
+		// var mc=new MyClass();
+		// var mc1=new MyClass();
+		// mc.sayHello("你好");
+		// mc1.sayHello("bbb");
+		// mc.__proto__.a=123;
+		// console.log(mc.__proto__.a);
+		// console.log(mc.a);
+		// console.log(MyClass.prototype.a==mc1.__proto__.a);
+
+		// var obj={
+		// 	name:"小米",
+		// 	age:20,
+		// 	sex:"女",
+		// 	test:{name:"小明"}
+		// };
+		// console.log(obj);
+	</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			margin: 100px;
+			width: 200px;
+			border-bottom: 1px solid #C7CBD1;
+		}
+		h3,p{
+			padding-left: 10px;
+			font-size: 16px;
+			height: 30px;
+			line-height: 30px;
+			border: 1px solid #C7CBD1;
+			border-bottom: none;
+		}
+		h3{
+			cursor: pointer;
+			background: url(images/bg.gif) right -27px no-repeat;
+			background-color: #EBEDEF;
+		}
+		p{
+			border-top: none;
+		}
+		.hover{
+			background-color: #AAAEB4;
+		}
+		.active{
+			background-position:right 7px;	
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("div p:not(:first)").hide();
+			$("h3:first").addClass('active');
+			$("h3").bind({
+				
+				click:function(){
+					//方法一
+						// var index=$("h3").index(this);
+						// $("p").eq(index).slideToggle().siblings("p").slideUp();
+					//方法二
+						$(this).next("p").slideToggle().siblings("p").slideUp();
+						$(this).toggleClass('active').siblings("h3").removeClass('active');
+					},
+				mouseover:function(){$(this).addClass("hover");},  
+    			mouseout:function(){$(this).removeClass("hover");}
+			});
+		})
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h3>标题</h3>
+		<p>内容</p>
+		<h3>标题</h3>
+		<p>内容</p>
+		<h3>标题</h3>
+		<p>内容</p>
+		<h3>标题</h3>
+		<p>内容</p>
+		<h3>标题</h3>
+		<p>内容</p>
+		<h3>标题</h3>
+		<p>内容</p>
+	</div>
+</body>
+</html>

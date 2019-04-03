@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		.text{
+			width: 250px;
+			border: 1px solid red;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+</head>
+<body>
+	<div>John Resig</div>
+	<div>gggg Resig</div>
+	<div>Malcom John Sinclair</div>	
+	<div>J.Ohn</div>
+
+	<table border="1">
+		<tr><td>TD #0</td><td></td></tr>
+		<tr><td>TD #0</td><td></td></tr>
+		<tr><td></td><td>TD #5</td></tr>
+	</table>
+
+	<div><p>hello in a paragraph</p></div>
+	<div>hello again!(with no p)</div>	
+<script type="text/javascript">
+	$(function(){
+		//选择所有包含指定文本的元素
+		$("div:contains('John')").css("text-decoration","underline");
+
+		//选择没有子元素的元素
+		$("td:empty").text("was empty").css("background-color","pink");
+
+		//选择元素中至少包含指定选择器匹配的一种元素
+		$("div:has(p)").addClass("text");
+	})
+</script>
+</body>
+</html>

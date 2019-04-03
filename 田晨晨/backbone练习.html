@@ -1,0 +1,269 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    
+</head>
+<body>
+    <script type="text/template" id="box">
+        <div id="aa" style="width:100px;height:100px;background:red;position:absolute;top:50px;">
+            <p>我是一个盒子</p>
+        </div>
+        <button class="start">开始</button>
+        <button class="end">结束</button>
+    </script>
+    <script src="js/underscore.min.js"></script>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/backbone.min.js"></script>
+    <script>
+        $(function(){
+            var mod=Backbone.Model.extend({
+               
+            });
+            var view=Backbone.View.extend({
+                el:"body",
+                initialize:function(){
+                    // var bbs=["a","b","c"];
+                    this.render();
+                },
+                template:_.template($("#box").html()),
+                render:function(){
+                    $(this.el).html(this.template());
+                    return this;
+                },
+                events:{
+                    "click .start" : "move",
+                    "click .end" : "down",
+                },
+                move:function(){  
+                    clearInterval(time);
+                    time=setInterval(function(){
+                        $("#aa").css({
+                            "left":"+="+"5px",
+                        });
+                    },30)
+                },
+                down:function(){
+                    clearInterval(time);
+                }
+            })
+            var view= new view();
+        })
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+<script type="text/javascript" src="http://backbonejs.org/backbone-min.js"></script>
+ 
+<link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <table id="js-id-gists" class="table">
+    <thead><th>description</th><th>URL</th><th>created_at</th></thead>
+    <tbody></tbody>
+  </table>
+  <script type="text/javascript">
+    // var Gist = Backbone.Model.extend({
+    //     url: 'https://api.github.com/gists/public',
+    //     parse: function (response) {
+    //         return (response[0]);
+    //     },
+        // defaults:{
+        //     website:'dmyz'
+        // },
+        // validate:function(attrs){
+        //         if(attrs.website =='dmyz'){
+        //             return 'hhh';
+        //         }
+        // },
+    // });
+      
+    // var gist = new Gist();
+    // gist.on("invalid",function(model,error){
+    //     alert(error);
+    // });
+    // gist.on('change', function (model) {
+    //     var tbody = document.getElementById('js-id-gists').children[1],
+    //     tr = document.getElementById(model.get('id'));
+    //     if (!tr) {
+    //         tr = document.createElement('tr');
+    //         tr.setAttribute('id', model.get('id'));
+    //     }
+    //     tr.innerHTML = '<td>' + model.get('description') + '</td><td>' + model.get('url') + '</td><td>' + model.get('created_at') + '</td>';
+    //     tbody.appendChild(tr);
+    // });
+    // gist.save();
+    // var GistRow=Backbone.View.extend({
+    //     el:"tbody",
+    //     model:gist,
+    //     events:{
+    //         "click a " :"replaceURL"
+    //     },
+    //     replaceURL:function(){
+    //         this.model.set("url","http://dmyz.org");
+    //     },
+    //     initialize:function(){
+    //         this.listenTo(this.model, "change",this.render);
+    //     },
+    //     render:function(){
+    //         var model=this.model;
+    //         tr=document.createElement("tr");
+    //         tr.innerHTML='<td>'+model.get('description')+'</td><td>'+ model.get('url') + '</td><td>' + model.get('created_at') + '</td><td><a href="javascript:void(0)">&reg;</a></td>';
+    //         this.el.innerHTML = tr.outerHTML;
+    //         return this;
+    //     }
+    // });
+    // var tr = new GistRow();
+    // gist.fetch();
+
+    // var Gist=Backbone.Model.extend();
+    // var Gists=Backbone.Model.extend({
+    //     url: 'https://api.github.com/gists/public',
+    //     parse: function (response) {
+    //         return response;
+    //     },
+    // });
+    // var gists=new Gists();
+    // var GistRow=Backbone.View.extend({
+    //     tagName:"tr",
+    //     render:function(object){
+    //         var model=new Gist(object);
+    //         this.el.innerHTML='<td>'+model.get('description')+'</td><td>'+ model.get('url') + '</td><td>' + model.get('created_at') + '</td>';
+    //         return this;
+    //     }
+    // });
+    // var GistsView=Backbone.View.extend({
+    //     el:"tbody",
+    //     model:gists,
+    //     initialize:function(){
+    //         this.listenTo(this.model,"change",this.render);
+    //     },
+    //     render:function(){
+    //         var html="";
+    //         _.forEach(this.model.attributes,function(object){
+    //             var tr=new GistRow();
+    //             html+=tr.render(object).el.outerHTML;
+    //         });
+    //         this.el.innerHTML=html;
+    //         return this;
+    //     }
+    // });
+    // var gistsView=new GistsView();
+    // gists.fetch();
+
+    // var Gist=Backbone.Model.extend();
+    // var Gists=Backbone.Collection.extend({
+    //     model:Gist,
+    //     url: 'https://api.github.com/gists/public',
+    //     parse: function (response) {
+    //         return response;
+    //     },
+    // });
+    // var gists=new Gists();
+    // var GistRow=Backbone.View.extend({
+    //     tagName:"tr",
+    //     render:function(model){
+    //         this.el.innerHTML='<td>'+model.get('description')+'</td><td>'+ model.get('url') + '</td><td>' + model.get('created_at') + '</td>';
+    //         return this;
+    //     }
+    // });
+    // var GistsView=Backbone.View.extend({
+    //     el:"tbody",
+    //     collection:gists,
+    //     initialize:function(){
+    //         this.listenTo(this.collection,"reset",this.render);
+    //     },
+    //     render:function(){
+    //         var html="";
+    //         _.forEach(this.collection.models,function(model){
+    //             var tr=new GistRow();
+    //             html+=tr.render(model).el.outerHTML;
+    //         });
+    //         this.el.innerHTML=html;
+    //         return this;
+    //     }
+    // });
+    // var gistsView = new GistsView();
+    // gists.fetch({reset:true});
+
+    var Gist=Backbone.Model.extend();
+    var Gists=Backbone.Collection.extend({
+        model:Gist,
+        url: 'https://api.github.com/gists/public',
+        parse: function (response) {
+            return response;
+        },
+    });
+    var gists=new Gists();
+    var GistRow=Backbone.View.extend({
+        tagName:"tr",
+        render:function(model){
+            this.el.id=model.cid;
+            // console.log(model.cid);
+            this.el.innerHTML= '<td>'+model.get('description')+'</td><td>'+ model.get('url') + '</td><td>' + model.get('created_at') + '</td><td><a href="javascript:void(0)" class="js-remove">X</a>&nbsp;&nbsp;<a href="javascript:void(0)" class="js-edit">E</a></td>';
+            return this;
+        }
+    });
+    var GistsView=Backbone.View.extend({
+        el:'tbody',
+        collection:gists,
+        events:{
+            'click a.js-remove':function(e){
+                var cid=e.currentTarget.parentElement.parentElement.id;
+                gists.model.get(cid).destroy();
+                gists.remove();
+            },
+            'click a.js-edit':'editRow',
+            'blur td[contenteditable]':'saveRow'
+        },
+        editRow:function(e){
+            var tr=e.currentTarget.parentElement.parentElement;
+            var i=0;
+            while(i<3){
+                tr.children[i].setAttribute('contenteditable',true);
+                i++;
+            }
+        },
+        saveRow:function(e){
+            var tr=e.currentTarget.parentElement;
+            var model=gists.get(tr.id);
+            model.set({
+                'description':tr.children[0].innerText,
+                'url':tr.children[1].innerText,
+                'created_at':tr.children[2].innerText
+            });
+            model.save();
+        },
+        initialize:function(){
+            var self=this;
+            _.forEach(['reset','remove','range'],function(e){
+                self.listenTo(self.collection,e,self.render);
+            });
+        },
+        render:function(){
+            var html='';
+            _.forEach(this.collection.models,function(model){
+                var tr=new GistRow();
+                html+=tr.render(model).el.outerHTML;
+            });
+            this.el.innerHTML=html;
+            return this;
+        }
+    });
+    var gistsView=new GistsView();
+    gists.fetch({reset:true});
+
+  
+  </script>
+</body>
+</html>
+</body>
+</html>

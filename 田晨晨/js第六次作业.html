@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+// 第一题
+		function Person(name,age) {
+			this.name=name;
+			this.age=age;
+		}
+		var per=new Person("小明",18);
+		var per1=new Person("小田",16);
+		var per2=new Person("小白",20);
+		// console.log(Person.prototype.__proto__.hasOwnProperty("toString"));
+		// console.log(per.__proto__.__proto__.hasOwnProperty("toString"));
+		// var a=Person.prototype.__proto__.toString();
+		// console.log(a);
+		// per.toString=function(){
+		// 	return "我是一个快乐的小Person";
+		// };
+		// var a=per.toString();
+		// console.log(a);
+		Person.prototype.toString=function(){
+			return "Person[name="+this.name+"age="+this.age+"]";
+		};
+		console.log(per);
+// 第二题 构造函数创建数组
+		var arr=new Array(per,per1,per2);
+		for(i=0;i<arr.length;i++){
+			console.log(arr[i]);
+		}
+		arr.push("A","B");
+		arr.pop();
+		arr.unshift("e","f");
+		arr.shift();
+		console.log(arr);
+// 第三题 数组去重问题
+		arr=[1,2,3,4,3,1,2,8,"a","b","c","a","e",4];
+		for(var i=0;i<arr.length;i++){
+			for(var j=i+1;j<arr.length;j++){
+				if(arr[i]==arr[j]){
+					arr.splice(j,1);
+					j--;
+				}
+			}
+		}
+		console.log(arr);
+// 第四题 写出下列代码的输出值
+		function A(){}  
+		function B(a){this.a=a;}
+		function C(a){if(a){this.a=a;}}
+		A.prototype.a=1;
+		B.prototype.a=1;
+		C.prototype.a=1;
+		console.log(A());
+		console.log(B());
+		console.log(C());
+	</script>
+</body>
+</html>

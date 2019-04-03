@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var arr=[1,2,3,4,5,4,3,2,1];
+		// 2个新加位置的方法：indexOf  lastIndexOf
+		//indexOf(正序)
+		var index=arr.indexOf(4); //正序检索值4在数组中首次出现的位置
+		var index=arr.indexOf(4,4); //第一个参数表示起始位置  第二个参数表示传值 检索值4在起始位置开始首次出现的位置 
+		alert(index);
+		//注意：查找数组比较的时候是"==="而不是"=="
+
+		//lastIndexOf(倒序)
+		var index=arr.lastIndexOf(2); //倒序检索值2在数组中首次出现的位置
+		alert(index);
+
+		//5个新加迭代的方法
+		//every()：对数组每一个元素进行一个函数的运行 都真才真，一假则假
+		var result=arr.every(function(item,index,array) {
+			return item>2;
+		});
+		alert(result); 
+		//filter()：对于数组的每一个元素进行一个函数的运行 给定的函数去执行 把过滤后的结果返回
+		var result=arr.filter(function(item,index,array) {
+			return item>2;
+		});
+		alert(result); 
+		//forEach()：循环数组每一项的值 并执行一个方法
+		var result=arr.forEach(function(item,index,array) {
+			alert(index); 
+		});
+		//map()：对于数组的每一个元素进行一个函数的运行 可以经过函数执行完毕后 把新的结果返回
+		var result=arr.map(function(item,index,array){
+			return item*2;
+		});
+		alert(result);
+		//some()：对于数组每一个元素进行一个函数的运行 一真则真，都假才假
+		var result=arr.some(function(item,index,array) {
+			return item>=5;
+		});
+		alert(result); 
+
+		//2个新加缩小的方法
+		//reduce(正序) 
+		//参数：前一个值 ，当前值 ，索引位置 ，array
+		var result=arr.reduce(function(prev,cur,index,array){
+			return prev+cur;
+		});
+		alert(result);
+ 		//reduceRight(倒序)
+		var result=arr.reduceRight(function(prev,cur,index,array){
+			return prev+cur;
+		});
+		alert(result);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
