@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .bg{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input v-for="item,i in list" type="button" v-model="item.title" v-bind:class="{bg:i===index}" v-on:click="onClick(i)">
+        <div v-for="item,j in list" v-bind:style="{display: j===index ? 'block' : 'none'}">
+            <p v-for="option in item.subList">{{option.subTitle}}</p>
+        </div>
+    <script src="js/Vue-2.6.10.js"></script>
+    <script>
+        let list=[
+            {
+                title:"新闻",
+                subList:[
+                    {
+                        subTitle:"今天很好"
+                    },
+                    {
+                        subTitle:"今天很好"
+                    },
+                    {
+                        subTitle:"今天很好"
+                    }
+                ]
+            },
+            {
+                title:"娱乐",
+                subList:[
+                    {
+                        subTitle:"着火了"
+                    },
+                    {
+                        subTitle:"结婚了"
+                    }
+                ]
+            },
+            {
+                title:"体育",
+                subList:[
+                    {
+                        subTitle:"冠军"
+                    },
+                    {
+                        subTitle:"冠军"
+                    }
+                ]
+            }
+        ]
+        let vm=new Vue({
+            el:"#app",
+            data:{
+                index:0,
+                list:list,
+            },
+            methods:{
+                onClick(i){
+                    this.index=i
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>

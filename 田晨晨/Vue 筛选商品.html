@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        a{
+            text-decoration: none;
+            color:#000;
+            display: inline-block;
+            margin: 10px;
+        }
+        li{
+            list-style: none;
+        }
+        mark{
+            margin: 10px;
+            border: 1px solid #eee;
+            background: rgb(255, 255, 255);
+        }
+        mark a{
+            width: 15px;
+            height: 15px; 
+            margin:0;
+            background: lightskyblue;
+            line-height: 15px;
+            text-align: center;
+            margin-right: 3px;
+        }
+        .active{
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <nav id="choose">
+        你的选择：
+        <mark 
+            v-for="item,key in choose"
+            @click="remove(key)"
+        >
+            {{item}}
+            <a href="javascript:;">x</a>
+        </mark>
+        </nav>
+        <ul id="type">
+            <li v-for="item,index in dataList">
+                {{item.title}}:
+                <a 
+                    href="javascript:;" 
+                    v-for="option,i in item.list"
+                    @click="addChoose(option,index,i)"
+                    :class="{active:item.index==i}"
+                >{{option}}</a>
+            </li>
+        </ul>
+    </div>
+    
+    <script src="js/Vue-2.6.10.js"></script>
+    <script>
+        let data=[
+            {
+                title:"品牌",
+                list:["苹果","小米","锤子","魅族","华为","三星","OPPO","vivo","乐视","360","中兴","索尼"]
+            },
+            {
+                title:"尺寸",
+                list:["3.0英寸以下","3.0-3.9英寸","4.0-4.5英寸","4.6-4.9英寸","5.0-5.5英寸","6.0英寸以上"]
+            },
+            {
+                title:"系统",
+                list:["安卓","(","Android",")","苹果","(","iOS",")","微软","(","Windowsphone",")","其他"]
+            },
+            {
+                title:"网络",
+                list:["联通3G","双卡单4G","双卡双4G","联通4G","电信4G","移动4G"]
+            }
+        ]
+        data.forEach(item => item.index = -1);
+        let vm=new Vue({
+            el:"#wrap",
+            data:{
+                dataList:data,
+                choose:{}
+            },
+            methods:{
+                addChoose(option,index,i){
+                    this.$set(this.choose,index,option);
+                    console.log(this.choose);
+                    this.dataList[index].index=i;
+                },
+                remove(key){
+                    this.$delete(this.choose,key);
+                    this.dataList[key].index=-1
+                }
+            }
+        })
+    </script>
+</body>
+</html>

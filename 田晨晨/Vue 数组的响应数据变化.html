@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{list}}</p>
+    </div>
+    <script src="js/Vue-2.6.10.js"></script>
+    <script>
+        var vm=new Vue({
+            el:"#app",
+            data:{
+                list:[1,2,3]
+            }
+        })
+        /*
+        提供了观察数组的边缘方法，使用这些方法将会触发视图更新
+        push(),pop(),shift(),unshift(),splice(),sort(),reverse()
+        会改变原数组
+        */
+        // vm.list.push(1000)
+        // vm.list.splice(0,1,"haha")
+
+        //不会改变原数组
+        // vm.list = vm.list.map(item=>item*3)
+
+        // 不可以通过下标改变值
+        // vm.list[0]="haha";
+    </script>
+</body>
+</html>

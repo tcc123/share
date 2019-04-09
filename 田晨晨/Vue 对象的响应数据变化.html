@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <p>{{people.age}}</p>
+    </div>
+    <script src="js/Vue-2.6.10.js"></script>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                msg:"hello",
+                people:{
+                    name:"xx",
+                }
+            }
+        })
+        // 这样是不能够响应的
+        // app.people.age=18
+
+        // 改写属性的值，重新赋值
+        // app.people={age:18}
+
+        app.people=Object.assign({},app.people,{age:18})
+
+        // 调用Vue的静态方法set
+        //语法： Vue.set(target,prop,value)
+        // Vue.set(app.people,"age",18)
+
+        // 调用实例上的方法$set
+        // app.$set(app.people,"age",18)
+    </script>
+</body>
+</html>

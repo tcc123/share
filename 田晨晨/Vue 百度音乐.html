@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .baidu{
+            width: 500px;
+            height: 300px;
+            background: #ffc;
+            margin: 0 auto;
+        }
+        span{
+            display: inline-block;
+            padding: 0 50px;
+        }
+        ul{
+            list-style: none;
+            padding-left: 20px;
+        }
+        .list{
+            height: 40px;
+            line-height: 40px;
+        }
+        .list-head{
+            background: rgb(226, 133, 133);
+        }
+        .list-body{
+            margin-top: 20px;
+            background: rgb(113, 170, 153);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="baidu">
+            <ul class="list list-head">
+                <li>
+                    <div>
+                        <input type="checkbox">全选
+                        <span>歌手</span>
+                        <span>歌单</span>
+                        <span>专辑</span>
+                    </div>
+                    
+                </li>
+            </ul>
+            <ul class="list list-body">
+                <li>
+                    <div>
+                        <input type="checkbox">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </li>
+            </ul>
+            <div class="select">
+                <span class="selsctAll">
+                    <span>统计： </span>
+                </span>
+                <div class="others">
+                    <span><em></em>选中的歌手有： 位</span>
+                    <span><em></em>专辑有： 张</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/Vue-2.6.10.js"></script>
+    <script>
+        var data=[
+            {
+                id:Date.now()+Math.random(),
+                name:"林俊杰",
+                song:"我怀念的",
+                checke:false,
+                album:10
+            },
+            {
+                id:Date.now()+Math.random(),
+                name:"周杰伦",
+                song:"以父之名",
+                checke:false,
+                album:10
+            },
+            {
+                id:Date.now()+Math.random(),
+                name:"林俊杰",
+                song:"我怀念的",
+                checke:false,
+                album:10
+            }
+        ]
+        var vm=new Vue({
+            el:"#app",
+            data:{
+                songList:data,
+            }
+        })
+    </script>
+</body>
+</html>
