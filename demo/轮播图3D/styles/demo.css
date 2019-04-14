@@ -1,0 +1,67 @@
+* {
+    padding: 0;
+    margin: 0;
+    /* 清除各个元素节点之间的文本节点（使img不会被隔开） */
+    font-size: 0;
+}
+
+.wrapper {
+    position: relative;
+    perspective: 800px;
+    transform-style: preserve-3d;
+    height: 680px;
+}
+
+.wrapper img {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    /* 实现图片居中 */
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -150px;
+    /* 居中方法二 */
+    /* margin: auto;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0; */
+    box-shadow: 0px 0px 2px 0px black;
+    /* 设置过渡动画 */
+    transition: all 0.5s;
+}
+
+.docks {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    margin: auto;
+    top: 450px;
+    left: 0;
+    right: 0;
+    z-index: 777;
+    cursor: pointer;
+}
+
+.dock {
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    float: left;
+    background-color: white;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 10px;
+    border: 1px solid black;
+}
+
+.right {
+    margin-right: 0;
+}
+
+.bgColor {
+    background-color: skyblue;
+    color: white;
+}

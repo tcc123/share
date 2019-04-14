@@ -1,0 +1,154 @@
+<!DOCTYPE <html>
+
+</html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheestyles/demo.css">
+</head>
+
+<body>
+
+    <div>
+        省份：
+        <select id="province" name="">
+
+        </select>
+        城市：
+        <select id="city" name="">
+
+        </select>
+        区县：
+        <select id="town" name="">
+
+        </select>
+    </div>
+
+    <script>
+        var whatsProvince = ['湖北', '广东', '河南'];
+        var whatsCity = [['武汉', '孝感', '鹤壁', '宜昌'], ['广州', '深圳', '佛山', '东莞'], ['郑州', '开封', '洛阳', '许昌']];
+        var whatsTown = [[['武汉1', '武汉2', '武汉3'], ['孝感4', '孝感5', '孝感6'], ['鹤壁7', '鹤壁8', '鹤壁9'], ['宜昌10', '宜昌11', '宜昌12']],
+        [['广州13', '广州14', '广州15'], ['深圳16', '深圳17', '深圳18'], ['佛山19', '佛山20', '佛山21'], ['东莞22', '东莞23', '东莞24']],
+        [['郑州25', '郑州26', '郑州27'], ['开封28', '开封29', '开封30'], ['洛阳31', '洛阳32', '洛阳33'], ['许昌34', '许昌35', '许昌36']]];
+
+        three_option();
+        function three_option() {
+            // 获取DOM节点
+            var province = document.getElementById('province');
+            var city = document.getElementById('city');
+            var town = document.getElementById('town');
+
+            init();
+            // 初始化
+            function init() {
+                // 省、市索引
+                var province_index = 0;
+                var city_index = 0;
+
+                // 省份
+                var province_str = '';
+                for (let i = 0; i < whatsProvince.length; i++) {
+                    province_str += '<option>' + whatsProvince[i] + '</option>';
+                }
+                // 插入省节点
+                province.innerHTML = province_str;
+
+                // 城市
+                var city_str = '';
+                for (let i = 0; i < whatsCity.length; i++) {
+                    city_str += '<option>' + whatsCity[province_index][i] + '</option>'
+                }
+                // 插入市节点
+                city.innerHTML = city_str;
+
+                // 区县
+                var town_str = '';
+                for (let i = 0; i < whatsTown.length; i++) {
+                    town_str += '<option>' + whatsTown[province_index][city_index][i] + '</option>';
+                }
+                // 插入县节点
+                town.innerHTML = town_str;
+            }
+
+            // function inner_province() {
+            //     // 省份
+            //     var province_str = '';
+            //     for (let i = 0; i < whatsProvince.length; i++) {
+            //         province_str += '<option>' + whatsProvince[i] + '</option>';
+            //     }
+            //     // 插入省节点
+            //     province.innerHTML = province_str;
+            // }
+
+            // function inner_province() {
+            //     // 城市
+            //     var city_str = '';
+            //     for (let i = 0; i < whatsCity.length; i++) {
+            //         city_str += '<option>' + whatsCity[province_index][i] + '</option>'
+            //     }
+            //     // 插入市节点
+            //     city.innerHTML = city_str;
+            // }
+
+            // function inner_town() {
+            //     // 区县
+            //     var town_str = '';
+            //     for (let i = 0; i < whatsTown.length; i++) {
+            //         town_str += '<option>' + whatsTown[province_index][city_index][i] + '</option>';
+            //     }
+            //     // 插入县节点
+            //     town.innerHTML = town_str;
+            // }
+
+
+            // 城市选项变化
+            function city_change() {
+                // 获取当前被选择的省份索引
+                province_index = province.selectedIndex;
+                // 城市
+                // 清空
+                var city_str = '';
+                for (let i = 0; i < whatsCity.length; i++) {
+                    city_str += '<option>' + whatsCity[province_index][i] + '</option>'
+                }
+                city.innerHTML = city_str;
+
+            }
+
+            // 县区选项变化
+            function town_change() {
+                // 获取当前被选择的市索引
+                province_index = province.selectedIndex;
+                city_index = city.selectedIndex;
+                // 区县
+                // 清空
+                var town_str = '';
+                for (let i = 0; i < whatsTown.length; i++) {
+                    town_str += '<option>' + whatsTown[province_index][city_index][i] + '</option>';
+                }
+                town.innerHTML = town_str;
+            }
+
+            //改变省的选项就触发以下程序
+            province.onchange = function () {
+
+                city_change();
+                town_change();
+
+            };
+
+            //改变市的选项就触发以下程序
+            city.onchange = function () {
+
+                town_change();
+
+            };
+
+        };
+
+    </script>
+</body>
+
+</html>

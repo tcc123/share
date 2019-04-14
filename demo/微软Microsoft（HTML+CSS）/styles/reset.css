@@ -1,0 +1,88 @@
+/*格式化样式*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {margin:0;padding:0;}
+table {border-collapse:collapse;border-spacing:0;}
+fieldset,img {border:0}
+address,caption,cite,code,dfn,em,strong,th,var {font-style:normal;font-weight:normal}
+ol,ul {list-style:none}
+caption,th {text-align:left}
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:normal}
+q:before,q:after {content:''}
+abbr,acronym { border:0}
+
+/***********通用基本类2************/
+
+/* Copyright 2008 TSXMLOVE. All Rights Reserved. */
+body
+{
+    font-size: 14px;
+    font-family: 微软雅黑;
+}
+* /*通配选择器 (定义所有内容) */
+{
+padding: 0px;
+margin: 0px;
+text-align: left;
+font-family:Arial, Verdana, Tahoma, "宋体", Helvetica, sans-serif;
+line-height: 150%;
+}
+table {
+border-collapse: collapse;
+}
+td {
+padding: 3px;
+}
+img {
+border: none;
+}
+input {
+padding: 1px;
+vertical-align: middle;
+line-height: normal;
+}
+.text-overflow-hidden {
+white-space: nowrap;
+word-spacing: normal;
+letter-spacing: normal;
+overflow: hidden;
+}
+.box-align-center {
+margin-right: auto;
+margin-left: auto;
+}
+/*css定义超链接四个状态也有顺序的。*/
+
+a:link, a:visited {
+text-decoration: none;
+color: #1F376D;
+}
+a:hover, a:active {
+text-decoration: underline;
+color: #BD0A01;
+border: none;
+}
+/*以上语句分别定义了"链接、已访问过的链接、鼠标停在上方时、点下鼠标时"的样式。
+注意，必须按以上顺序写，否则显示可能和你预想的不一样。记住它们的顺序是“LVHA”。*/
+ul {
+clear:both;
+overflow:hidden;
+width: 100%;
+}
+ul, li {
+list-style:none;
+}
+.valign {
+display:table-cell;
+*display: inline;
+zoom:1;
+vertical-align:middle;
+}
+.text{word-wrap:break-word;overflow:hidden;word-break:break-all;}
+/*======================CSS垂直居中=======================*/
+.holder {
+width:740px;
+height:300px;
+border:1px solid #777;
+text-align:center;
+display:table-cell;
+vertical-align:middle;
+}

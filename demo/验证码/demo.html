@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="styles/demo.css">
+        <script src="scripts/jquery-3.3.1.js"></script>
+    </head>
+    <body>
+        <form class="wrapper">
+            <div class="inputBox">
+                <input type="text" class="myInput" placeholder="请输入验证码">
+                <span class="test"></span>
+            </div>
+            <p class="errorText">验证码输入错误，请重新输入</p>
+            <p class="successText">输入正确，确认登录</p>
+            <div class="canvasBox">
+                <div id="imgBox">
+                    <canvas id="myCanvas" width="300" height="100"></canvas>
+                </div>
+                <input type="button" class="refresh">
+            </div>
+            <button type="button" class="submit">submit</button>
+            <!-- 添加一个隐藏的输入框，防止在页面按下回车时刷新 -->
+            <input id="hiddenText" type="text" style="display:none" />
+
+            <script src="scripts/demo.js" charset="utf-8"></script>
+        </form>
+    </body>
+</html>

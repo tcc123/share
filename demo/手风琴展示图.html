@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #wrapper {
+            width: 1010px;
+            height: 300px;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+        }
+
+        #wrapper:hover li {
+            width: 150px;
+        }
+
+        #wrapper li {
+            width: 200px;
+            height: 300px;
+            float: left;
+            transition: width 0.5s,background-color 0.5s;
+        }
+
+        #wrapper li:hover {
+            width: 400px;
+            background-color: gray
+        }
+
+        .bg-pink {
+            background-color: pink;
+        }
+
+        .bg-orange {
+            background-color: orange;
+        }
+
+        .bg-yellow {
+            background-color: yellow;
+        }
+
+        .bg-lamegreen {
+            background-color: lawngreen;
+        }
+
+        .bg-skyblue {
+            background-color: skyblue;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <ul id="wrapper">
+        <li class="bg-orange"></li>
+        <li class="bg-skyblue"></li>
+        <li class="bg-lamegreen"></li>
+        <li class="bg-yellow"></li>
+        <li class="bg-pink"></li>
+    </ul>
+
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style type="text/css">
+            * {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+
+            body {
+                overflow: hidden;
+            }
+
+            ul {
+                position: relative;
+                width: 200px;
+                height: 700px;
+                margin: 0 auto;
+                transform-style: preserve-3d;
+                transform-origin: center center;
+                animation: sports 8s linear 0s infinite normal;
+            }
+
+            ul li {
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                font-size: 30px;
+                line-height: 200px;
+                text-align: center;
+                opacity: 0.8;
+                /* left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+                margin: auto; */
+            }
+
+            ul li:nth-child(1) {
+                background-color: skyblue;
+                transform: rotateX(90deg) translateZ(100px);
+            }
+
+            ul li:nth-child(2) {
+                background-color: pink;
+                transform: rotateX(180deg) translateZ(100px);
+            }
+
+            ul li:nth-child(3) {
+                background-color: lawngreen;
+                transform: rotateX(270deg) translateZ(100px);
+            }
+
+            ul li:nth-child(4) {
+                background-color: orange;
+                transform: rotateX(360deg) translateZ(100px);
+            }
+
+            ul li:nth-child(5) {
+                background-color: yellow;
+                transform: rotateY(90deg) translateZ(100px);
+            }
+
+            ul li:nth-child(6) {
+                background-color: red;
+                transform: rotateY(-90deg) translateZ(100px);
+            }
+
+            @keyframes sports {
+                from {
+                    transform: rotateX(0deg) rotateY(0deg);
+                }
+                to {
+                    transform: rotateX(-720deg) rotateY(720deg);
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </body>
+</html>

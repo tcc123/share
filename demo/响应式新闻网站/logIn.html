@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/logIn.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <script src="scripts/jquery-3.3.1.js" charset="utf-8"></script>
+    <script src="scripts/bootstrap.min.js" charset="utf-8"></script>
+</head>
+
+<body class="bg">
+    <div class="wrapper">
+        <form class="" action="#" method="post">
+            <!-- lable for可用来关联表单input -->
+            <!-- control-label可用来对其label样式 -->
+            <label for="userName" class="control-label"></label>
+            <input type="text" name="userName" id="userName" class="form-control col-sm-10" placeholder="请输入用户名">
+            <div class="margin"><div>
+            <label for="password" class="sr-only"></label>
+            <input type="password" name="password" id="userName" class="form-control" placeholder="请输入密码">
+            <p></p>
+            <div class="input-group">
+                <input type="text" class="form-control"  placeholder="手机验证码">
+                <span class="input-group-addon">获取验证码</span>
+            </div>
+
+            <!-- 勾选框 -->
+            <div class="checkbox">
+                <label for="checkbox">
+                    <input type="checkbox" id="checkbox">已阅读并同意以下条款
+                </label>
+            </div>
+
+            <input type="submit" value="提交" class="btn btn-danger btn-block">
+
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            background-color: #11534b;
+            margin: auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 80px;
+        }
+
+        .wrapper {
+            width: 1200px;
+            margin: auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 20px;
+        }
+
+        #canvasColor,#brushColor,#brushRange,#eraser {
+            margin-right: 40px;
+        }
+
+        #sizeTip,#eraserSizeTip {
+            margin-right: 10px;
+        }
+
+        #brushRange,#eraserSize {
+            position: relative;
+            top: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="1000" height="600"></canvas>
+
+    <div class="wrapper">
+        <!-- 画布颜色     -->
+        黑板颜色：<input type="color" id="canvasColor">
+
+        <!-- 拾色器 画笔颜色     -->
+        粉笔颜色：<input type="color" id="brushColor">
+
+        <!-- 滑块 画笔大小-->
+        粉笔大小：<span id="sizeTip">3</span><input type="range" id="brushRange" min="1" max="10" value="3">
+
+        <!-- 橡皮擦 -->
+        <button type="button" id="eraser">橡皮擦</button>
+
+        <!-- 橡皮擦大小 -->
+        粉笔刷大小：<span id="eraserSizeTip">10</span><input type="range" id="eraserSize" min="2" max="30" step="2" value="10">
+    </div>
+
+    <script type="text/javascript">
+        // 设置画板
+        var canvas = document.getElementById('canvas');
+        // 设置绘画环境
+        var content = canvas.getContext('2d');
+
+        // 设置默认线条颜色
+        content.strokeStyle = 'white';
+        // 设直默认线条粗细
+        content.lineWidth = 3;
+
+        canvas.onmousedown = function(e) {
+            // 兼容ie
+            event = e || window.event;
+
+            var mouseX = event.offsetX || event.layerX;
+            var mouseY = event.offsetY || event.layerY;
+
+            // 开启路径
+            content.beginPath();
+            // 起点
+            content.moveTo(mouseX, mouseY);
+
+            canvas.onmousemove = function(e) {
+                event = e || window.event;
+
+                var newMouseX = event.offsetX || event.layerX;
+                var newMouseY = event.offsetY || event.layerY;
+                // 终点
+                content.lineTo(newMouseX, newMouseY);
+
+                // 设置路径连接处为圆角
+                content.lineJoin = 'round';
+
+                // 绘制路径
+                content.stroke();
+            }
+        }
+
+        // 绑定鼠标弹起时
+        canvas.onmouseup = function() {
+            // 取消鼠标移动事件
+            canvas.onmousemove = null;
+            // 闭合路径
+            content.closePath();
+        }
+
+        // 绑定鼠标移出画布区域事件
+        canvas.onmouseout = function() {
+            // 取消鼠标移动事件
+            canvas.onmousemove = null;
+            // 闭合路径
+            content.closePath();
+        }
+
+        var canvasColor = document.getElementById('canvasColor');
+        var brushColor = document.getElementById('brushColor');
+        var brushSize = document.getElementById('brushRange');
+        var eraser = document.getElementById('eraser');
+        var eraserSize = document.getElementById('eraserSize');
+        // 定义全局变量 画布背景颜色值
+        var canvasBg = '#11534b';
+
+        // 画布颜色
+        canvasColor.onchange = function () {
+            canvas.style.backgroundColor = this.value;
+            canvasBg = this.value;
+            console.log(canvasBg);
+        }
+        // 画笔颜色
+        brushColor.onchange = function () {
+            content.strokeStyle = this.value;
+        }
+        // 笔触大小
+        brushSize.onchange = function () {
+            content.lineWidth = this.value;
+            document.getElementById('sizeTip').innerHTML = this.value;
+        }
+        // 橡皮擦
+        eraser.onclick = function () {
+            content.strokeStyle = canvasBg;
+        }
+        // 橡皮擦大小
+        eraserSize.onchange = function () {
+            content.lineWidth = this.value;
+            document.getElementById('eraserSizeTip').innerHTML = this.value;
+        }
+
+    </script>
+</body>
+
+</html>

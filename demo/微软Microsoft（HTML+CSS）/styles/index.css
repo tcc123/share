@@ -1,0 +1,563 @@
+/*定义宽度*/
+#header,#footer
+{
+    width: 100%;
+}
+
+#banner,#product,#project,#AD,#newsAndMsg,#aboutUs,.Box1220
+{
+    width: 1217px;
+    margin: 0px auto;
+}
+
+/*表头*/
+#header
+{
+    height: 50px;
+    margin: 0px auto;
+}
+
+/*需要更新的图片用img插入,不更新的用背景图片*/
+/*表头LOGO*/
+#header #logo
+{
+    width: 108px;
+    height: 23px;
+    background-image: url(../image/logo.png);
+    margin-top: 13px;
+}
+
+#header #logo
+{
+    cursor: pointer;
+}
+
+/*主菜单尽量使用列表来做*/
+/*表头主菜单*/
+#header #menu
+{
+    width: 610px;
+    height: 50px;
+    margin-left: 13px;
+}
+
+#header #menu ul
+{
+    cursor: text;
+}
+
+#header #menu .option
+{
+    height: 49px;
+    font-size: 15px;
+    text-align: center;
+    margin-left: 5px;
+    margin-top: 0px;
+    float: left;
+}
+
+#header #menu .option
+{
+    cursor: pointer;
+}
+
+#header #menu .option .Navtext
+{
+    width: 100px;
+    height: 22px;
+    line-height: 52px;
+    color: #333333;
+}
+
+#header #menu .option:hover .Navtext
+{
+    cursor: pointer;
+    border-bottom: solid 2px black;
+}
+
+/* 下拉选项
+#header #menu #select
+{
+    width: 16px;
+    height: 10px;
+    background-image: url(../image/selectArrow.png);
+    float: left;
+    position: absolute;
+    top: 24px;
+    left: 772px;
+} */
+
+#header #menu #select:hover
+{
+    cursor: pointer;
+}
+
+/*搜索框*/
+#header #search
+{
+    width: 30px;
+    height: 30px;
+    background-image: url(../image/search.png);
+    margin-top: 14px;
+    margin-right: 20px;
+}
+
+#header #search:hover
+{
+    cursor: pointer;
+}
+
+/*购物车*/
+#header #shopCart
+{
+    width: 24px;
+    height: 24px;
+    background-image: url(../image/shoppingCart.png);
+    margin-top: 14px;
+    margin-right: 28px;
+}
+
+#header #shopCart:hover
+{
+    cursor: pointer;
+}
+
+/*登录&头像*/
+#header #logIn
+{
+    width: 38px;
+    height: 38px;
+    background-image: url(../image/logIn.png);
+    margin-top: 7px;
+    margin-right: 13px;
+}
+
+#header #logIn:hover
+{
+    cursor: pointer;
+}
+
+/*横幅*/
+#banner
+{
+    height: 455px;
+    background-image: url(../image/banner.jpeg);
+    background-repeat: repeat;
+}
+
+#banner:hover
+{
+    cursor: pointer;
+}
+
+/*横幅描述*/
+#banner .bannertxt1
+{
+    font-weight: bold;
+    font-size: 24px;
+    position: relative;
+    top: 154px;
+    left: 73px;
+}
+
+#banner .bannertxt2
+{
+    position: relative;
+    top: 166px;
+    left: 73px;
+}
+
+/*横幅按钮*/
+#banner .button
+{
+    width: 165px;
+    height: 44px;
+    background-color: black;
+    position: relative;
+    top: 188px;
+    left: 75px;
+    color:white;
+    font-size: 15px;
+    line-height: 44px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#banner .button:hover
+{
+    text-decoration: underline;
+    background-color: rgb(27, 27, 27);
+}
+
+/*产品*/
+#product
+{
+    height: 350px;
+    margin-top: 48px;
+}
+
+/*产品图片*/
+#icon1,#icon2,#icon3,#icon4,#icon5,#icon6,#icon7,#icon8
+{
+    width: 286px;
+    height: 360px;
+    float: left;
+}
+
+#icon1:hover,#icon2:hover,#icon3:hover,#icon4:hover,#icon5:hover,#icon6:hover,#icon7:hover,#icon8:hover
+{
+    opacity: 0.92;
+    cursor: pointer;
+}
+
+#icon1,#icon2,#icon3,#icon5,#icon6,#icon7
+{
+    margin-right: 24px;
+}
+#product #icon1
+{
+    background-image: url(../image/RE11.jpeg);
+}
+
+#product #icon2
+{
+    background-image: url(../image/RE12.jpeg);
+}
+
+#product #icon3
+{
+    background-image: url(../image/RE13.jpeg);
+}
+
+#product #icon4
+{
+    background-image: url(../image/RE14.jpeg);
+}
+
+/*产品介绍*/
+#product .icontxt1
+{
+    position: relative;
+    top: 194px;
+}
+
+#product .icontxt2
+{
+    position: relative;
+    top: 195px;
+}
+
+/*产品按钮*/
+#product .subButton
+{
+    width: 82px;
+    height: 22px;
+    color: #0067b8;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    margin-top: 10px;
+    top: 194px;
+}
+
+#product .subButton:hover
+{
+    border-bottom: solid 2px #0067b8;
+}
+
+/*广告*/
+#AD
+{
+    height: 455px;
+    background-image: url(../image/ad.jpeg);
+    background-repeat: repeat;
+    margin-top: 35px;
+}
+
+#AD:hover
+{
+    cursor: pointer;
+}
+
+/*广告介绍*/
+#AD .bannertxt1
+{
+    font-weight: bold;
+    position: relative;
+    top: 154px;
+    left: 73px;
+}
+
+#AD .bannertxt2
+{
+    position: relative;
+    top: 166px;
+    left: 73px;
+}
+
+/*广告按钮*/
+#AD .button
+{
+    width: 134px;
+    height: 44px;
+    background-color: black;
+    position: relative;
+    top: 188px;
+    left: 75px;
+    color:white;
+    font-size: 15px;
+    line-height: 43px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#AD .button:hover
+{
+    text-decoration: underline;
+    background-color: rgb(27, 27, 27);
+}
+
+/*项目展示*/
+#project
+{
+    height: 385px;
+    margin-top: 48px;
+}
+
+span
+{
+    font-size: 23px;
+    font-weight: bold;
+    height: 30px;
+    float: left;
+    margin-bottom: 22px;
+}
+
+#project #icon5
+{
+    background-image: url(../image/RE21.jpeg);
+}
+
+#project #icon6
+{
+    background-image: url(../image/RE22.jpeg);
+}
+
+#project #icon7
+{
+    background-image: url(../image/RE23.jpeg);
+}
+
+#project #icon8
+{
+    background-image: url(../image/RE24.jpeg);
+}
+
+/*产品介绍*/
+#project .icontxt1
+{
+    position: relative;
+    top: 194px;
+}
+
+#project .icontxt2
+{
+    position: relative;
+    top: 195px;
+}
+
+/*产品按钮*/
+#project .subButton
+{
+    width: 82px;
+    height: 22px;
+    color: #0067b8;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    margin-top: 10px;
+    top: 194px;
+}
+
+#project .subButton:hover
+{
+    border-bottom: solid 2px #0067b8;
+}
+
+/*咨询和留言*/
+#newsAndMsg
+{
+    height: 455px;
+    background-image: url(../image/news.jpeg);
+    background-repeat: repeat;
+    margin-top: 29px;
+}
+
+#newsAndMsg:hover
+{
+    cursor: pointer;
+}
+
+/*咨询介绍*/
+#newsAndMsg .bannertxt1
+{
+    font-weight: bold;
+    position: relative;
+    top: 154px;
+    left: 73px;
+}
+
+#newsAndMsg .bannertxt2
+{
+    position: relative;
+    top: 164px;
+    left: 73px;
+}
+
+/*咨询按钮*/
+#newsAndMsg .button
+{
+    width: 134px;
+    height: 44px;
+    background-color: black;
+    position: relative;
+    top: 188px;
+    left: 75px;
+    color:white;
+    font-size: 15px;
+    line-height: 43px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#newsAndMsg .button:hover
+{
+    text-decoration: underline;
+    background-color: rgb(27, 27, 27);
+}
+
+/*关于我们*/
+#aboutUs
+{
+    height: 128px;
+    line-height: 127px;
+    color: #676767;
+    font-size: 15px;
+}
+
+#aboutUs #logo1,#aboutUs #logo2
+{
+    width: 34px;
+    height: 34px;
+    float: left;
+    position: relative;
+    top: 50px;
+}
+
+#aboutUs #logo1
+{
+    background-image: url(../image/wechat.png);
+    position: relative;
+    left: 115px;
+}
+
+#aboutUs #logo2
+{
+    background-image: url(../image/weibo.png);
+    position: relative;
+    left: 128px;
+}
+
+#aboutUs #logo1:hover,#aboutUs #logo2:hover
+{
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+/*页脚*/
+#footer
+{
+    height: 396px;
+    background-color: #f2f2f2;
+}
+
+#footer li
+{
+    height: 32px;
+    cursor: pointer;
+}
+
+#footer li:hover
+{
+    text-decoration: underline;
+    color: black;
+}
+
+#footer .footL,#footer .footR
+{
+    width: 202px;
+    color: #616161;
+    margin-top: 35px;
+    font-size: 12px;
+}
+
+#footer .Box1220 #copyRight
+{
+    position: relative;
+    height: 20px;
+    margin-top: 33px;
+}
+
+#footer .Box1220 #footLogo
+{
+    width: 24px;
+    height: 24px;
+    background-image: url(../image/footLogo.png);
+    position: absolute;
+    left: 30px;
+    top: -3px;
+}
+
+#footer .Box1220 #footLogo:hover
+{
+    cursor: pointer;
+}
+
+#footer .Box1220 #copyRight ul
+{
+    width: 1190px;
+    position: absolute;
+    left: 71px;
+}
+
+#footer .Box1220 #copyRight li
+{
+    font-size: 13px;
+    color: #616161;
+    float: left;
+    margin-left: 28px;
+}
+
+#footer .Box1220 #copyRight li:hover
+{
+    color: black;
+}
+
+#footer .Box1220 #copyRight .special:hover
+{
+    cursor: text;
+    text-decoration: none;
+    color: #616161;
+}
+
+#footer .footL  .special:hover,#footer .floatR .special:hover
+{
+    cursor: text;
+    text-decoration: none;
+    color: #616161;
+}
+
+.clearFloat
+{
+    clear: both;
+}

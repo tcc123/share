@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.bg {
+    background-color: rgb(240, 240, 240);
+}
+
+.wrapper {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 400px;
+    height: 300px;
+    padding: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: white;
+    box-shadow: 0 0 3px 0;
+}
+
+.margin {
+    margin-top: 24px;
+}
