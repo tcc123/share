@@ -47,7 +47,7 @@ a:hover, a:visited, a:link, a:active {
 }
 
 #sort>li {
-    max-width: 120px;;
+    max-width: 120px;
     float: left;
     color: rgb(255, 255, 255);
     line-height: 50px;
@@ -311,12 +311,6 @@ a:hover, a:visited, a:link, a:active {
     filter: blur(20px);
     -webkit-filter: blur(20px);
     -moz-filter: blur(20px);
-    opacity: 0.9;
-}
-
-.navbar-color {
-    background: rgba(255, 255, 255, 0.5);
-    z-index: 10;
 }
 
 #navbar {
