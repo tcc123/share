@@ -3,36 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<script  type="text/javascript" src="js/Vue-2.5.17.js"></script>
-	<script type="text/javascript">
-		window.onload=function(){
-			new Vue({
-				el:".box",    //el===>vue的作用范围
-				data:{		  //data===>数据
-					msg:"wowowow",
-					imgs:"images/waterfall/41.jpg",
-					width:"200px",
-					height:"250px",
-					html:"<button>我是按钮</button>",
-					text:"哈哈哈哈哈",
-					art:[1,2],
-					h:"1.html",
-				},
-				methods:{     //methods===>方法
-					show:function(){
-						this.msg="456";
-					},
-					a:function(){
-						alert(1);
-					},
-					b:function(){
-						console.log(111);
-					}
-				}
-			})
-		}
-		
-	</script>
+	<script  type="text/javascript" src="js/Vue-2.6.10.js"></script>
 </head>
 <body>
 	<div class="box">
@@ -57,5 +28,55 @@
 		<a @click.prevent="a" :href="h" >11111</a>
 		<input type="text" @keydown.37="b">
 	</div>
+	<script type="text/javascript">
+		new Vue({
+			el:".box",    //el===>vue的作用范围
+			data(){	
+				return{
+					msg:"wowowow",
+					imgs:"images/waterfall/41.jpg",
+					width:"200px",
+					height:"250px",
+					html:"<button>我是按钮</button>",
+					text:"哈哈哈哈哈",
+					art:[1,2],
+					h:"1.html",
+				}	  //data===>数据
+			},
+			created() {
+				console.log(this.msg)
+				alert("已经挂载数据和绑定事件")
+			},
+			beforeMount() {
+				console.log("生成dom树")
+			},
+			mounted() {
+				setTimeout(() => {
+					alert(123456)
+				}, 1000);
+			},
+			beforeUpdate() {
+				// setTimeout(() => {
+					console.log("数据已经改变，页面还未更新")
+				// },1000);
+			},
+			updated() {
+				// setTimeout(() => {
+					console.log("页面已经更新")
+				// },1000);
+			},
+			methods:{     //methods===>方法
+				show:function(){
+					this.msg="456";
+				},
+				a:function(){
+					alert(1);
+				},
+				b:function(){
+					console.log(111);
+				}
+			}
+		})
+	</script>
 </body>
 </html>

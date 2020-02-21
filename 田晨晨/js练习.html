@@ -6,29 +6,43 @@
 </head>
 <body>
 	<script type="text/javascript">
-		function Fun(name,age,sex) {
-			this.name=name;
-			this.age=age;
-			this.sex=sex;
-		}
-		var arr0=new Fun("小明",18,"男");
-		var arr1=new Fun("小洪",12,"男");
-		var arr2=new Fun("小白",8,"男");
-		var arr3=new Fun("小花",19,"女");
-		var arr4=new Fun("小李",28,"男");
-		var arr=[arr0,arr1,arr2,arr3,arr4];
-		var newArr=[];
-		function Arr(arr){
-			for(var i=0;i<=arr.length-1;i++){
-				var p=arr[i];
-				if(p.age >= 18){
-					newArr.push(p);
-				}	
-			}
-			return newArr;
-		}		
-		Arr(arr);
-		console.log(newArr);
+		// function Fun(name,age,sex) {
+		// 	this.name=name;
+		// 	this.age=age;
+		// 	this.sex=sex;
+		// }
+		// var arr0=new Fun("小明",18,"男");
+		// var arr1=new Fun("小洪",12,"男");
+		// var arr2=new Fun("小白",8,"男");
+		// var arr3=new Fun("小花",19,"女");
+		// var arr4=new Fun("小李",28,"男");
+		// var arr=[arr0,arr1,arr2,arr3,arr4];
+		// var newArr=[];
+		// function Arr(arr){
+		// 	for(var i=0;i<=arr.length-1;i++){
+		// 		var p=arr[i];
+		// 		if(p.age >= 18){
+		// 			newArr.push(p);
+		// 		}	
+		// 	}
+		// 	return newArr;
+		// }		
+		// Arr(arr);
+		// console.log(newArr);
+		var F = function(){
+            this.a = 'a';
+            this.b = 'b';
+            this.c = {
+                a:'a+',
+                b: () =>{
+                    console.log(this)
+                    return this.a
+                }
+            }
+			// console.log(this);
+        };
+ 		var a=new F();
+		console.log(a.c.b())
 	</script>
 </body>
 </html>

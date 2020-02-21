@@ -6,48 +6,48 @@
 	<script type="text/javascript">
 		window.onload=function() {
 			var yd=document.getElementsByName("items");
-			// 全选
-			var qx=document.getElementById("checkdAllBtn");
-			qx.onclick=function(){
-				for (var i = 0; i < yd.length; i++) {
-					yd[i].checked=true;
-				}
-				checkdAllBox.checked=true;
-			};
-			// 全不选
-			var qbx=document.getElementById("checkdNoBtn");
-			qbx.onclick=function(){
-				for (var i = 0; i < yd.length; i++) {
-					yd[i].checked=false;
-				}
-				checkdAllBox.checked=false;
-			};
-			// 反选
-			var fx=document.getElementById("checkdRevBtn");
-			fx.onclick=function(){
-				// 先设置一个默认值
-				checkdAllBox.checked=true;
-				for (var i = 0; i < yd.length; i++) {
-					// 方法一
-					// var a=(yd[i].checked)?yd[i].checked=false:yd[i].checked=true;
-					// 方法二
-					yd[i].checked = !yd[i].checked;
-					// 对满足条件的默认值进行修改
-					if(!yd[i].checked){
-						checkdAllBox.checked=false;
-					}
-				}
-			};
-			// 提交
-			var tj=document.getElementById("sendBtn");
-			tj.onclick=function(){
-				for (var i = 0; i < yd.length; i++) {
-					if(yd[i].checked){
-						// 弹出的是value属性值
-						alert(yd[i].value);
-					}
-				}
-			}
+			// // 全选
+			// var qx=document.getElementById("checkdAllBtn");
+			// qx.onclick=function(){
+			// 	for (var i = 0; i < yd.length; i++) {
+			// 		yd[i].checked=true;
+			// 	}
+			// 	checkdAllBox.checked=true;
+			// };
+			// // 全不选
+			// var qbx=document.getElementById("checkdNoBtn");
+			// qbx.onclick=function(){
+			// 	for (var i = 0; i < yd.length; i++) {
+			// 		yd[i].checked=false;
+			// 	}
+			// 	checkdAllBox.checked=false;
+			// };
+			// // 反选
+			// var fx=document.getElementById("checkdRevBtn");
+			// fx.onclick=function(){
+			// 	// 先设置一个默认值
+			// 	checkdAllBox.checked=true;
+			// 	for (var i = 0; i < yd.length; i++) {
+			// 		// 方法一
+			// 		// var a=(yd[i].checked)?yd[i].checked=false:yd[i].checked=true;
+			// 		// 方法二
+			// 		yd[i].checked = !yd[i].checked;
+			// 		// 对满足条件的默认值进行修改
+			// 		if(!yd[i].checked){
+			// 			checkdAllBox.checked=false;
+			// 		}
+			// 	}
+			// };
+			// // 提交
+			// var tj=document.getElementById("sendBtn");
+			// tj.onclick=function(){
+			// 	for (var i = 0; i < yd.length; i++) {
+			// 		if(yd[i].checked){
+			// 			// 弹出的是value属性值
+			// 			alert(yd[i].value);
+			// 		}
+			// 	}
+			// }
 			// 全选\全不选
 			var checkdAllBox=document.getElementById("checkdAllBox");
 			checkdAllBox.onclick=function(){

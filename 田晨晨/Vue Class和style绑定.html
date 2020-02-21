@@ -11,7 +11,7 @@
 			font-size: 16px;
 		}
 	</style>
-	<script type="text/javascript" src="js/Vue-2.5.17.js"></script>
+	<script type="text/javascript" src="js/Vue-2.6.10.js"></script>
 	<script type="text/javascript">
 		window.onload=function() {
 			new Vue({
@@ -54,23 +54,23 @@
 <body>
 	<div class="box">
 		<!-- v:bind:class -->
-		<h1 :class="aaa">每天多爱邓伦一点</h1>
+		<h1 :class="aaa">每天多爱张子豪一点</h1>
 		<!-- 数组语法 -->
-		<h1 :class="[aaa,bbb]">每天多爱邓伦两点</h1>  <!--数组里面放的是Vue data的值-->
+		<h1 :class="[aaa,bbb]">每天多爱张子豪两点</h1>  <!--数组里面放的是Vue data的值-->
 		<!-- 对象语法 -->
-		<h1 :class="{bg:true}">每天多爱邓伦三点</h1>  <!--这里的bg指的是 .bg -->
-		<h1 :class="{bg:bool}">每天多爱邓伦四点</h1>
-		<h1 :class="{bg:true,fz:true}">每天多爱邓伦五点</h1>
-		<h1 :class="{bg:bool,fz:beel}">每天多爱邓伦六点</h1>
-		<h1 :class="classObject">每天多爱邓伦七点</h1>
+		<h1 :class="{bg:true}">每天多爱张子豪三点</h1>  <!--这里的bg指的是 .bg -->
+		<h1 :class="{bg:bool}">每天多爱张子豪四点</h1>
+		<h1 :class="{bg:true,fz:true}">每天多爱张子豪五点</h1>
+		<h1 :class="{bg:bool,fz:beel}">每天多爱张子豪六点</h1>
+		<h1 :class="classObject">每天多爱张子豪七点</h1>
 		<button @click="show">切换class</button>
 
 		<!-- v:bind:style -->
 		<!-- 对象语法 -->
-		<h1 :style="{color:ccc,fontSize:ddd+'px',styleObject}">每天多爱邓伦八点</h1>
-		<h1 :style="styleObject">每天多爱邓伦九点</h1>
+		<h1 :style="{color:ccc,fontSize:ddd+'px',styleObject}">每天多爱张子豪八点</h1>
+		<h1 :style="styleObject">每天多爱张子豪九点</h1>
 		<!-- 数组语法 -->
-		<h1 :style="[fff,eee]">每天多爱邓伦十点</h1>
+		<h1 :style="[fff,eee]">每天多爱张子豪十点</h1>
 	</div>
 </body>
 </html>
