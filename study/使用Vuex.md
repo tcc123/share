@@ -13,7 +13,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 ```
 
-3.把Vuex作为Vue才插件使用
+3.把Vuex作为Vue插件使用
 
 ```js
 Vue.use(Vuex)
