@@ -1,0 +1,31 @@
+{
+  "window.zoomLevel": 1,
+  "workbench.colorTheme": "Flatland Monokai",
+  "files.associations": {
+      "*.cjson": "jsonc",
+      "*.wxss": "css",
+      "*.wxs": "javascript"
+  },
+  "emmet.includeLanguages": {
+      "wxml": "html"
+  },
+  "minapp-vscode.disableAutoConfig": true,
+  "editor.wordWrap": "on",
+  "files.autoSave": "onWindowChange",
+  "editor.fontSize": 14,
+  "vetur.validation.template": false,
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+      "javascript",{
+          "language": "vue",
+          "autoFix": true
+      },"html",
+      "vue"
+  ],
+  "[css]": {},
+  "liveServer.settings.donotShowInfoMsg": true,
+  "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+  },
+  "diffEditor.ignoreTrimWhitespace": false
+}
